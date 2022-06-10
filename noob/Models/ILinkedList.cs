@@ -4,10 +4,10 @@
 /// .NET already has an LinkedList.
 /// This implementation is to better understand the internals of the data structure
 /// </summary>
-public interface ILinkedList
+public interface ILinkedList<T>
 {
-    public LinkedListNode Head { get; }
+    public LinkedListNode<T> Head { get; }
 
-    ILinkedList Append(int data);
-    ILinkedList Delete(int data);
+    ILinkedList<T> Append(T data);
+    ILinkedList<T> Delete(T data);
 }

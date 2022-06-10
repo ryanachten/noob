@@ -10,7 +10,7 @@ public class GivenInvalidSinglyLinkedList
     public void WhenDeletingDataWithNoNextNodeAssigned_ThenExceptionIsThrown()
     {
         // Arrange
-        var list = new SinglyLinkedList(100);
+        var list = new SinglyLinkedList<int>(100);
 
         // Act
         var ex = Assert.Throws<Exception>(() => list.Delete(100));

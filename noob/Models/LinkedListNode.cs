@@ -4,13 +4,13 @@
 /// .NET already has an LinkedListNode.
 /// This implementation is to better understand the internals of the data structure
 /// </summary>
-public class LinkedListNode
+public class LinkedListNode<T>
 {
-    public int Data;
-    public LinkedListNode? Next;
-    public LinkedListNode? Previous;
+    public T Data;
+    public LinkedListNode<T>? Next;
+    public LinkedListNode<T>? Previous;
 
-    public LinkedListNode(int data)
+    public LinkedListNode(T data)
     {
         Data = data;
     }

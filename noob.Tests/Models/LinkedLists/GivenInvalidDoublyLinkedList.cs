@@ -10,7 +10,7 @@ public class GivenInvalidDoublyLinkedList
     public void WhenDeletingDataWithNoNextNodeAssigned_ThenExceptionIsThrown()
     {
         // Arrange
-        var list = new DoublyLinkedList(100);
+        var list = new DoublyLinkedList<int>(100);
 
         // Act
         var ex = Assert.Throws<Exception>(() => list.Delete(100));

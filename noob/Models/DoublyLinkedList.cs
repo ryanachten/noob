@@ -1,17 +1,17 @@
 ﻿namespace noob.Models;
 
-public class DoublyLinkedList : ILinkedList
+public class DoublyLinkedList<T> : ILinkedList<T>
 {
-    public LinkedListNode Head { get; private set; }
+    public LinkedListNode<T> Head { get; private set; }
 
-    public DoublyLinkedList(int data)
+    public DoublyLinkedList(T data)
     {
-        Head = new LinkedListNode(data);
+        Head = new LinkedListNode<T>(data);
     }
 
-    public ILinkedList Append(int data)
+    public ILinkedList<T> Append(T data)
     {
-        var end = new LinkedListNode(data);
+        var end = new LinkedListNode<T>(data);
         var n = Head;
         while (n.Next != null)
         {
@@ -23,10 +23,10 @@ public class DoublyLinkedList : ILinkedList
         return this;
     }
 
-    public ILinkedList Delete(int data)
+    public ILinkedList<T> Delete(T data)
     {
         var n = Head;
-        if (n.Data == data)
+        if (n.Data!.Equals(data))
         {
             if (Head.Next == null)
             {
@@ -40,7 +40,7 @@ public class DoublyLinkedList : ILinkedList
 
         while (n.Next != null)
         {
-            if (n.Next.Data == data)
+            if (n.Next.Data!.Equals(data))
             {
                 n.Next = n.Next.Next; // orphan n.Next
 

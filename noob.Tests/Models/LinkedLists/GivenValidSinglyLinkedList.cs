@@ -9,7 +9,7 @@ public class GivenValidSinglyLinkedList
     public void WhenAppendingData_ThenDataIsAdded()
     {
         // Arrange
-        var list = new SinglyLinkedList(100);
+        var list = new SinglyLinkedList<int>(100);
 
         // Act
         list.Append(20).Append(0);
@@ -36,7 +36,7 @@ public class GivenValidSinglyLinkedList
     public void WhenDeletingData_ThenDataIsRemoved()
     {
         // Arrange
-        var list = new SinglyLinkedList(100).Append(20).Append(0);
+        var list = new SinglyLinkedList<int>(100).Append(20).Append(0);
 
         // Act
         list.Delete(20);
@@ -58,7 +58,7 @@ public class GivenValidSinglyLinkedList
     public void WhenDeletingHeadNode_ThenHeadNodeIsRemoved()
     {
         // Arrange
-        var list = new SinglyLinkedList(100).Append(20).Append(0);
+        var list = new SinglyLinkedList<int>(100).Append(20).Append(0);
 
         // Act
         list.Delete(100);

@@ -16,10 +16,10 @@ public class LinkedListPage : IPage
     {
         Text.WriteH2("Appending to tail");
 
-        var singlyLinkedList = new SinglyLinkedList(1).Append(2).Append(10).Append(5);
+        var singlyLinkedList = new SinglyLinkedList<int>(1).Append(2).Append(10).Append(5);
         PrintLinkedList(singlyLinkedList);
 
-        var doublyLinkedList = new DoublyLinkedList(1).Append(2).Append(10).Append(5);
+        var doublyLinkedList = new DoublyLinkedList<int>(1).Append(2).Append(10).Append(5);
         PrintLinkedList(doublyLinkedList);
 
         Text.WriteH2("Deleting a node");
@@ -33,9 +33,9 @@ public class LinkedListPage : IPage
         return this;
     }
 
-    static void PrintLinkedList(ILinkedList linkedList)
+    static void PrintLinkedList(ILinkedList<int> linkedList)
     {
-        var isSinglyList = linkedList.GetType().Name == typeof(SinglyLinkedList).Name;
+        var isSinglyList = linkedList.GetType().Name == typeof(SinglyLinkedList<int>).Name;
         Text.WriteH3(isSinglyList ? "Singly Linked List" : "Doubly Linked List");
 
         Text.WriteText("Forwards: ");
