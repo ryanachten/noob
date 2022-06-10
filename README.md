@@ -13,7 +13,7 @@
 ```
 
 # noob
-Data structure and algorithm studies + command line experiment.
+Data structure and algorithms command line experiment.
 
 ## Data Structures
 While many of these already out of the box with .NET, these have been implemented from the ground up to better understand the internals of these data structures. 
