@@ -44,12 +44,17 @@ public static class Text
         Console.ResetColor();
     }
 
-    public static void WriteText(string text)
+    public static void WriteText(string text, bool newline = false)
     {
         Console.BackgroundColor = ConsoleColor.Black;
         Console.ForegroundColor = ConsoleColor.White;
         Console.Write(text);
         Console.ResetColor();
+
+        if(newline)
+        {
+            NewLine();
+        }
     }
 
     public static void NewLine()

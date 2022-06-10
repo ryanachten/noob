@@ -7,7 +7,7 @@ public class LinkedListPage : IPage
 {
     public IPage PrintTitle()
     {
-        Text.WriteH1("Linked Lists");
+        Text.WriteH1("LinkedLists");
 
         return this;
     }

@@ -2,16 +2,16 @@
 
 public class DoublyLinkedList : ILinkedList
 {
-    public Node Head { get; private set; }
+    public LinkedListNode Head { get; private set; }
 
     public DoublyLinkedList(int data)
     {
-        Head = new Node(data);
+        Head = new LinkedListNode(data);
     }
 
     public ILinkedList Append(int data)
     {
-        var end = new Node(data);
+        var end = new LinkedListNode(data);
         var n = Head;
         while (n.Next != null)
         {
@@ -34,6 +34,7 @@ public class DoublyLinkedList : ILinkedList
             }
 
             Head = Head.Next; // update head
+            Head.Previous = null;
             return this;
         }
 
