@@ -1,4 +1,4 @@
-﻿using noob.Models;
+﻿using noob.Models.LinkedList;
 using noob.Utils;
 
 namespace noob.Pages;
@@ -39,6 +39,7 @@ public class LinkedListPage : IPage
         Text.WriteH3(isSinglyList ? "Singly Linked List" : "Doubly Linked List");
 
         Text.WriteText("Forwards: ");
+
         var current = linkedList.Head;
         while (current.Next != null)
         {

@@ -1,4 +1,4 @@
-﻿namespace noob.Models;
+﻿namespace noob.Models.LinkedList;
 
 /// <summary>
 /// .NET already has an LinkedList.
@@ -10,4 +10,5 @@ public interface ILinkedList<T>
 
     ILinkedList<T> Append(T data);
     ILinkedList<T> Delete(T data);
+    IEnumerable<LinkedListNode<T>> Items();
 }

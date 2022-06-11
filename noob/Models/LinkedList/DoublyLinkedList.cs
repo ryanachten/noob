@@ -1,4 +1,4 @@
-﻿namespace noob.Models;
+﻿namespace noob.Models.LinkedList;
 
 public class DoublyLinkedList<T> : ILinkedList<T>
 {
@@ -54,5 +54,15 @@ public class DoublyLinkedList<T> : ILinkedList<T>
         }
 
         return this;
+    }
+
+    public IEnumerable<LinkedListNode<T>> Items()
+    {
+        var currentNode = Head;
+        while (currentNode != null)
+        {
+            yield return currentNode;
+            currentNode = currentNode?.Next;
+        }
     }
 }

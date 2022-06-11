@@ -1,4 +1,4 @@
-﻿namespace noob.Models;
+﻿namespace noob.Models.LinkedList;
 
 /// <summary>
 /// .NET already has an LinkedListNode.

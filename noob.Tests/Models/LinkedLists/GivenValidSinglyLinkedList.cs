@@ -1,4 +1,5 @@
-﻿using noob.Models;
+﻿using noob.Models.LinkedList;
+using System;
 using Xunit;
 
 namespace noob.UnitTests.Models.LinkedLists;
@@ -74,5 +75,27 @@ public class GivenValidSinglyLinkedList
         Assert.Equal(0, node2?.Data);
         Assert.Null(node2?.Next);
         Assert.Null(node2?.Previous);
+    }
+
+    [Fact]
+    public void WhenIteratingThroughNodes_ThenAllNodesAreIteratedThrough()
+    {
+        // Arrange
+        var rand = new Random();
+        var list = new SinglyLinkedList<int>(100);
+        for (int i = 0; i < 99; i++)
+        {
+            list.Append(rand.Next(-1000, 1000));
+        }
+        var itemsIteratedThrough = 0;
+
+        // Act
+        foreach (var item in list.Items())
+        {
+            itemsIteratedThrough++;
+        }
+
+        // Assert
+        Assert.Equal(100, itemsIteratedThrough);
     }
 }
