@@ -1,4 +1,7 @@
-﻿namespace noob.Models
+﻿using noob.Models.LinkedList;
+using noob.Utils;
+
+namespace noob.Models
 {
     public class HashTable<T>
     {
@@ -19,10 +22,7 @@
             842879579, 1685759167
         };
 
-        /// <summary>
-        /// Current size of the array for the hash table
-        /// </summary>
-        private int TableLength { get; set; }
+        private int MaxTableSize => _tableSizes[^1];
 
         /// <param name="length">Needs to be a prime number</param>
         public HashTable(int length = 3) 
@@ -32,7 +32,6 @@
                 throw new ArgumentException($"{nameof(length)} is not a valid table length. Use a prime number.");
             }
 
-            TableLength = length;
             Data = new DoublyLinkedList<T>[length];
         }
 
@@ -44,7 +43,7 @@
                 throw new ArgumentException($"Argument of type ${data?.GetType()} does not contain a hash code");
             }
 
-            var index = Hash((int)code);
+            var index = Hash((int)code, Data.Length);
             if(Data[index] == null)
             {
                 Data[index] = new(data);
@@ -57,6 +56,11 @@
                 Count++;
             }
 
+            if(Count > Data.Length && Data.Length != MaxTableSize)
+            {
+                Rehash();
+            }
+
             return this;
         }
 
@@ -67,11 +71,50 @@
         /// </summary>
         /// <param name="hashCode">Hash code of the value being stored</param>
         /// <returns>Array index</returns>
-        private int Hash(int hashCode)
+        private int Hash(int hashCode, int tableLength)
         {
             var mask = 0x7fffffff; // int with first bit 0 and remaining bits 1
             var resetCode = hashCode & mask; // use the mask to reset the signed bit of the hashcode
-            return resetCode % TableLength;
+            return resetCode % tableLength;
+        }
+
+        /// <summary>
+        /// Increases table size to the next prime number
+        /// and then rehashes the data to use new table locations
+        /// </summary>
+        private void Rehash()
+        {
+            var currentIndex = Array.IndexOf(_tableSizes, Data.Length);
+            var newTableSize = _tableSizes[currentIndex + 1];
+            
+            Text.WriteText($"Rehashing from {Data.Length} -> {newTableSize}", true);
+
+            var newArray = new DoublyLinkedList<T>[newTableSize];
+            Count = 0;
+
+            foreach (DoublyLinkedList<T>? list in Data)
+            {
+                if (list == null) continue;
+
+                foreach (var item in list.Items())
+                {
+                    if (item != null)
+                    {
+                        var index = Hash(item.Data!.GetHashCode(), newTableSize);
+                        if (newArray[index] == null)
+                        {
+                            newArray[index] = new(item.Data);
+                        }
+                        else
+                        {
+                            newArray[index].Append(item.Data);
+                        }
+                        Count++;
+                    }
+                }
+            }
+
+            Data = newArray;
         }
     }
 }
