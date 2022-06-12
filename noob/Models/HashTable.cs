@@ -3,9 +3,9 @@ using noob.Utils;
 
 namespace noob.Models
 {
-    public class HashTable<T>
+    public class HashTable<TKey, TValue>
     {
-        public DoublyLinkedList<T>[] Data { get; private set; }
+        public DoublyLinkedList<KeyValuePair<TKey, TValue>>[] Data { get; private set; }
 
         /// <summary>
         /// Number of items in the table
@@ -32,27 +32,32 @@ namespace noob.Models
                 throw new ArgumentException($"{nameof(length)} is not a valid table length. Use a prime number.");
             }
 
-            Data = new DoublyLinkedList<T>[length];
+            Data = new DoublyLinkedList<KeyValuePair<TKey, TValue>>[length];
         }
 
-        public HashTable<T> Add(T data)
+        public HashTable<TKey, TValue> Add(TKey key, TValue value)
         {
-            var code = data?.GetHashCode();
-            if(code == null)
-            {
-                throw new ArgumentException($"Argument of type ${data?.GetType()} does not contain a hash code");
-            }
+            var index = GetKeyIndex(key);
+            var pair = new KeyValuePair<TKey, TValue>(key, value);
 
-            var index = Hash((int)code, Data.Length);
+            // If no list exists at the index, instantiate one
             if(Data[index] == null)
             {
-                Data[index] = new(data);
+                Data[index] = new(pair);
                 Count++;
             } else
             {
-                // TODO: currently we're not checking if the value exists in the linked list
-                // before appending the value - look at a performant manner of doing this
-                Data[index].Append(data);
+                foreach (var item in Data[index].Items())
+                {
+                    // If the key already exists in the link list, update to use new value
+                    if (item.Data.Key != null && item.Data.Key.Equals(key))
+                    {
+                        item.Data = new KeyValuePair<TKey, TValue>(key, value);
+                        return this;
+                    }
+                }
+                // If the key doesn't exist, append it to the link list
+                Data[index].Append(pair);
                 Count++;
             }
 
@@ -62,6 +67,34 @@ namespace noob.Models
             }
 
             return this;
+        }
+
+        /// <summary>
+        /// Returns the value for a key in the table
+        /// </summary>
+        /// <param name="key"></param>
+        /// <returns>Value or default value if value doesn't exist</returns>
+        public TValue? GetValue(TKey key)
+        {
+            var index = GetKeyIndex(key);
+            foreach (var item in Data[index].Items())
+            {
+                if(item.Data.Key != null && item.Data.Key.Equals(key))
+                {
+                    return item.Data.Value;
+                }
+            }
+            return default;
+        }
+
+        private int GetKeyIndex(TKey key)
+        {
+            var code = key?.GetHashCode();
+            if (code == null)
+            {
+                throw new ArgumentException($"Key of type ${key?.GetType()} does not contain a hash code");
+            }
+            return Hash((int)code, Data.Length);
         }
 
         /// <summary>
@@ -89,18 +122,18 @@ namespace noob.Models
             
             Text.WriteText($"Rehashing from {Data.Length} -> {newTableSize}", true);
 
-            var newArray = new DoublyLinkedList<T>[newTableSize];
+            var newArray = new DoublyLinkedList<KeyValuePair<TKey, TValue>>[newTableSize];
             Count = 0;
 
-            foreach (DoublyLinkedList<T>? list in Data)
+            foreach (DoublyLinkedList<KeyValuePair<TKey, TValue>>? list in Data)
             {
                 if (list == null) continue;
 
                 foreach (var item in list.Items())
                 {
-                    if (item != null)
+                    if (item != null && item.Data.Key != null)
                     {
-                        var index = Hash(item.Data!.GetHashCode(), newTableSize);
+                        var index = Hash(item.Data.Key.GetHashCode(), newTableSize);
                         if (newArray[index] == null)
                         {
                             newArray[index] = new(item.Data);
