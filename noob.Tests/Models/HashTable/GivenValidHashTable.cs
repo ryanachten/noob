@@ -89,4 +89,17 @@ public class GivenValidHashTable
         Assert.Equal(4, table.Count);
         Assert.Equal(value, actualValue);
     }
+
+    [Fact]
+    public void WhenGettingBeforeListIsInstantiated_ThenDefaultValueIsReturned()
+    {
+        // Arrange
+        var table = new HashTable<string, int>();
+
+        // Act
+        var actualValue = table.GetValue("doesntExist");
+
+        // Assert
+        Assert.Null(actualValue);
+    }
 }

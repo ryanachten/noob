@@ -3,7 +3,7 @@ using noob.Utils;
 
 namespace noob.Models
 {
-    public class HashTable<TKey, TValue>
+    public class HashTable<TKey, TValue> where TValue : struct
     {
         public DoublyLinkedList<KeyValuePair<TKey, TValue>>[] Data { get; private set; }
 
@@ -77,14 +77,22 @@ namespace noob.Models
         public TValue? GetValue(TKey key)
         {
             var index = GetKeyIndex(key);
-            foreach (var item in Data[index].Items())
+
+            // Check list exists at index before iterating through results
+            var list = Data[index];
+            if (list == null)
+            {
+                return default;
+            }
+
+            foreach (var item in list.Items())
             {
                 if(item.Data.Key != null && item.Data.Key.Equals(key))
                 {
                     return item.Data.Value;
                 }
             }
-            return default;
+            return null;
         }
 
         private int GetKeyIndex(TKey key)
