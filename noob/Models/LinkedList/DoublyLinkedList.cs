@@ -1,13 +1,8 @@
 ﻿namespace noob.Models.LinkedList;
 
-public class DoublyLinkedList<T> : ILinkedList<T>
+public class DoublyLinkedList<T> : BaseLinkedList<T>, ILinkedList<T>
 {
-    public LinkedListNode<T> Head { get; private set; }
-
-    public DoublyLinkedList(T data)
-    {
-        Head = new LinkedListNode<T>(data);
-    }
+    public DoublyLinkedList(T data) : base(data) { }
 
     public ILinkedList<T> Append(T data)
     {
@@ -54,15 +49,5 @@ public class DoublyLinkedList<T> : ILinkedList<T>
         }
 
         return this;
-    }
-
-    public IEnumerable<LinkedListNode<T>> Items()
-    {
-        var currentNode = Head;
-        while (currentNode != null)
-        {
-            yield return currentNode;
-            currentNode = currentNode?.Next;
-        }
     }
 }

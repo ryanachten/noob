@@ -12,10 +12,12 @@ public class Queue<T> where T : struct
     public Queue<T> Add(T item)
     {
         var node = new QueueNode<T>(item);
+
         if(_last != null)
         {
             _last.Next = node;
         }
+
         _last = node;
         if(_first == null)
         {
