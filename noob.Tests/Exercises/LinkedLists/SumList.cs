@@ -12,24 +12,24 @@ namespace noob.UnitTests.Exercises.LinkedLists;
 public class SumList
 {
     public static IEnumerable<object[]> Lists =>
-    new List<object[]>
-    {
-            new object[] {
-                new SinglyLinkedList<int>(6).Append(1).Append(7),
-                new SinglyLinkedList<int>(2).Append(9).Append(5),
-                new SinglyLinkedList<int>(9).Append(1).Append(2)
-            }
-    };
+        new List<object[]>
+        {
+                new object[] {
+                    new SinglyLinkedList<int>(6).Append(1).Append(7),
+                    new SinglyLinkedList<int>(2).Append(9).Append(5),
+                    new SinglyLinkedList<int>(9).Append(1).Append(2)
+                }
+        };
 
     public static IEnumerable<object[]> ReversedLists =>
-    new List<object[]>
-    {
-            new object[] {
-                new SinglyLinkedList<int>(7).Append(1).Append(6),
-                new SinglyLinkedList<int>(5).Append(9).Append(2),
-                new SinglyLinkedList<int>(2).Append(1).Append(9)
-            }
-    };
+        new List<object[]>
+        {
+                new object[] {
+                    new SinglyLinkedList<int>(7).Append(1).Append(6),
+                    new SinglyLinkedList<int>(5).Append(9).Append(2),
+                    new SinglyLinkedList<int>(2).Append(1).Append(9)
+                }
+        };
 
     [Theory]
     [MemberData(nameof(Lists))]

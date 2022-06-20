@@ -2,7 +2,7 @@
 
 public abstract class BaseLinkedList<T>
 {
-    public LinkedListNode<T> Head { get; protected set; }
+    public LinkedListNode<T> Head { get; set; }
 
     public BaseLinkedList(T data)
     {
