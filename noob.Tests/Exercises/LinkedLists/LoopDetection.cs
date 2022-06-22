@@ -31,7 +31,7 @@ public class LoopDetection
 
     [Theory]
     [MemberData(nameof(CircularLists))]
-    public void WhenStartOfCircularList_ThenCircularListNodeIsReturned(
+    public void WhenFindingStartOfCircularList_ThenCircularListNodeIsReturned(
         DoublyLinkedList<char> list, LinkedListNode<char> expectedNode
     )
     {
