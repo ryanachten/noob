@@ -52,4 +52,30 @@ public class ArrayList<T>
 
         return this;
     }
+
+    public ArrayList<T> Delete(int index)
+    {
+        // Don't attempt deletions for invalid indices
+        if (index > Count - 1) return this;
+
+        for (int i = index; i < Count; i++)
+        {
+            if(i + 1 > Count)
+            {
+                // Reset to default
+                Data[i] = default!;
+            } else
+            {
+                // Unshift by 1 index
+                Data[i] = Data[i + 1];
+            }
+        }
+
+        // TODO: we could also halve the size of the array at this point
+        // not sure if that's really necessary...
+
+        Count--;
+
+        return this;
+    }
 }
