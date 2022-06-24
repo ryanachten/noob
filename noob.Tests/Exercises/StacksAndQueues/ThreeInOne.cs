@@ -7,7 +7,7 @@ namespace noob.UnitTests.Exercises.StacksAndQueues;
 /// </summary>
 public class ThreeInOne
 {
-    class Stack<T> where T : struct
+    private class Stack<T> where T : struct
     {
         /// <summary>
         /// Unique index of the stack

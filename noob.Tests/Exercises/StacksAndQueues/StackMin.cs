@@ -9,7 +9,7 @@ namespace noob.UnitTests.Exercises.StacksAndQueues;
 /// </summary>
 public class StackMin
 {
-    public class Stack
+    private class Stack
     {
         public StackNode<int>? Top { get; set; }
         private StackNode<int>? _min = null;

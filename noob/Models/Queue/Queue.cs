@@ -1,6 +1,6 @@
 ﻿namespace noob.Models.Queue;
 
-public class Queue<T> where T : struct
+public class Queue<T>
 {
     private QueueNode<T>? _first;
     private QueueNode<T>? _last;
@@ -46,7 +46,7 @@ public class Queue<T> where T : struct
     /// Return the top of the queue
     /// </summary>
     /// <returns></returns>
-    public T? Peek() => _first?.Data;
+    public T? Peek() => _first == null ? default : _first.Data;
 
     /// <summary>
     /// Return if the queue is empty

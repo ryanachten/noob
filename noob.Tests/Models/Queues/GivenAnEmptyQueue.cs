@@ -6,7 +6,7 @@ namespace noob.UnitTests.Models.Queues;
 public class GivenAnEmptyQueue
 {
     [Fact]
-    public void WhenPeekingTheQueue_ThenNullIsReturned()
+    public void WhenPeekingTheQueue_ThenDefaultIsReturned()
     {
         // Arrange
         var queue = new Queue<int>();
@@ -15,7 +15,7 @@ public class GivenAnEmptyQueue
         var result = queue.Peek();
 
         // Assert
-        Assert.Null(result);
+        Assert.Equal(default, result);
     }
 
     [Fact]

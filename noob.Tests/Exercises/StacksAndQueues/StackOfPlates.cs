@@ -15,7 +15,7 @@ namespace noob.UnitTests.Exercises.StacksAndQueues;
 /// </summary>
 public class StackOfPlates
 {
-    public class SetOfStacks<T> where T : struct
+    private class SetOfStacks<T> where T : struct
     {
         private readonly int _threshold;
         public readonly ArrayList<Stack<T>> Stacks = new(3);
