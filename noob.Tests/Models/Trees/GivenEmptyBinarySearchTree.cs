@@ -5,7 +5,7 @@ using KVP = System.Collections.Generic.KeyValuePair<int, string>;
 
 namespace noob.UnitTests.Models.Trees;
 
-public class GivenBinarySearchTree
+public class GivenEmptyBinarySearchTree
 {
     [Fact]
     public void WhenGettingValueFromEmptyTree_ThenDefaultIsReturned()
@@ -33,20 +33,6 @@ public class GivenBinarySearchTree
         Assert.NotNull(tree.Root);
         Assert.Equal(1, tree.Root.Data.Key);
         Assert.Equal("test", tree.Root.Data.Value);
-    }
-
-    [Fact]
-    public void WhenGettingValueWithOnlyOneValue_ThenRootNodeIsReturned()
-    {
-        // Arrange
-        var tree = new BinarySearchTree<int, string>();
-        tree.Add(1, "test");
-
-        // Act
-        var result = tree.TryGetValue(1);
-
-        // Assert
-        Assert.Equal("test", result);
     }
 
     [Fact]
@@ -141,34 +127,15 @@ public class GivenBinarySearchTree
     }
 
     [Fact]
-    public void WhenGettingValuesFromNestedTree_ThenCorrectValuesAreReturned()
+    public void WhenRemovingKeyFromEmptyTree_ThenFalseIsReturned()
     {
         // Arrange
         var tree = new BinarySearchTree<int, string>();
-        tree.Add(6, "root");
-        tree.Add(4, "root.lc");
-        tree.Add(8, "root.rc");
-        tree.Add(3, "root.lc.lc");
-        tree.Add(5, "root.lc.rc");
-        tree.Add(7, "root.rc.lc");
-        tree.Add(9, "root.rc.rc");
 
         // Act
-        var result1 = tree.TryGetValue(6);
-        var result2 = tree.TryGetValue(4);
-        var result3 = tree.TryGetValue(8);
-        var result4 = tree.TryGetValue(3);
-        var result5 = tree.TryGetValue(5);
-        var result6 = tree.TryGetValue(7);
-        var result7 = tree.TryGetValue(9);
+        var result = tree.Remove(0);
 
         // Assert
-        Assert.Equal("root", result1);
-        Assert.Equal("root.lc", result2);
-        Assert.Equal("root.rc", result3);
-        Assert.Equal("root.lc.lc", result4);
-        Assert.Equal("root.lc.rc", result5);
-        Assert.Equal("root.rc.lc", result6);
-        Assert.Equal("root.rc.rc", result7);
+        Assert.False(result);
     }
 }

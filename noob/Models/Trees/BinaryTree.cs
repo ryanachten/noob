@@ -32,7 +32,7 @@ public class BinaryTree<TKey, TValue>
     /// </summary>
     /// <param name="order">Tree traversal order (in/pre/post order)</param>
     /// <returns></returns>
-    public string Print(BinaryTreeTraversalOrder order) {
+    public string Print(BinaryTreeTraversalOrder order = BinaryTreeTraversalOrder.IN_ORDER) {
         var items = Items(order);
         var output = string.Empty;
 
@@ -54,16 +54,14 @@ public class BinaryTree<TKey, TValue>
     {
         if (node != null)
         {
-            var leftChildren = InOrderTraversal(node?.LeftChild);
-            foreach (var child in leftChildren)
+            foreach (var child in InOrderTraversal(node?.LeftChild))
             {
                 yield return child;
             }
 
             yield return node;
 
-            var rightChildren = InOrderTraversal(node?.RightChild);
-            foreach (var child in rightChildren)
+            foreach (var child in InOrderTraversal(node?.RightChild))
             {
                 yield return child;
             }

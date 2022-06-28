@@ -90,63 +90,71 @@ public class BinarySearchTree<TKey, TValue> : BinaryTree<TKey, TValue> where TKe
         return TryGetValue(key, node.RightChild);
     }
 
-    public BinaryTreeNode<TKey, TValue>? Remove(TKey key)
+    /// <summary>
+    /// Remove a node by a given key
+    /// </summary>
+    /// <param name="key"></param>
+    /// <returns>Whether the node has been successfully removed or not</returns>
+    public bool Remove(TKey key)
     {
-        return Remove(key, Root);
+        var newRoot = Remove(key, Root, out bool hasRemovedNode);
+        Root = newRoot;
+
+        return hasRemovedNode;
     }
 
-    private BinaryTreeNode<TKey, TValue>? Remove(TKey key, BinaryTreeNode<TKey, TValue>? node)
+    private BinaryTreeNode<TKey, TValue>? Remove(TKey key, BinaryTreeNode<TKey, TValue>? node, out bool hasRemovedNode)
     {
-        if (node == null) return null;
+        if (node == null)
+        {
+            hasRemovedNode = false;
+            return Root;
+        };
 
         var comparisonResult = key.CompareTo(node.Data.Key);
 
-        // If the current node key matches the key we're looking for
-        if (comparisonResult == 0)
+        // If the key is less than the current node, recursively call on left child
+        if (comparisonResult < 0)
         {
-            var deletedNode = node.Clone();
-            if (node.LeftChild == null && node.RightChild == null)
+            node.LeftChild = Remove(key, node.LeftChild, out hasRemovedNode);
+        }
+        // If the key is greater than the current node, recursively call on the right child
+        else if (comparisonResult > 0)
+        {
+            node.RightChild = Remove(key, node.RightChild, out hasRemovedNode);
+        }
+        // If the current node key matches the key we're looking for
+        else
+        {
+            // If the target node only has one child or no children
+            if (node.LeftChild == null)
             {
-                // TODO: not sure what to do here
+                hasRemovedNode = true;
+                return node.RightChild;
             }
-            // If the target node has only left child, replace the node with left child
-            else if (node.LeftChild != null && node.RightChild == null)
+            else if (node.RightChild == null)
             {
-                node.Data = node.LeftChild.Data;
-                node.LeftChild = null;
-            }
-            // If the target node has only right child, replace the node with right child
-            else if (node.RightChild != null && node.LeftChild == null)
-            {
-                node.Data = node.RightChild.Data;
-                node.RightChild = null;
+                hasRemovedNode = true;
+                return node.LeftChild;
             }
             // If both children present, replace node with smallest key on the right 
-            else if (node.RightChild != null && node.LeftChild != null)
-            {
-                if(node.RightChild.LeftChild == null)
-                {
-                    node.Data = node.RightChild.Data;
-                    node.RightChild = null;
-                } else
-                {
-                    var smallestKeyParent = node.RightChild;
-                    while(smallestKeyParent?.LeftChild?.LeftChild != null)
-                    {
-                        smallestKeyParent = smallestKeyParent.LeftChild;
-                    }
-                    node.Data = smallestKeyParent!.LeftChild!.Data;
-                    smallestKeyParent.LeftChild = null;
-                }
-            }
-            return deletedNode;
+            var min = MinNode(node.RightChild);
+            node.Data = min.Data;
+
+            // Clean up and delete the key we copied from
+            Remove(node.Data.Key, node.RightChild, out hasRemovedNode);
         }
-        // If the key is less than the current node, recursively call on left child
-        else if (comparisonResult < 0)
+
+        return node;
+    }
+
+    private static BinaryTreeNode<TKey, TValue> MinNode(BinaryTreeNode<TKey, TValue> node)
+    {
+        var min = node;
+        while (min.LeftChild != null)
         {
-            return Remove(key, node.LeftChild);
+            min = min.LeftChild;
         }
-        // Finally, if the key is greater than the current node, recursively call on the right child
-        return Remove(key, node.RightChild);
+        return min;
     }
 }
