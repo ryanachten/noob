@@ -1,4 +1,4 @@
-﻿namespace noob.Models.Trees;
+﻿namespace noob.Models.Trees.BinaryTree;
 
 public class BinaryTreeNode<TKey, TValue>
 {

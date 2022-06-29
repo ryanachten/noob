@@ -1,8 +1,8 @@
 ﻿using noob.Constants.Enums;
-using noob.Models.Trees;
+using noob.Models.Trees.BinaryTree;
 using Xunit;
 
-namespace noob.UnitTests.Models.Trees;
+namespace noob.UnitTests.Models.Trees.BinaryTree;
 
 public class GivenBinaryTree
 {

@@ -1,6 +1,6 @@
 ﻿using noob.Constants.Enums;
 
-namespace noob.Models.Trees;
+namespace noob.Models.Trees.BinaryTree;
 
 public class BinaryTree<TKey, TValue>
 {
@@ -24,7 +24,6 @@ public class BinaryTree<TKey, TValue>
         {
             yield return item;
         }
-
     }
 
     /// <summary>

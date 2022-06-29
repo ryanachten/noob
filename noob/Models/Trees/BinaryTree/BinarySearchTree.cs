@@ -1,4 +1,4 @@
-﻿namespace noob.Models.Trees;
+﻿namespace noob.Models.Trees.BinaryTree;
 
 public class BinarySearchTree<TKey, TValue> : BinaryTree<TKey, TValue> where TKey : IComparable<TKey>
 {

@@ -13,19 +13,22 @@
 ```
 
 # noob
-Data structure and algorithms command line experiment.
+Data structure and algorithms playground.
 
 ## Data Structures
 While many of these already out of the box with .NET, these have been implemented from the ground up to better understand the internals of these data structures. Only features required by exercises have been implemented.
 - [x] LinkedLists
 - [x] ArrayLists
 - [x] StringBuilders
-- [x] HashTables
+- [x] Hash Tables
 - [x] Stacks
 - [x] Queues
 - [ ] Trees
   - [x] Binary Tree
-  - [ ] Binary Search Tree
+    - [x] Binary Search Tree
+  - [ ] Priority Queues
+    - [x] MinHeaps
+    - [x] MaxHeaps
 - [ ] Graphs  
 
 ## Resources

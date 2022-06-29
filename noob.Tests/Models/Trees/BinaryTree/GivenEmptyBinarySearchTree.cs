@@ -1,9 +1,9 @@
-﻿using noob.Models.Trees;
+﻿using noob.Models.Trees.BinaryTree;
 using System;
 using Xunit;
 using KVP = System.Collections.Generic.KeyValuePair<int, string>;
 
-namespace noob.UnitTests.Models.Trees;
+namespace noob.UnitTests.Models.Trees.BinaryTree;
 
 public class GivenEmptyBinarySearchTree
 {
