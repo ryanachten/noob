@@ -1,6 +1,10 @@
-﻿namespace noob.Models.Trees;
+﻿namespace noob.Models.Trees.Tries;
 
-public class TrieNode
+/// <summary>
+/// Simple implementation of trie node with poor space runtime
+/// - see <see cref="ITrie"/> implementations for better space runtime implementations
+/// </summary>
+public class SimpleTrie
 {
     /// <summary>
     /// Indicates whether the node is a (*) / null node
@@ -10,7 +14,7 @@ public class TrieNode
     /// <summary>
     /// Nullable array of children, representing characters of the alphabet
     /// </summary>
-    private readonly TrieNode?[] _children = new TrieNode?[26];
+    private readonly SimpleTrie?[] _children = new SimpleTrie?[26];
 
     /// <summary>
     /// Recursively add characters of a string into trie nodes
@@ -35,7 +39,7 @@ public class TrieNode
         // If the entry for first character doesn't exist yet, create a node for it
         if(_children[charIndex] == null)
         {
-            _children[charIndex] = new TrieNode();
+            _children[charIndex] = new SimpleTrie();
         }
         // Recursive call on child using substring
         _children[charIndex]?.Add(str[1..]);
