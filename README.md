@@ -26,9 +26,10 @@ While many of these already out of the box with .NET, these have been implemente
 - [ ] Trees
   - [x] Binary Tree
     - [x] Binary Search Tree
-  - [ ] Priority Queues
+  - [x] Priority Queues
     - [x] MinHeaps
     - [x] MaxHeaps
+  - [ ] Tries 
 - [ ] Graphs  
 
 ## Resources
