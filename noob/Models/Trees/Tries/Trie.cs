@@ -16,4 +16,8 @@ public class Trie : ITrie
     }
 
     public bool Contains(string str) => Root?.Contains(str) ?? false;
+
+    public StringBuilder? Items() => Root?.Items(Root, new StringBuilder(6));
+
+    public StringBuilder Items(ITrie node, StringBuilder builder) => node.Items(node, builder);
 }

@@ -74,4 +74,36 @@ public class GivenSpaceSavingTrie
         // Assert
         Assert.False(result);
     }
+
+    [Fact]
+    public void WhenTraversingTrie_ThenCharactersAreReturnedInPreorder()
+    {
+        // Arrange
+        var trie = new Trie();
+        trie.Add("help");
+        trie.Add("helping");
+        trie.Add("helped");
+        trie.Add("helper");
+
+        /// h
+        /// |
+        /// e
+        /// |
+        /// l
+        /// |
+        /// p
+        /// |\ \
+        /// e * i
+        /// |\  |
+        /// d r n
+        ///     |
+        ///     g
+
+        // Act
+        var result = trie.Items();
+
+        // Assert
+        Assert.NotNull(result);
+        Assert.Equal("helpedring", result.ToString());
+    }
 }

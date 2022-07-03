@@ -33,4 +33,7 @@ public class TrieNullNode : BaseTrieNode, ITrie
         // NullNode can't store data, so return false if not end of string
         return false;
     }
+
+    // Null nodes don't have any characters, so just return the builder
+    public StringBuilder Items(ITrie node, StringBuilder builder) => builder;
 }

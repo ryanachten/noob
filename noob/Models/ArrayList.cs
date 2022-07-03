@@ -24,6 +24,7 @@ public class ArrayList<T>
     /// </summary>
     private int Capacity => Data.Length;
 
+    /// <param name="length">Initial array capacity for ArrayList</param>
     public ArrayList(int length)
     {
         if(length <= 0)

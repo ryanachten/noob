@@ -62,4 +62,10 @@ public class TrieHasOneNode : BaseTrieNode, ITrie
         // otherwise, it's not a match
         return false;
     }
+
+    public StringBuilder Items(ITrie node, StringBuilder builder)
+    {
+        builder.Add(_value);
+        return _child.Items(_child, builder);
+    }
 }

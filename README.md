@@ -29,7 +29,7 @@ While many of these already out of the box with .NET, these have been implemente
   - [x] Priority Queues
     - [x] MinHeaps
     - [x] MaxHeaps
-  - [ ] Tries 
+  - [x] Tries 
 - [ ] Graphs  
 
 ## Resources

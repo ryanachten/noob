@@ -71,4 +71,23 @@ public class TrieHasManyNode : BaseTrieNode, ITrie
         // Call recursively to child nodes with substring of query
         return _children[charIndex]!.Contains(str[1..]);
     }
+
+    public StringBuilder Items(ITrie node, StringBuilder builder)
+    {
+        for (int i = 0; i < _children.Length; i++)
+        {
+            var child = _children[i];
+            if (child != null)
+            {
+                /// get the value of the node based on index in character array
+                /// essentially the reverse of GetCharIndex <see cref="BaseTrieNode"/>
+                var character = (char)(i + 'a');
+
+                builder.Add(character);
+                child.Items(node, builder);
+            }
+
+        }
+        return builder;
+    }
 }

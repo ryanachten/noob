@@ -18,4 +18,12 @@ public interface ITrie
     /// <param name="str"></param>
     /// <returns></returns>
     bool Contains(string str);
+
+    /// <summary>
+    /// Trie iterator using preorder traversal 
+    /// </summary>
+    /// <param name="node">Node to be processed</param>
+    /// <param name="builder">StringBuilder to collect items</param>
+    /// <returns>StringBuilder with containing trie characters</returns>
+    StringBuilder Items(ITrie node, StringBuilder builder);
 }
