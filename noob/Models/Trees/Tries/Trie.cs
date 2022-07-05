@@ -1,5 +1,8 @@
 ﻿namespace noob.Models.Trees.Tries;
 
+/// <summary>
+/// Wrapper class for the root node
+/// </summary>
 public class Trie : ITrie
 {
     public ITrie? Root { get; private set; }

@@ -38,7 +38,7 @@ public class GivenAnEmptyQueue
         var queue = new Queue<int>();
 
         // Act
-        queue.Add(1);
+        queue.Enqueue(1);
 
         // Assert
         Assert.Equal(1, queue.Peek());

@@ -9,7 +9,7 @@ public class Queue<T>
     /// Add an item to the end of the queue
     /// </summary>
     /// <param name="item"></param>
-    public Queue<T> Add(T item)
+    public Queue<T> Enqueue(T item)
     {
         var node = new QueueNode<T>(item);
 
@@ -28,11 +28,12 @@ public class Queue<T>
     }
 
     /// <summary>
-    /// Remove the first item from the queue
+    /// Remove the first item from the queue and returns it
     /// </summary>
-    public void Remove()
+    public QueueNode<T>? Dequeue()
     {
-        if (_first == null) return;
+        var first = _first;
+        if (_first == null) return null;
 
         _first = _first.Next;
         
@@ -40,6 +41,8 @@ public class Queue<T>
         {
             _last = null;
         }
+
+        return first;
     }
 
     /// <summary>

@@ -9,7 +9,7 @@ public class GivenNonEmptyQueue
     public void WhenPeekingTheQueue_ThenFirstItemIsReturned()
     {
         // Arrange
-        var queue = new Queue<int>().Add(1).Add(2).Add(3);
+        var queue = new Queue<int>().Enqueue(1).Enqueue(2).Enqueue(3);
 
         // Act
         var result = queue.Peek();
@@ -22,7 +22,7 @@ public class GivenNonEmptyQueue
     public void WhenCheckingIfQueueIsEmpty_ThenFalseIsReturned()
     {
         // Arrange
-        var queue = new Queue<int>().Add(1).Add(2).Add(3);
+        var queue = new Queue<int>().Enqueue(1).Enqueue(2).Enqueue(3);
 
         // Act
         var result = queue.IsEmpty();
@@ -35,12 +35,13 @@ public class GivenNonEmptyQueue
     public void WhenRemovingFromQueue_ThenTheFirstItemIsRemoved()
     {
         // Arrange
-        var queue = new Queue<int>().Add(1).Add(2).Add(3);
+        var queue = new Queue<int>().Enqueue(1).Enqueue(2).Enqueue(3);
 
         // Act
-        queue.Remove();
+        var result = queue.Dequeue();
 
         // Assert
+        Assert.Equal(1, result?.Data);
         Assert.Equal(2, queue.Peek());
     }
 }

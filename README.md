@@ -23,14 +23,23 @@ While many of these already out of the box with .NET, these have been implemente
 - [x] Hash Tables
 - [x] Stacks
 - [x] Queues
-- [ ] Trees
+- [x] Trees
   - [x] Binary Tree
     - [x] Binary Search Tree
   - [x] Priority Queues
     - [x] MinHeaps
     - [x] MaxHeaps
   - [x] Tries 
-- [ ] Graphs  
+- [x] Graphs
+  - [x] Adjacency List
+  - [x] Adjacency Matrix
+
+## Algorithms
+- **Strings**
+  - [x] Permutations
+- **Search**
+  - [x] Depth-First Search
+  - [x] Breadth-First Search
 
 ## Resources
 - Cracking the Coding Interview (6th Edition) - Gayle Laakmann McDowell

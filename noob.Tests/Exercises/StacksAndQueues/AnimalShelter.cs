@@ -44,10 +44,10 @@ public class AnimalShelter
             animal.TimeOfArrival = DateTime.Now;
             if(animal is Dog dog)
             {
-                DogQueue.Add(dog);
+                DogQueue.Enqueue(dog);
             } else if (animal is Cat cat)
             {
-                CatQueue.Add(cat);
+                CatQueue.Enqueue(cat);
             }  else
             {
                 throw new ArgumentException("This type of animal is not supported!");
@@ -63,25 +63,25 @@ public class AnimalShelter
 
             if(dog != null && cat == null || dog?.TimeOfArrival < cat?.TimeOfArrival)
             {
-                DogQueue.Remove();
+                DogQueue.Dequeue();
                 return dog;
             }
 
-            CatQueue.Remove();
+            CatQueue.Dequeue();
             return cat;
         }
 
         public Dog? DequeueDog()
         {
             var dog = DogQueue.Peek();
-            DogQueue.Remove();
+            DogQueue.Dequeue();
             return dog;
         }
 
         public Cat? DequeueCat()
         {
             var cat = CatQueue.Peek();
-            CatQueue.Remove();
+            CatQueue.Dequeue();
             return cat;
         }
     }
