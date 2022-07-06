@@ -1,4 +1,4 @@
-﻿namespace noob.Models.Graphs;
+﻿namespace noob.Models.Graphs.Undirected;
 
 public class AdjacencyList<T>
 {
@@ -48,7 +48,6 @@ public class AdjacencyList<T>
     /// <summary>
     /// Iterates through each node's siblings before moving through their children
     /// </summary>
-    /// <returns></returns>
     public IEnumerable<AdjacencyListNode<T>> BreadthFirstSearch()
     {
         var queue = new Queue.Queue<AdjacencyListNode<T>>();
@@ -74,6 +73,22 @@ public class AdjacencyList<T>
                         queue.Enqueue(child);
                     }
                 }
+            }
+        }
+    }
+
+    /// <summary>
+    /// Reset graph node state
+    /// </summary>
+    public void Reset()
+    {
+        foreach (var node in Nodes.Data)
+        {
+            node.Visited = false;
+
+            foreach (var child in node.Children.Data)
+            {
+                child.Visited = false;
             }
         }
     }

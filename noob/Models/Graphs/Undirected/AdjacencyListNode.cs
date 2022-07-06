@@ -1,4 +1,4 @@
-﻿namespace noob.Models.Graphs;
+﻿namespace noob.Models.Graphs.Undirected;
 
 public class AdjacencyListNode<T>
 {

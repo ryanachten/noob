@@ -1,9 +1,9 @@
-﻿using noob.Models.Graphs;
+﻿using noob.Models.Graphs.Undirected;
 using Xunit;
 
 namespace noob.UnitTests.Models.Graphs;
 
-public class GivenAdjacencyList
+public class GivenUndirectedAdjacencyList
 {
     [Fact]
     public void WhenAddingToList_ThenSiblingsAndChildrenAreAddedCorrectly()

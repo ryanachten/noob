@@ -33,6 +33,7 @@ While many of these already out of the box with .NET, these have been implemente
 - [x] Graphs
   - [x] Adjacency List
   - [x] Adjacency Matrix
+  - [x] Directed Graph
 
 ## Algorithms
 - **Strings**
