@@ -1,4 +1,5 @@
 ﻿using noob.Models.Trees.Heaps;
+using System.Collections.Generic;
 using Xunit;
 
 namespace noob.UnitTests.Models.Trees.Heaps;
@@ -9,31 +10,34 @@ public class GivenMinHeap
     public void WhenInsertingSingleElementToMinHeap_ThenHeapRootIsSet()
     {
         // Arrange
-        var heap = new MinHeap<int>(3);
+        var heap = new MinHeap<int, string>(3);
 
         // Act
-        heap.Add(10);
+        heap.Add(10, "test");
 
         // Assert
-        Assert.Equal(10, heap.Peek());
+        Assert.Equal(new KeyValuePair<int, string>(10, "test"), heap.Peek());
     }
 
     [Fact]
     public void WhenInsertingMultipleElementsToMinHeap_ThenElementsAreAddedInCorrectOrder()
     {
         // Arrange
-        var heap = new MinHeap<int>(3);
+        var heap = new MinHeap<int, string>(3);
 
         // Act
-        heap.Add(5).Add(2).Add(3).Add(1).Add(4);
+        heap.Add(5, "test 1").Add(2, "test 2").Add(3, "test 3").Add(1, "test 4").Add(4, "test 5");
 
         // Assert
-        var expectedOrder = new[] { 1, 2, 3, 4, 5 };
+        var expectedKeyOrder = new[] { 1, 2, 3, 4, 5 };
+        var expectedValueOrder = new[] { "test 4" , "test 2", "test 3", "test 5", "test 1" };
+
         var index = 0;
         while (heap.Size < 0)
         {
-            var result = heap.Pop();
-            Assert.Equal(expectedOrder[index], result);
+            var result = heap.Pop().GetValueOrDefault();
+            Assert.Equal(expectedKeyOrder[index], result.Key);
+            Assert.Equal(expectedValueOrder[index], result.Value);
             index++;
         }
     }

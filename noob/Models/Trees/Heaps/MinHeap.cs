@@ -1,12 +1,12 @@
 ﻿namespace noob.Models.Trees.Heaps;
 
-public class MinHeap<T> where T : IComparable<T>
+public class MinHeap<TPriority, TValue> where TPriority : IComparable<TPriority>
 {
     /// <summary>
     /// Capacity of the current heap array
     /// </summary>
     protected int _capacity;
-    protected T?[] _data;
+    protected KeyValuePair<TPriority, TValue>?[] _data;
 
     /// <summary>
     /// Number of items in the heap
@@ -16,18 +16,18 @@ public class MinHeap<T> where T : IComparable<T>
     public MinHeap(int capacity)
     {
         _capacity = capacity;
-        _data = new T?[capacity];
+        _data = new KeyValuePair<TPriority, TValue>?[capacity];
     }
 
     /// <summary>
     /// Returns the min element in the heap
     /// </summary>
-    public T? Peek() => _data[0];
+    public KeyValuePair<TPriority, TValue>? Peek() => _data[0];
 
     /// <summary>
     /// Removes and returns the min element in the heap
     /// </summary>
-    public T? Pop()
+    public KeyValuePair<TPriority, TValue>? Pop()
     {
         if (Size == 0) return default!;
 
@@ -45,12 +45,12 @@ public class MinHeap<T> where T : IComparable<T>
         return item;
     }
 
-    public MinHeap<T> Add(T item)
+    public MinHeap<TPriority, TValue> Add(TPriority priority, TValue value)
     {
         EnsureCapacity();
 
         // Add item to the bottom of the heap
-        _data[Size] = item;
+        _data[Size] = new KeyValuePair<TPriority, TValue>(priority, value);
         Size++;
 
         // Reheap the array
@@ -67,7 +67,7 @@ public class MinHeap<T> where T : IComparable<T>
         if (Size == _capacity)
         {
             var newCapacity = _capacity * 2;
-            var newData = new T?[newCapacity];
+            var newData = new KeyValuePair<TPriority, TValue>?[newCapacity];
 
             Array.Copy(_data, newData, _capacity);
 
@@ -85,7 +85,7 @@ public class MinHeap<T> where T : IComparable<T>
 
         // while the current node has a parent and the parent is larger than the current node
         // swap the two nodes around
-        while (Parent(index) != null && Parent(index)!.CompareTo(_data[index]) > 0)
+        while (ParentPriority(index) != null && ParentPriority(index)!.CompareTo(_data[index].GetValueOrDefault().Key) > 0)
         {
             Swap(GetParentIndex(index), index);
             index = GetParentIndex(index);
@@ -101,19 +101,19 @@ public class MinHeap<T> where T : IComparable<T>
 
         // Only need to check if left child exists,
         // cause right child won't exist if it doesn't
-        while (LeftChild(index) != null)
+        while (LeftChildPriority(index) != null)
         {
             var smallerChildIndex = GetLeftChildIndex(index);
 
             // If right child exists and is smaller than left child, update smaller child index
-            if (RightChild(index) != null && RightChild(index)!.CompareTo(LeftChild(index)) < 0)
+            if (RightChildPriority(index) != null && RightChildPriority(index)!.CompareTo(LeftChildPriority(index)) < 0)
             {
                 smallerChildIndex = GetRightChildIndex(index);
             }
 
             // If the current node is smaller than the smaller child
             // then the heap is back in order
-            if (_data[index]!.CompareTo(_data[smallerChildIndex]) < 0)
+            if (_data[index].GetValueOrDefault().Key.CompareTo(_data[smallerChildIndex].GetValueOrDefault().Key) < 0)
             {
                 break;
             }
@@ -130,7 +130,7 @@ public class MinHeap<T> where T : IComparable<T>
     protected static int GetRightChildIndex(int parentIndex) => 2 * parentIndex + 2;
     protected static int GetParentIndex(int childIndex) => (childIndex - 1) / 2;
 
-    protected T? LeftChild(int parentIndex) => _data[GetLeftChildIndex(parentIndex)];
-    protected T? RightChild(int parentIndex) => _data[GetRightChildIndex(parentIndex)];
-    protected T? Parent(int childIndex) => _data[GetParentIndex(childIndex)];
+    protected TPriority? LeftChildPriority(int parentIndex) => _data[GetLeftChildIndex(parentIndex)].GetValueOrDefault().Key;
+    protected TPriority? RightChildPriority(int parentIndex) => _data[GetRightChildIndex(parentIndex)].GetValueOrDefault().Key;
+    protected TPriority? ParentPriority(int childIndex) => _data[GetParentIndex(childIndex)].GetValueOrDefault().Key;
 }
