@@ -41,6 +41,8 @@ While many of these already out of the box with .NET, these have been implemente
 - **Search**
   - [x] Depth-First Search
   - [x] Breadth-First Search
+- **Path Finding**
+  - [x] Dijkstra Shortest Path
 
 ## Resources
 - Cracking the Coding Interview (6th Edition) - Gayle Laakmann McDowell

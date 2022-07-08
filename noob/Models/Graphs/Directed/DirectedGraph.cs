@@ -81,3 +81,4 @@ public class DirectedGraph<TNode, TEdgeData> where TNode : notnull
         }
     }
 }
+
