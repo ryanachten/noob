@@ -4,12 +4,12 @@ using Xunit;
 
 namespace noob.UnitTests.Algorithms;
 
-public class GivenDirectionalGraph
+public class DijkstraTests
 {
-    private DirectedGraph<string, int> _unweightedGraph;
-    private DirectedGraph<string, int> _weightedGraph;
+    private readonly DirectedGraph<string, int> _unweightedGraph;
+    private readonly DirectedGraph<string, int> _weightedGraph;
 
-    public GivenDirectionalGraph()
+    public DijkstraTests()
     {
         _unweightedGraph = new DirectedGraph<string, int>()
             .AddNode("node1").AddNode("node2")
