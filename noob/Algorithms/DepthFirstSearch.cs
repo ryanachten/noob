@@ -2,6 +2,9 @@
 
 namespace noob.Algorithms;
 
+/// <summary>
+/// DFS implementation for directed graphs
+/// </summary>
 public class DepthFirstSearch<TNode, TEdgeData> where TNode : notnull
 {
     private readonly DirectedGraph<TNode, TEdgeData> _graph;
@@ -13,7 +16,7 @@ public class DepthFirstSearch<TNode, TEdgeData> where TNode : notnull
     }
 
     /// <summary>
-    /// Enumerates through adjacent nodes first
+    /// Enumerates though graph, returning descendants before neighbours
     /// </summary>
     /// <param name="node">Starting node</param>
     /// <returns>Node iterator</returns>

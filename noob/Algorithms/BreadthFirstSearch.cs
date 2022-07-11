@@ -2,10 +2,13 @@
 
 namespace noob.Algorithms;
 
+/// <summary>
+/// BFS implementation for directed graphs
+/// </summary>
 public static class BreadthFirstSearch<TNode, TEdgeData> where TNode : notnull
 {
     /// <summary>
-    /// Enumerates through graph in preorder
+    /// Enumerates though graph, returning neighbours before descendants
     /// </summary>
     public static IEnumerable<TNode> Enumerate(DirectedGraph<TNode, TEdgeData> graph, TNode startNode)
     {

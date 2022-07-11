@@ -1,4 +1,4 @@
-﻿using noob.Constants.Enums;
+using noob.Constants.Enums;
 
 namespace noob.Models.Trees.BinaryTree;
 
@@ -24,6 +24,20 @@ public class BinaryTree<TKey, TValue>
         {
             yield return item;
         }
+    }
+
+    /// <summary>
+    /// Returns the height of the current binary tree
+    /// </summary>
+    public int GetHeight() => GetHeight(Root);
+    protected int GetHeight(BinaryTreeNode<TKey, TValue>? node)
+    {
+        if(node == null) return 0;
+
+        var leftHeight = GetHeight(node.RightChild);
+        var rightHeight = GetHeight(node.LeftChild);
+
+        return Math.Max(leftHeight, rightHeight) + 1;
     }
 
     /// <summary>
