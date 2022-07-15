@@ -8,7 +8,7 @@ public class BinarySearchTree<TKey, TValue> : BinaryTree<TKey, TValue> where TKe
     /// <param name="key"></param>
     /// <param name="value"></param>
     /// <returns>Newly added node</returns>
-    public BinaryTreeNode<TKey, TValue> Add(TKey key, TValue value)
+    public new BinaryTreeNode<TKey, TValue> Add(TKey key, TValue value)
     {
         if (Root == null)
         {
@@ -18,7 +18,15 @@ public class BinarySearchTree<TKey, TValue> : BinaryTree<TKey, TValue> where TKe
         return Add(key, value, Root);
     }
 
-    protected BinaryTreeNode<TKey, TValue> Add(TKey key, TValue value, BinaryTreeNode<TKey, TValue> parentNode)
+    /// <summary>
+    /// Add a node to a specific parent node
+    /// </summary>
+    /// <param name="key"></param>
+    /// <param name="value"></param>
+    /// <param name="parentNode"></param>
+    /// <returns>Node added</returns>
+    /// <exception cref="ArgumentException">An existing key cannot be added to the tree</exception>
+    public new BinaryTreeNode<TKey, TValue> Add(TKey key, TValue value, BinaryTreeNode<TKey, TValue> parentNode)
     {
         var comparisonResult = key.CompareTo(parentNode.Data.Key);
 
@@ -35,7 +43,7 @@ public class BinarySearchTree<TKey, TValue> : BinaryTree<TKey, TValue> where TKe
         {
             if(parentNode.LeftChild == null)
             {
-                return parentNode.LeftChild = new BinaryTreeNode<TKey, TValue>(key, value);
+                return parentNode.LeftChild = new BinaryTreeNode<TKey, TValue>(key, value, parentNode);
             } else
             {
                 return Add(key, value, parentNode.LeftChild);
@@ -46,7 +54,7 @@ public class BinarySearchTree<TKey, TValue> : BinaryTree<TKey, TValue> where TKe
         // or continue to traverse to the right of the tree
         if (parentNode.RightChild == null)
         {
-            return parentNode.RightChild = new BinaryTreeNode<TKey, TValue>(key, value);
+            return parentNode.RightChild = new BinaryTreeNode<TKey, TValue>(key, value, parentNode);
         }
         else
         {

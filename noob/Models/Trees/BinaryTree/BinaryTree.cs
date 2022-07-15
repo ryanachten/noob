@@ -7,6 +7,50 @@ public class BinaryTree<TKey, TValue>
     public BinaryTreeNode<TKey, TValue>? Root { get; protected set; }
 
     /// <summary>
+    /// Add a node to the tree
+    /// </summary>
+    /// <param name="key"></param>
+    /// <param name="value"></param>
+    /// <returns>Node added</returns>
+    public BinaryTreeNode<TKey, TValue> Add(TKey key, TValue value)
+    {
+        if (Root == null)
+        {
+            Root = new BinaryTreeNode<TKey, TValue>(key, value);
+            return Root;
+        }
+        return Add(key, value, Root);
+    }
+
+    /// <summary>
+    /// Add a node to a specific parent node
+    /// </summary>
+    /// <param name="key"></param>
+    /// <param name="value"></param>
+    /// <param name="parentNode"></param>
+    /// <returns>Node added</returns>
+    public BinaryTreeNode<TKey, TValue> Add(TKey key, TValue value, BinaryTreeNode<TKey, TValue> parentNode)
+    {
+        // If either the right or left child is null, fill it
+        if(parentNode.LeftChild == null)
+        {
+            return parentNode.LeftChild = new BinaryTreeNode<TKey, TValue>(key, value, parentNode);
+        } else if(parentNode.RightChild == null)
+        {
+            return parentNode.RightChild = new BinaryTreeNode<TKey, TValue>(key, value, parentNode);
+        }
+
+        // There might be a better way of doing this
+        // but for now, let's just randomly determine whether we traverse the left of right subtree
+        var rand = new Random().Next(-1, 1);
+        if(rand >= 0)
+        {
+            return Add(key, value, parentNode.LeftChild);
+        }
+        return Add(key, value, parentNode.RightChild);
+    }
+
+    /// <summary>
     /// Iterate through items using a given tree traversal order
     /// </summary>
     /// <param name="order">Tree traversal order (in/pre/post order)</param>
@@ -27,10 +71,14 @@ public class BinaryTree<TKey, TValue>
     }
 
     /// <summary>
-    /// Returns the height of the current binary tree
+    /// Returns the height of the entire binary tree
     /// </summary>
     public int GetHeight() => GetHeight(Root);
-    protected int GetHeight(BinaryTreeNode<TKey, TValue>? node)
+    
+    /// <summary>
+    /// Returns subtree height starting at a given node
+    /// </summary>
+    public int GetHeight(BinaryTreeNode<TKey, TValue>? node)
     {
         if(node == null) return 0;
 
