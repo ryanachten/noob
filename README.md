@@ -36,11 +36,16 @@ While many of these already out of the box with .NET, these have been implemente
   - [x] Directed Graph
 
 ## Algorithms
-- **Strings**
-  - [x] Permutations
 - **Search**
   - [x] Depth-First Search
   - [x] Breadth-First Search
+- **Sorting**
+  - [x] Selection Sort
+  - [x] Bubble Sort
+  - [x] Merge Sort
+  - [x] Quick Sort
+- **Strings**
+  - [x] Permutations
 - **Path Finding**
   - [x] Dijkstra Shortest Path
 
