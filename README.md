@@ -44,6 +44,7 @@ While many of these already out of the box with .NET, these have been implemente
   - [x] Bubble Sort
   - [x] Merge Sort
   - [x] Quick Sort
+  - [x] Radix Sort
 - **Strings**
   - [x] Permutations
 - **Path Finding**
