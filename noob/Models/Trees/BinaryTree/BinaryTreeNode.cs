@@ -1,6 +1,6 @@
 ﻿namespace noob.Models.Trees.BinaryTree;
 
-public class BinaryTreeNode<TKey, TValue>
+public class BinaryTreeNode<TKey, TValue> : IEquatable<BinaryTreeNode<TKey, TValue>> where TKey : IComparable<TKey> where TValue : IComparable<TValue>
 {
     public KeyValuePair<TKey, TValue> Data { get; set; }
     public BinaryTreeNode<TKey, TValue>? Parent { get; set; }
@@ -18,4 +18,9 @@ public class BinaryTreeNode<TKey, TValue>
         LeftChild = LeftChild,
         RightChild = RightChild
     };
+
+    public bool Equals(BinaryTreeNode<TKey, TValue>? other)
+    {
+        return other != null && Data.Key.Equals(other.Data.Key) && Data.Value.Equals(other.Data.Value);
+    }
 }

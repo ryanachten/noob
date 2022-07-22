@@ -1,6 +1,6 @@
 ﻿namespace noob.Models.Trees.BinaryTree;
 
-public class BinarySearchTree<TKey, TValue> : BinaryTree<TKey, TValue> where TKey : IComparable<TKey>
+public class BinarySearchTree<TKey, TValue> : BinaryTree<TKey, TValue> where TKey : IComparable<TKey> where TValue : IComparable<TValue>
 {
     /// <summary>
     /// Add a key value pair to the tree
@@ -103,7 +103,7 @@ public class BinarySearchTree<TKey, TValue> : BinaryTree<TKey, TValue> where TKe
     /// </summary>
     /// <param name="key"></param>
     /// <returns>Whether the node has been successfully removed or not</returns>
-    public bool Remove(TKey key)
+    public new bool Remove(TKey key)
     {
         var newRoot = Remove(key, Root, out bool hasRemovedNode);
         Root = newRoot;
