@@ -1,16 +1,15 @@
-﻿using noob.Algorithms;
+﻿using noob.Algorithms.Searching;
 using noob.Models.Graphs.Directed;
 using System.Linq;
 using Xunit;
 
-namespace noob.UnitTests.Algorithms;
+namespace noob.UnitTests.Algorithms.Searching;
 
-public class BreadthFirstSearchTests
+public class DepthFirstSearchTests
 {
     [Fact]
     public void WhenEnumeratingThroughDirectionalGraph_ThenNodesAreReturnedInCorrectOrder()
     {
-        // Arrange
         var graph = new DirectedGraph<string, int>()
             .AddNode("node1").AddNode("node2")
             .AddNode("node3").AddNode("node4")
@@ -28,10 +27,12 @@ public class BreadthFirstSearchTests
         /// V     V
         /// 5     6
 
+        var dfs = new DepthFirstSearch<string, int>(graph);
+
         // Assert
-        var expectedNodes = new[] { "node1", "node3", "node2", "node5", "node4", "node6" };
+        var expectedNodes = new[] { "node1", "node3", "node5", "node2", "node4", "node6" };
         var index = 0;
-        foreach (var node in BreadthFirstSearch<string, int>.Enumerate(graph, graph.Nodes.First()))
+        foreach (var node in dfs.Enumerate(graph.Nodes.First()))
         {
             Assert.Equal(expectedNodes[index], node);
             index++;

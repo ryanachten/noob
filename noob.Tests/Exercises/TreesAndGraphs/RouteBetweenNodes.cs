@@ -1,4 +1,4 @@
-﻿using noob.Algorithms;
+﻿using noob.Algorithms.Searching;
 using noob.Models.Graphs.Directed;
 using System.Collections.Generic;
 using Xunit;

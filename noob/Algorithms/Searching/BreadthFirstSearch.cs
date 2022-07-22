@@ -1,6 +1,6 @@
 ﻿using noob.Models.Graphs.Directed;
 
-namespace noob.Algorithms;
+namespace noob.Algorithms.Searching;
 
 /// <summary>
 /// BFS implementation for directed graphs
