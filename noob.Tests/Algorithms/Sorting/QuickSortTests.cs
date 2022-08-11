@@ -10,7 +10,11 @@ public class QuickSortTests : BaseSortTests
     public void WhenSortingAnArray_ThenAnArrayIsSorted(int[] sourceArray, int[] expectedResult)
     {
         // Act
-        var result = QuickSort<int>.Sort(sourceArray);
+        var comparison = (int a, int b) => {
+            if(a == b) return 0;
+            return a > b ? 1 : -1;
+        };
+        var result = QuickSort<int>.Sort(sourceArray, comparison);
 
         // Assert
         Assert.Equal(expectedResult, result);
