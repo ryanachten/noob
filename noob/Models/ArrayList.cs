@@ -1,6 +1,4 @@
-﻿using noob.Utils;
-
-namespace noob.Models;
+﻿namespace noob.Models;
 
 /// <summary>
 /// .NET already has an ArrayList.
@@ -44,7 +42,7 @@ public class ArrayList<T>
         {
             var newArray = new T[Capacity * 2];
             Array.Copy(Data, newArray, Data.Length);
-            Text.WriteText($"Resizing array. Old size: {Data.Length}. New size: {newArray.Length}", true);
+            Console.WriteLine($"Resizing array. Old size: {Data.Length}. New size: {newArray.Length}");
             Data = newArray;
         }
 

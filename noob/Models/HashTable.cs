@@ -1,5 +1,4 @@
 ﻿using noob.Models.LinkedList;
-using noob.Utils;
 
 namespace noob.Models
 {
@@ -128,7 +127,7 @@ namespace noob.Models
             var currentIndex = Array.IndexOf(_tableSizes, Data.Length);
             var newTableSize = _tableSizes[currentIndex + 1];
             
-            Text.WriteText($"Rehashing from {Data.Length} -> {newTableSize}", true);
+            Console.WriteLine($"Rehashing from {Data.Length} -> {newTableSize}");
 
             var newArray = new DoublyLinkedList<KeyValuePair<TKey, TValue>>[newTableSize];
             Count = 0;

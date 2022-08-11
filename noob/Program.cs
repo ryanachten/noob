@@ -1,13 +1,16 @@
-﻿using noob.Models;
-using noob.Pages;
-using noob.Utils;
-
-Text.WriteLogo();
-
-new LinkedListPage().PrintTitle().PrintBody();
-new ArrayListPage().PrintTitle().PrintBody();
-new HashTablePage().PrintTitle().PrintBody();
-
+﻿Console.WriteLine(@"
+      ___         ___         ___                 
+     /__/\       /  /\       /  /\       _____    
+     \  \:\     /  /::\     /  /::\     /  /::\   
+      \  \:\   /  /:/\:\   /  /:/\:\   /  /:/\:\  
+  _____\__\:\ /  /:/  \:\ /  /:/  \:\ /  /:/~/::\ 
+ /__/::::::::/__/:/ \__\:/__/:/ \__\:/__/:/ /:/\:|
+ \  \:\~~\~~\\  \:\ /  /:\  \:\ /  /:\  \:\/:/~/:/
+  \  \:\  ~~~ \  \:\  /:/ \  \:\  /:/ \  \::/ /:/ 
+   \  \:\      \  \:\/:/   \  \:\/:/   \  \:\/:/  
+    \  \:\      \  \::/     \  \::/     \  \::/   
+     \__\/       \__\/       \__\/       \__\/    
+");
 
 
 
