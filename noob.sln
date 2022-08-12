@@ -5,7 +5,7 @@ VisualStudioVersion = 17.1.32228.430
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "noob", "noob\noob.csproj", "{5A00C8ED-5373-429D-8084-B9DBBCD2F1C7}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "noob.UnitTests", "noob.Tests\noob.UnitTests.csproj", "{B7CAE67B-B7C7-43D6-9FE8-200A99347124}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "noob.UnitTests", "noob.UnitTests\noob.UnitTests.csproj", "{B7CAE67B-B7C7-43D6-9FE8-200A99347124}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "noob.IntegrationTests", "noob.IntegrationTests\noob.IntegrationTests.csproj", "{9EA29486-3582-4F8B-883A-9439B05E163B}"
 EndProject
