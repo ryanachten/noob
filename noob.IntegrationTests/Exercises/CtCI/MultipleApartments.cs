@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using noob.IntegrationTests.Fixtures;
 using System.Collections.Generic;
+using noob.IntegrationTests.Extensions;
 
 namespace noob.IntegrationTests.Exercises;
 
@@ -28,26 +29,37 @@ public class MultipleApartments : TestDatabaseFixture<ApartmentContext>
 {
     public MultipleApartments(ApplicationFactory<ApartmentContext> factory) : base(factory)
     {
-        GivenApartments();
+        GivenTenantsWithApartments();
     }
 
-    private void GivenApartments()
+    private void GivenTenantsWithApartments()
     {
+        _context.Tenants.Add(new Tenant()
+        {
+            Name = "Tenant 1",
+            Apartments = new List<Apartment>() { new(), new(), new() }
+        });
+        _context.Tenants.Add(new Tenant()
+        {
+            Name = "Tenant 2",
+            Apartments = new List<Apartment>() { new() }
+        });
+        _context.Tenants.Add(new Tenant()
+        {
+            Name = "Tenant 3"
+        });
         _context.Tenants.Add(new Tenant() { 
-            Name = "Jeff", 
+            Name = "Tenant 4", 
             Apartments = new List<Apartment>() { new(), new() }
         });
         _context.SaveChanges();
     }
 
     [Fact]
-    // @TODO: load external SQL file and complete exercise
-    public async void DoesItWork()
+    public async void WhenGettingAListOfTenants_ThenThoseWithMoreThanOneApartmentAreReturned()
     {
-        var tenant = await _context.Tenants.FirstOrDefaultAsync();
-
-        Assert.NotNull(tenant);
-        Assert.Equal("Jeff", tenant?.Name);
-        Assert.Equal(2, tenant?.Apartments.Count);
+        var tenants = await _context.Tenants.FromSqlFile().ToListAsync();
+        Assert.NotNull(tenants);
+        Assert.NotEmpty(tenants);
     }
 }
