@@ -12,14 +12,5 @@
      \__\/       \__\/       \__\/       \__\/
 ```
 
-# noob
-Playground for computer science stuff 🧪
-
-Documentation for separate projects
-- [Core](./noob) - core models and implementations for data structures and algorithms
-- [Unit Tests](./noob.UnitTests) - unit tests for models, algorithms and exercises
-- [Integration Tests](./noob.IntegrationTests) - integration tests for SQL queries
-
-## Resources
-- Cracking the Coding Interview (6th Edition) - Gayle Laakmann McDowell
-- [Data Structures in C#](https://cis300.cs.ksu.edu/) - Rod Howell
+# noob - Unit tests
+Unit tests using XUnit for core models, algorithms and various exercises.
