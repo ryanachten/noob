@@ -1,31 +1,13 @@
 ﻿using Xunit;
 using Microsoft.EntityFrameworkCore;
-using noob.IntegrationTests.Fixtures;
-using System.Collections.Generic;
 using noob.IntegrationTests.Extensions;
+using System.Linq;
+using noob.IntegrationTests.Exercises.CtCI;
+using System.Collections.Generic;
 
 namespace noob.IntegrationTests.Exercises;
 
-public class Apartment
-{
-    public int ApartmentId { get; set; }
-}
-
-public class Tenant
-{
-    public int TenantId { get; set; }
-    public string Name { get; set; } = default!;
-    public ICollection<Apartment> Apartments { get; set; } = default!;
-}
-
-public class ApartmentContext : DbContext
-{
-    public ApartmentContext(DbContextOptions<ApartmentContext> options) : base(options) { }
-    public DbSet<Apartment> Apartments { get; set; } = default!;
-    public DbSet<Tenant> Tenants { get; set; } = default!;
-}
-
-public class MultipleApartments : TestDatabaseFixture<ApartmentContext>
+public class MultipleApartments : BaseApartmentExercise
 {
     public MultipleApartments(ApplicationFactory<ApartmentContext> factory) : base(factory)
     {
@@ -34,24 +16,63 @@ public class MultipleApartments : TestDatabaseFixture<ApartmentContext>
 
     private void GivenTenantsWithApartments()
     {
-        _context.Tenants.Add(new Tenant()
+        var tenantsWithApartments = new Dictionary<Tenant, List<Apartment>>()
         {
-            Name = "Tenant 1",
-            Apartments = new List<Apartment>() { new(), new(), new() }
-        });
-        _context.Tenants.Add(new Tenant()
+            {
+                new Tenant()
+                {
+                    TenantName = "Tenant 1",
+                },
+                new List<Apartment>()
+                {
+                    new(),
+                    new(),
+                }
+            },
+            {
+                new Tenant()
+                {
+                    TenantName = "Tenant 2",
+                },
+                new List<Apartment>()
+                {
+                    new(),
+                }
+            },
+            {
+                new Tenant()
+                {
+                    TenantName = "Tenant 3",
+                },
+                new List<Apartment>()
+                {
+                    new(),
+                    new(),
+                    new()
+                }
+            },
+            {
+                new Tenant()
+                {
+                    TenantName = "Tenant 4",
+                },
+                new List<Apartment>()
+            },
+        };
+
+        foreach (var kvp in tenantsWithApartments)
         {
-            Name = "Tenant 2",
-            Apartments = new List<Apartment>() { new() }
-        });
-        _context.Tenants.Add(new Tenant()
-        {
-            Name = "Tenant 3"
-        });
-        _context.Tenants.Add(new Tenant() { 
-            Name = "Tenant 4", 
-            Apartments = new List<Apartment>() { new(), new() }
-        });
+            _context.Tenants.Add(kvp.Key);
+            foreach (var apartment in kvp.Value)
+            {
+                _context.Apartments.Add(apartment);
+                _context.TenantApartments.Add(new()
+                {
+                    Apartment = apartment,
+                    Tenant = kvp.Key,
+                });
+            }
+        }
         _context.SaveChanges();
     }
 
@@ -61,5 +82,10 @@ public class MultipleApartments : TestDatabaseFixture<ApartmentContext>
         var tenants = await _context.Tenants.FromSqlFile().ToListAsync();
         Assert.NotNull(tenants);
         Assert.NotEmpty(tenants);
+        Assert.Equal(3, tenants.Count);
+
+        Assert.Equal("Tenant 1", tenants.First().TenantName);
+        Assert.Equal("Tenant 2", tenants.ElementAt(1).TenantName);
+        Assert.Equal("Tenant 3", tenants.Last().TenantName);
     }
 }
