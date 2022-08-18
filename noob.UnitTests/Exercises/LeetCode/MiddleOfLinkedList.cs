@@ -1,4 +1,5 @@
-﻿using System;
+﻿using noob.UnitTests.Exercises.LeetCode.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Xunit;
@@ -7,17 +8,6 @@ namespace noob.UnitTests.Exercises.LeetCode;
 
 public class MiddleOfLinkedList
 {
-    public class ListNode
-    {
-        public int val;
-        public ListNode next;
-        public ListNode(int val = 0, ListNode next = null)
-        {
-            this.val = val;
-            this.next = next;
-        }
-    }
-
     public static IEnumerable<object[]> Lists() => new List<object[]>()
     {
         new object[] {
