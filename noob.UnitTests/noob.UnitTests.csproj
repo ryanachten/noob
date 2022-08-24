@@ -21,6 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\noob.Solid\noob.Solid.csproj" />
     <ProjectReference Include="..\noob\noob.csproj" />
   </ItemGroup>
 
