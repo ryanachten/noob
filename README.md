@@ -13,14 +13,11 @@
 ```
 
 # noob
-Playground for computer science stuff 🧪
+Playground for software engineering things 🧪
 
 Documentation for separate projects
 - [Core](./noob) - core models and implementations for data structures and algorithms
-- [Unit Tests](./noob.UnitTests) - unit tests for models, algorithms and exercises
-- [Integration Tests](./noob.IntegrationTests) - integration tests for SQL queries
-- [SOLID](./noob.Solid) - examples illustrating SOLID practices
-
-## Resources
-- Cracking the Coding Interview (6th Edition) - Gayle Laakmann McDowell
-- [Data Structures in C#](https://cis300.cs.ksu.edu/) - Rod Howell
+- [UnitTests](./noob.UnitTests) - unit tests for models, algorithms and exercises
+- [IntegrationTests](./noob.IntegrationTests) - integration tests for SQL queries
+- [Solid](./noob.Solid) - examples illustrating SOLID practices
+- [Patterns](./noob.Patterns) - examples illustrating design patterns

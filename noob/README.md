@@ -50,3 +50,7 @@ While many of these already out of the box with .NET, these have been implemente
   - [x] Permutations
 - **Path Finding**
   - [x] Dijkstra Shortest Path
+
+## Resources
+- Cracking the Coding Interview (6th Edition) - Gayle Laakmann McDowell
+- [Data Structures in C#](https://cis300.cs.ksu.edu/) - Rod Howell
