@@ -12,6 +12,9 @@ Aa factory method is comprised of the following:
 - Makes code more robust, less coupled and easy to extend
 - Provides abstraction between implementation and client
 
+## Disadvantages
+- Can increases the number of classes in the system, since each product class requires a creator
+
 ## When to use
 - When the client is unsure what instance to create at runtime
 - To centralise the logic of creating objects

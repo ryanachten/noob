@@ -20,9 +20,9 @@ Gang of Four design patterns are split into three categories; *creational*, *str
 ## Creational
 Creational design patterns create objects in a way where they can be decoupled from their implementing system. This decoupling provides greater flexibility in deciding which objects are required for a given scenario.
 
-- [x] **Factory** - abstracts the process of creating objects, so the type of object can be determined at runtime
+- [x] [**Factory**](./Creational/Factory/) - abstracts the process of creating objects, so the type of object can be determined at runtime
 - [ ] **Abstract Factory** - abstracts the process of creating families of objects, so that families of objects can be determined at runtime
-- [ ] **Builder** - separates object construction from its representation
+- [x] [**Builder**](./Creational/Factory/) - builds a complex object using a step-by-step approach
 - [ ] **Prototype** - creates a clone of an object
 - [ ] **Singleton** - ensures there is only one instances of a class
 
@@ -43,7 +43,7 @@ Focuses on how objects and be composed to produce robust application structures.
 Behavioural design patterns manage communication, relationships and responsibilities between objects.
 
 - [ ] **Chain of Responsibility** - passes a request among a list (or 'chain') of objects
-- [ ] **Command** - a client request is to an invoker and then to a receiver who executes the request
+- [x] [**Command**](./Behavioural/Command/) - a client request is to an invoker and then to a receiver who executes the request
 - [ ] **Interpreter** - implements an expression interface to interpret a particular context
 - [ ] **Iterator** - provides iterate over a collection without knowing its underlying structure
 - [ ] **Mediator** - allows objects to communicate without knowing each other's underlying structure
