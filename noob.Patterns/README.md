@@ -46,8 +46,8 @@ Behavioural design patterns manage communication, relationships and responsibili
 - [x] [**Command**](./Behavioural/Command/) - a client request is to an invoker and then to a receiver who executes the request
 - [ ] **Interpreter** - implements an expression interface to interpret a particular context
 - [ ] **Iterator** - provides iterate over a collection without knowing its underlying structure
-- [ ] **Mediator** - allows objects to communicate without knowing each other's underlying structure
-- [ ] **Observer** - allows a subject to publish changes, and observers to be notified of these changes
+- [x] [**Mediator**](./Behavioural/Mediator/) - allows objects to communicate without knowing each other's underlying structure
+- [x] [**Observer**](./Behavioural/Observer/) - allows a subject to publish changes, and observers to be notified of these changes
 - [ ] **State** - alters object behaviour on state change
 - [ ]  **Strategy** - provides an interface for a client to choose an algorithm at runtime
 - [ ]  **Visitor** - adds new operations to a set of objects without changing the object
