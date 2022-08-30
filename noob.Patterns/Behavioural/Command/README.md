@@ -8,7 +8,7 @@ Using the Command design pattern, a client passes a request (or a 'command') to 
 5) `Receiver` - class which performs actions associated with a request
 
 ## When to use
-- Need to implement call back functionality
+- Need to implement callback functionality
 - Can be used to support redo and undo functionality
 - Can be implemented where different receivers handle commands differently
 - Useful for auditing and logging changes via commands

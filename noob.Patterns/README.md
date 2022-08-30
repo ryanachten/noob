@@ -31,11 +31,11 @@ Structural design patterns deal with the composition of object structures.
 Inheritance is used to compose objects and define ways to compose objects.
 Focuses on how objects and be composed to produce robust application structures.
 
-- [ ] **Adapter** - matches interfaces of different classes
+- [x] [**Adapter**](./Structural/Adapter/) - provides a bridge between two incompatible classes
 - [ ] **Bridge** - separates object abstraction from implementation
 - [ ] **Composite** - used to create hierarchical tree structures
 - [ ] **Decorator** - dynamically adds responsibilities to objects
-- [ ] **Façade** - single class representing a complex system
+- [x] [**Façade**](./Structural/Facade/) - provides a simple entry point for a complex system
 - [ ] **Flyweight** - minimize memory usage through sharing data between objects
 - [ ] **Proxy** - acts as a public interface to an underlying object
 
@@ -43,7 +43,7 @@ Focuses on how objects and be composed to produce robust application structures.
 Behavioural design patterns manage communication, relationships and responsibilities between objects.
 
 - [ ] **Chain of Responsibility** - passes a request among a list (or 'chain') of objects
-- [x] [**Command**](./Behavioural/Command/) - a client request is to an invoker and then to a receiver who executes the request
+- [x] [**Command**](./Behavioural/Command/) - client requests are sent to a receiver via an invoker
 - [ ] **Interpreter** - implements an expression interface to interpret a particular context
 - [ ] **Iterator** - provides iterate over a collection without knowing its underlying structure
 - [x] [**Mediator**](./Behavioural/Mediator/) - allows objects to communicate without knowing each other's underlying structure
