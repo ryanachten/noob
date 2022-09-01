@@ -34,7 +34,7 @@ Focuses on how objects and be composed to produce robust application structures.
 - [x] [**Adapter**](./Structural/Adapter/) - provides a bridge between two incompatible classes
 - [ ] **Bridge** - separates object abstraction from implementation
 - [ ] **Composite** - used to create hierarchical tree structures
-- [ ] **Decorator** - dynamically adds responsibilities to objects
+- [x] [**Decorator**](./Structural/Decorator/) - modify object functionality  at runtime
 - [x] [**Façade**](./Structural/Facade/) - provides a simple entry point for a complex system
 - [ ] **Flyweight** - minimize memory usage through sharing data between objects
 - [ ] **Proxy** - acts as a public interface to an underlying object
@@ -49,7 +49,7 @@ Behavioural design patterns manage communication, relationships and responsibili
 - [x] [**Mediator**](./Behavioural/Mediator/) - allows objects to communicate without knowing each other's underlying structure
 - [x] [**Observer**](./Behavioural/Observer/) - allows a subject to publish changes, and observers to be notified of these changes
 - [ ] **State** - alters object behaviour on state change
-- [ ]  **Strategy** - provides an interface for a client to choose an algorithm at runtime
+- [x]  [**Strategy**](./Behavioural/Strategy/) - provides an interface for a client to choose an algorithm at runtime
 - [ ]  **Visitor** - adds new operations to a set of objects without changing the object
 - [ ]  **Template Method** - defines the basic steps of an algorithm where the implementation of steps can be changed
 
