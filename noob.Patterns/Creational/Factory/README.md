@@ -2,7 +2,7 @@
 Factory pattern allows us to create an object without expose the logic which created it.
 An interface is used for creating the object and a subclass is used to decide which class is instantiated.
 
-Aa factory method is comprised of the following:
+## Participants
 1) `IProduct` - an interface describing the factory product
 2) `ConcreteProduct` - concrete implementation of the product interface
 3) `Creator` - declares the factory method and returns an instance of concrete product

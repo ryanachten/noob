@@ -2,6 +2,7 @@
 The Strategy pattern provides a client with easy access to a family of algorithms at runtime.
 To achieve this, we abstract an algorithm from its host class and put it into a separate class to prevent messy conditional statements.
 
+## Participants
 1) `Context` - class containing a reference to the strategy object. This reference will be set based on which algorithm is required at runtime
 2) `IStrategy` - interface used by the context to call an algorithm
 3) `ConcreteStrategy` - classes that implement the strategy, representing different algorithms

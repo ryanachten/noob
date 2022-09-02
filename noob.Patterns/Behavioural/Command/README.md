@@ -1,6 +1,7 @@
 # noob - Command
 Using the Command design pattern, a client passes a request (or a 'command') to an invoker. The invoker will then pass this command to an object which can handle and execute the command.
 
+## Participants
 1) `Client` - class which creates the command object
 2) `ICommand` - interface containing an execute operation
 3) `ConcreteCommand` - class implementing the execute operation, invoking operations on the receiver

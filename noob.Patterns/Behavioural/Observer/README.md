@@ -1,6 +1,7 @@
 # noob - Observer
 The Observer pattern allows dependencies of a subject to be automatically notified when its state changes.
 
+## Participants
 1) `Subject` - class which contains a collection of observers which are subscribed to notifications.
 2) `ConcreteSubject` - class maintains its own state. When this state changes, it calls the base subject class to notify observers.
 3) `IObserver` - interface which defines an update operation which is called on subject state change

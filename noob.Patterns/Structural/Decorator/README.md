@@ -3,6 +3,7 @@ The Decorator pattern provides an alternative to inheritance, by allowing us to 
 
 A decorator class wraps the original class and extends it by adding new operations and behaviours at runtime.
 
+## Participants
 1) `Component` - interface containing members that will be implemented by the concrete class and the decorator
 2) `ConcreteComponent` - class implementing the component interface
 3) `Decorator` - abstract class implementing the component interface with a reference to the concrete instance. Acts as a base class for different decorators

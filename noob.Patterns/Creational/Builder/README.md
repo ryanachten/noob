@@ -1,6 +1,7 @@
 # noob - Builder
 Builds a complex object using a step-by-step approach. An interface defines the steps to build the final object. The builder itself is independent of the creation process - this is conducted by a director.
 
+## Participants
 1) `Builder` - interface defining the steps to create a product
 2) `ConcreteBuilder` - class implementing the builder interface to create a complex product
 3) `Product` - class defining the complex object that is produced by the builder
