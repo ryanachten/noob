@@ -22,9 +22,9 @@ Creational design patterns create objects in a way where they can be decoupled f
 
 - [x] [**Factory**](./Creational/Factory/) - abstracts the process of creating objects, so the type of object can be determined at runtime
 - [ ] **Abstract Factory** - abstracts the process of creating families of objects, so that families of objects can be determined at runtime
-- [x] [**Builder**](./Creational/Factory/) - builds a complex object using a step-by-step approach
+- [x] [**Builder**](./Creational/Builder/) - builds a complex object using a step-by-step approach
 - [ ] **Prototype** - creates a clone of an object
-- [ ] **Singleton** - ensures there is only one instances of a class
+- [x] [**Singleton**](./Creational/Singleton/) - ensures there is only one instance of a class
 
 ## Structural
 Structural design patterns deal with the composition of object structures.

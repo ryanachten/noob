@@ -5,6 +5,7 @@ The interface exposes a set number of members required by the client. These memb
 
 The subsystems abstracted by the facade should not be aware of the facade.
 
+## Participants
 1) `Complex system` - a library of subsystems
 2) `Subsystem` - classes comprising a complex system
 3) `Facade` - wrapper class containing members required by the client
