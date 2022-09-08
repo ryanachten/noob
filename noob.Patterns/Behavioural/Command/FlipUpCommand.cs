@@ -2,7 +2,7 @@
 
 /// <summary>
 /// Concrete command.
-/// Invokes operations on the reciver.
+/// Invokes operations on the receiver.
 /// </summary>
 public class FlipUpCommand : ICommand
 {

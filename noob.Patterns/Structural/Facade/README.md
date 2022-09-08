@@ -12,6 +12,6 @@ The subsystems abstracted by the facade should not be aware of the facade.
 4) `Client` - class which calls the high-level operations provided by the facade
 
 ## When to use
-- When there is a complex system requiring a logic on the client to be used
+- When there is a complex system requiring logic on the client to be used
 - When multiple subsystems can be aggregated into a unified interface
 - Can be used as part of a refactor of monolithic or tightly coupled systems by providing a consistent access point

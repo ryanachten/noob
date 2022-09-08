@@ -17,6 +17,8 @@
 Design patterns, focusing on those described by the Gang of Four.
 Gang of Four design patterns are split into three categories; *creational*, *structural*, and *behavioural*.
 
+A decision tree to help guide selection of design patterns has been created [here](./PatternDecisionTree.md)
+
 ## Creational
 Creational design patterns create objects in a way where they can be decoupled from their implementing system. This decoupling provides greater flexibility in deciding which objects are required for a given scenario.
 
