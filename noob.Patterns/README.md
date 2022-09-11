@@ -52,7 +52,7 @@ Behavioural design patterns manage communication, relationships and responsibili
 - [x] [**Observer**](./Behavioural/Observer/) - allows a subject to publish changes, and observers to be notified of these changes
 - [ ] **State** - alters object behaviour on state change
 - [x]  [**Strategy**](./Behavioural/Strategy/) - provides an interface for a client to choose an algorithm at runtime
-- [ ]  **Visitor** - adds new operations to a set of objects without changing the object
+- [x]  [**Visitor**](./Behavioural/Visitor/) - perform the same operation on similar kinds of objects
 - [ ]  **Template Method** - defines the basic steps of an algorithm where the implementation of steps can be changed
 
 ## References:

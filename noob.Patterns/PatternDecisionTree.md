@@ -53,4 +53,7 @@ graph TD;
     behavioural-->o1([notify dependencies of state changes])-->observer[Observer]
 
     behavioural-->st1([multiple algorithms for same task])-->strategy[Strategy]
+
+    behavioural-->v1([perform same operation on different objects])-->visitor[Visitor]
+    behavioural-->v2([add operations without changing object])-->visitor
 ```
