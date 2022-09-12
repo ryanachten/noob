@@ -34,7 +34,7 @@ Inheritance is used to compose objects and define ways to compose objects.
 Focuses on how objects and be composed to produce robust application structures.
 
 - [x] [**Adapter**](./Structural/Adapter/) - provides a bridge between two incompatible classes
-- [ ] **Bridge** - separates object abstraction from implementation
+- [x] [**Bridge**](./Structural/Bridge/) - decouples an object's implementation from its abstraction
 - [ ] **Composite** - used to create hierarchical tree structures
 - [x] [**Decorator**](./Structural/Decorator/) - modify object functionality  at runtime
 - [x] [**Façade**](./Structural/Facade/) - provides a simple entry point for a complex system

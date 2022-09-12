@@ -33,6 +33,10 @@ graph TD;
 ```mermaid
 graph TD;
     structural[Structural Pattern]-->a1([incompatible systems])-->adapter[Adapter]
+    structural-->p1([bridging two systems])-->existingSystem{Existing or new system}-->|existing|adapter
+    
+    p1-->existingSystem-->|new|bridge[Bridge]
+    structural-->b1([decouple implementation from abstraction])-->bridge
     
     structural-->d1([modify behaviour at runtime])-->decorator[Decorator]
     
@@ -46,7 +50,7 @@ graph TD;
     behavioural[Behavioural Pattern]-->co1([undo or redo specific actions])-->command[Command]
     behavioural-->p1([decouple interactions between objects])-->howMany{How many objects}-->|2 objects|command
     
-    behavioural-->p1-->howMany-->|>2 objects|mediator[Mediator]
+    p1-->howMany-->|>2 objects|mediator[Mediator]
     behavioural-->m1([complex object communication])-->mediator
     behavioural-->m2([centralise communication])-->mediator
 
