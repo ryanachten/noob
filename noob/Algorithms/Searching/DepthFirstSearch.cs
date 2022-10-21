@@ -26,18 +26,14 @@ public class DepthFirstSearch<TNode, TEdgeData> where TNode : notnull
 
         var edges = _graph.OutgoingEdges().Where(e => e.Source?.Equals(node) ?? false);
         yield return node;
-
-        foreach (var edge in edges)
+        foreach (var edge in edges.Where(
+        // If we haven't visited a node yet, recursively iterate through it's adjacent nodes
+        edge => !_visitedNodes.Contains(edge.Destination)))
         {
-            // If we haven't visited a node yet, recursively iterate through it's adjacent nodes
-            if (!_visitedNodes.Contains(edge.Destination))
+            var nodes = Enumerate(edge.Destination);
+            foreach (var adjacentNode in nodes)
             {
-                var nodes = Enumerate(edge.Destination);
-                foreach (var adjacentNode in nodes)
-                {
-                    var test = adjacentNode.ToString();
-                    yield return adjacentNode;
-                }
+                yield return adjacentNode;
             }
         }
     }

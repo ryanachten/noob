@@ -10,12 +10,15 @@ public static class QuickSort<T>
     /// <returns></returns>
     public static T[] Sort(T[] arr, Func<T, T, int> sortFunction) => Sort(arr, 0, arr.Length - 1, sortFunction);
 
+    /// <summary>
+    /// Recursively subdivide the array and sort the subdivisions
+    /// </summary>
     private static T[] Sort(T[] arr, int left, int right, Func<T, T, int> sortFunction)
     {
         var index = Partition(arr, left, right, sortFunction);
 
         // Sort left half
-        if(left < index - 1) Sort(arr, left, index - 1, sortFunction);
+        if (left < index - 1) Sort(arr, left, index - 1, sortFunction);
 
         // Sort right half
         if (index < right) Sort(arr, index, right, sortFunction);
@@ -32,9 +35,7 @@ public static class QuickSort<T>
         {
             // Find elements on the left and right
             // which should be on the other side of the pivot
-            //while(arr[left].CompareTo(pivot) < 0) left++;
             while (sortFunction(arr[left], pivot) < 0) left++;
-            //while (arr[right].CompareTo(pivot) > 0) right--;
             while (sortFunction(arr[right], pivot) > 0) right--;
 
             // We then swap the elements we've found
