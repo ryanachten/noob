@@ -35,7 +35,7 @@ graph TD;
     structural[Structural Pattern]-->a1([incompatible systems])-->adapter[Adapter]
     structural-->p1([bridging two systems])-->existingSystem{Existing or new system}-->|existing|adapter
     
-    p1-->existingSystem-->|new|bridge[Bridge]
+    existingSystem-->|new|bridge[Bridge]
     structural-->b1([decouple implementation from abstraction])-->bridge
     
     structural-->d1([modify behaviour at runtime])-->decorator[Decorator]
