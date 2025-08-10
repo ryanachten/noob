@@ -19,6 +19,8 @@ public class DisjointSetUnion
     /// </summary>
     public void MakeSet(int vertex)
     {
+        if (parent.ContainsKey(vertex)) return;
+
         parent[vertex] = vertex;
         size[vertex] = 1;
         rank[vertex] = 0;
@@ -38,26 +40,28 @@ public class DisjointSetUnion
     /// (Unoptimized implementation) Finds the root of the set containing the vertex and performs path compression
     /// By pointing the two vertices to the same root, we flatten the structure
     /// </summary>
-    public void UnionSets(int setA, int setB)
+    public bool UnionSets(int setA, int setB)
     {
         var rootA = FindSet(setA);
         var rootB = FindSet(setB);
 
-        if (rootA != rootB)
-        {
-            parent[rootB] = rootA;
-        }
+        if (rootA == rootB) return true;
+
+        parent[rootB] = rootA;
+
+        return false;
     }
 
     /// <summary>
     /// Performs union by size. Appends to root with more descendants.
     /// </summary>
-    public void UnionSetsBySize(int setA, int setB)
+    /// <returns>True if a cycle is detected</returns>
+    public bool UnionSetsBySize(int setA, int setB)
     {
         var rootA = FindSet(setA);
         var rootB = FindSet(setB);
 
-        if (rootA == rootB) return;
+        if (rootA == rootB) return true;
 
         // Ensure rootA is the root with more descendants
         if (size[rootA] < size[rootB])
@@ -70,6 +74,8 @@ public class DisjointSetUnion
 
         // Update the size of the new root
         size[rootA] += size[rootB];
+
+        return false;
     }
 
     /// <summary>
@@ -77,12 +83,12 @@ public class DisjointSetUnion
     /// The root with higher rank becomes the parent of the root with lower rank.
     /// If ranks are equal, one root is chosen arbitrarily and its rank is incremented.
     /// </summary>
-    public void UnionSetsByRank(int setA, int setB)
+    public bool UnionSetsByRank(int setA, int setB)
     {
         var rootA = FindSet(setA);
         var rootB = FindSet(setB);
 
-        if (rootA == rootB) return;
+        if (rootA == rootB) return true;
 
         // Ensure rootA is the root with higher rank
         if (rank[rootA] < rank[rootB])
@@ -98,6 +104,8 @@ public class DisjointSetUnion
         {
             rank[rootA]++;
         }
+
+        return false;
     }
 }
 

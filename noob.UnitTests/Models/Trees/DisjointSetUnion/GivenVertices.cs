@@ -29,6 +29,16 @@ public class GivenVertices
     }
 
     [Fact]
+    public void WhenCreatingAUnionOfWithACycle_ThenTheCycleIsDetected()
+    {
+        var dsu = new DisjointSetUnion();
+        dsu.MakeSet(1);
+        dsu.MakeSet(2);
+        Assert.False(dsu.UnionSets(1, 2));
+        Assert.True(dsu.UnionSets(2, 1));
+    }
+
+    [Fact]
     public void WhenCreatingAUnionOfTwoSetsBySize_ThenTheParentShouldBeSetWithHigherSize()
     {
         var dsu = new DisjointSetUnion();
@@ -45,6 +55,16 @@ public class GivenVertices
     }
 
     [Fact]
+    public void WhenCreatingAUnionBySizeWithACycle_ThenTheCycleIsDetected()
+    {
+        var dsu = new DisjointSetUnion();
+        dsu.MakeSet(1);
+        dsu.MakeSet(2);
+        Assert.False(dsu.UnionSetsBySize(1, 2));
+        Assert.True(dsu.UnionSetsBySize(2, 1));
+    }
+
+    [Fact]
     public void WhenCreatingAUnionOfTwoSetsByRank_ThenTheParentShouldBeSetWithHigherRank()
     {
         var dsu = new DisjointSetUnion();
@@ -58,5 +78,15 @@ public class GivenVertices
         Assert.Equal(2, dsu.FindSet(1));
         Assert.Equal(2, dsu.FindSet(2));
         Assert.Equal(2, dsu.FindSet(3));
+    }
+
+    [Fact]
+    public void WhenCreatingAUnionByRankWithACycle_ThenTheCycleIsDetected()
+    {
+        var dsu = new DisjointSetUnion();
+        dsu.MakeSet(1);
+        dsu.MakeSet(2);
+        Assert.False(dsu.UnionSetsByRank(1, 2));
+        Assert.True(dsu.UnionSetsByRank(2, 1));
     }
 }
