@@ -11,6 +11,8 @@ namespace noob.Models.Trees.DisjointSetUnion;
 public class DisjointSetUnion
 {
     private readonly Dictionary<int, int> parent = [];
+    private readonly Dictionary<int, int> size = [];
+    private readonly Dictionary<int, int> rank = [];
 
     /// <summary>
     /// Creates a new set with root in vertex v, where v is its own parent
@@ -18,6 +20,8 @@ public class DisjointSetUnion
     public void MakeSet(int vertex)
     {
         parent[vertex] = vertex;
+        size[vertex] = 1;
+        rank[vertex] = 0;
     }
 
     /// <summary>
@@ -31,7 +35,7 @@ public class DisjointSetUnion
     }
 
     /// <summary>
-    /// Finds the root of the set containing the vertex and performs path compression
+    /// (Unoptimized implementation) Finds the root of the set containing the vertex and performs path compression
     /// By pointing the two vertices to the same root, we flatten the structure
     /// </summary>
     public void UnionSets(int setA, int setB)
@@ -44,4 +48,57 @@ public class DisjointSetUnion
             parent[rootB] = rootA;
         }
     }
+
+    /// <summary>
+    /// Performs union by size. Appends to root with more descendants.
+    /// </summary>
+    public void UnionSetsBySize(int setA, int setB)
+    {
+        var rootA = FindSet(setA);
+        var rootB = FindSet(setB);
+
+        if (rootA == rootB) return;
+
+        // Ensure rootA is the root with more descendants
+        if (size[rootA] < size[rootB])
+        {
+            (rootA, rootB) = (rootB, rootA);
+        }
+
+        // Attach rootB to rootA
+        parent[rootB] = rootA;
+
+        // Update the size of the new root
+        size[rootA] += size[rootB];
+    }
+
+    /// <summary>
+    /// Performs union by rank, representing the upper bound of the height of the tree.
+    /// The root with higher rank becomes the parent of the root with lower rank.
+    /// If ranks are equal, one root is chosen arbitrarily and its rank is incremented.
+    /// </summary>
+    public void UnionSetsByRank(int setA, int setB)
+    {
+        var rootA = FindSet(setA);
+        var rootB = FindSet(setB);
+
+        if (rootA == rootB) return;
+
+        // Ensure rootA is the root with higher rank
+        if (rank[rootA] < rank[rootB])
+        {
+            (rootA, rootB) = (rootB, rootA);
+        }
+
+        // Attach rootB to rootA
+        parent[rootB] = rootA;
+
+        // If ranks are equal, increment the rank of rootA
+        if (rank[rootA] == rank[rootB])
+        {
+            rank[rootA]++;
+        }
+    }
 }
+
+
