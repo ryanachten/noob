@@ -2,7 +2,7 @@ namespace noob.Architecture.Hexagonal.Application.Ports.Outbound;
 
 using noob.Architecture.Hexagonal.Domain;
 
-public interface IGreetingOutputPort
+public interface IOrderOutputPort
 {
-    void Save(Greeting greeting);
+    void Save(Order order);
 }

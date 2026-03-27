@@ -2,7 +2,7 @@ namespace noob.Architecture.Clean.InterfaceAdapters.Gateways;
 
 using noob.Architecture.Clean.Entities;
 
-public interface IGreetingGateway
+public interface IOrderGateway
 {
-    void Save(Greeting greeting);
+    void Save(Order order);
 }
