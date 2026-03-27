@@ -14,23 +14,18 @@ namespace noob.UnitTests.Exercises.StacksAndQueues;
 /// </summary>
 public class AnimalShelter
 {
-    private class Animal
+    private class Animal(string name)
     {
-        public string Name { get; private set; }
+        public string Name { get; private set; } = name;
         public DateTime TimeOfArrival { get; set; } = default!;
-
-        public Animal(string name)
-        {
-            Name = name;
-        }
     }
 
-    private class Cat : Animal {
-        public Cat(string name) : base(name) { }
+    private class Cat(string name) : Animal(name)
+    {
     }
 
-    private class Dog : Animal {
-        public Dog(string name) : base(name) { }
+    private class Dog(string name) : Animal(name)
+    {
     }
 
 
@@ -42,13 +37,15 @@ public class AnimalShelter
         public AnimalQueue Enqueue(Animal animal)
         {
             animal.TimeOfArrival = DateTime.Now;
-            if(animal is Dog dog)
+            if (animal is Dog dog)
             {
                 DogQueue.Enqueue(dog);
-            } else if (animal is Cat cat)
+            }
+            else if (animal is Cat cat)
             {
                 CatQueue.Enqueue(cat);
-            }  else
+            }
+            else
             {
                 throw new ArgumentException("This type of animal is not supported!");
             }
@@ -61,7 +58,7 @@ public class AnimalShelter
             var dog = DogQueue.Peek();
             var cat = CatQueue.Peek();
 
-            if(dog != null && cat == null || dog?.TimeOfArrival < cat?.TimeOfArrival)
+            if (dog != null && cat == null || dog?.TimeOfArrival < cat?.TimeOfArrival)
             {
                 DogQueue.Dequeue();
                 return dog;

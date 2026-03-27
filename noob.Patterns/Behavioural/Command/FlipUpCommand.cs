@@ -4,14 +4,7 @@
 /// Concrete command.
 /// Invokes operations on the receiver.
 /// </summary>
-public class FlipUpCommand : ICommand
+public class FlipUpCommand(Light light) : ICommand
 {
-    private readonly Light _light;
-
-    public FlipUpCommand(Light light)
-    {
-        _light = light;
-    }
-
-    public void Execute() => _light.TurnOn();
+    public void Execute() => light.TurnOn();
 }

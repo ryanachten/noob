@@ -1,14 +1,8 @@
 ﻿namespace noob.Patterns.Structural.Facade;
 
 // Complex subsytem
-public class Steering
+public class Steering(Engine engine)
 {
-    private readonly Engine _engine;
-
-    public Steering(Engine engine)
-    {
-        _engine = engine;
-    }
 
     /// <summary>
     /// Placeholder method representing a complex process

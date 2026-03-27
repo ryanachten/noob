@@ -15,18 +15,13 @@ public class ShapeRepositoryAfter
         public string Connect() => "Connection-String-123";
     }
 
-    public class ShapeRepository
+    /// <summary>
+    /// We can address this violation by adding a database interface - changing the 
+    /// constructor to rely on an abstraction rather than a concretion.
+    /// Additionally, changing the database provider would no longer result in editing this file - fulfilling OCP
+    /// </summary>
+    public class ShapeRepository(ShapeRepositoryAfter.IShapeDatabase shapeDatabase)
     {
-        private string _dbConnectionString;
-
-        /// <summary>
-        /// We can address this violation by adding a database interface - changing the 
-        /// constructor to rely on an abstraction rather than a concretion.
-        /// Additionally, changing the database provider would no longer result in editing this file - fulfilling OCP
-        /// </summary>
-        public ShapeRepository(IShapeDatabase shapeDatabase)
-        {
-            _dbConnectionString = shapeDatabase.Connect();
-        }
+        private string _dbConnectionString = shapeDatabase.Connect();
     }
 }

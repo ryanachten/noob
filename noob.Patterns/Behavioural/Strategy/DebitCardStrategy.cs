@@ -4,14 +4,9 @@
 /// Concrete strategy.
 /// A concrete strategy implementation, representing an algorithm 
 /// </summary>
-public class DebitCardStrategy : IPaymentStrategy
+public class DebitCardStrategy(int balance) : IPaymentStrategy
 {
-    public int Balance { get; private set; }
-
-    public DebitCardStrategy(int balance)
-    {
-        Balance = balance;
-    }
+    public int Balance { get; private set; } = balance;
 
     public void Pay(int amount)
     {

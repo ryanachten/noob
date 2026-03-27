@@ -1,19 +1,14 @@
 ﻿namespace noob.Models.Graphs.Undirected;
 
-public class AdjacencyListNode<T>
+public class AdjacencyListNode<T>(T value)
 {
-    public T Value { get; private set; }
+    public T Value { get; private set; } = value;
     public readonly ArrayList<AdjacencyListNode<T>> Children = new(2);
 
     /// <summary>
     /// Indicates whether the node has been visited part of a search yet
     /// </summary>
     public bool Visited = false;
-    
-    public AdjacencyListNode(T value)
-    {
-        Value = value;
-    }
 
     /// <summary>
     /// Add child to current node

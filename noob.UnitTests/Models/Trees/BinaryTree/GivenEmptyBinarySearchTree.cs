@@ -103,13 +103,13 @@ public class GivenEmptyBinarySearchTree
 
         // Act
         tree.Add(6, "root");
-        
+
         tree.Add(4, "root.lc");
         tree.Add(8, "root.rc");
 
         tree.Add(3, "root.lc.lc");
         tree.Add(5, "root.lc.rc");
-        
+
         tree.Add(7, "root.rc.lc");
         tree.Add(9, "root.rc.rc");
 

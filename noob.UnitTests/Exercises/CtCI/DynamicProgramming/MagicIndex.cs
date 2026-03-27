@@ -11,9 +11,9 @@ namespace noob.UnitTests.Exercises.CtCI.DynamicProgramming;
 public class MagicIndex
 {
     [Theory]
-    [InlineData(new object[] { new int[] { 0 }, 0 })]
-    [InlineData(new object[] { new int[] { 1 }, -1 })]
-    [InlineData(new object[] { new int[] { 3, 3, 3, 3 }, 3 })]
+    [InlineData([new int[] { 0 }, 0])]
+    [InlineData([new int[] { 1 }, -1])]
+    [InlineData([new int[] { 3, 3, 3, 3 }, 3])]
     public void WhenIndexMatchesValue_ThenMagicIndexIsReturned(int[] vals, int expectedResult)
     {
         var index1 = BruteForceFindMagicIndex(vals, 0);

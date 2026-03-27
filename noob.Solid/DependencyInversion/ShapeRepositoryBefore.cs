@@ -11,17 +11,12 @@ public class ShapeRepositoryBefore
         public string Connect() => "Connection-String-123";
     }
 
-    public class ShapeRepository
+    /// <summary>
+    /// This constructor violates DIP by depending on a concrete class instead of an abstraction
+    /// Additionally, changing the database provider would result in editing this file - violating OCP
+    /// </summary>
+    public class ShapeRepository(ShapeRepositoryBefore.ShapeSqlDatabase shapeSqlDatabase)
     {
-        private string _dbConnectionString;
-
-        /// <summary>
-        /// This constructor violates DIP by depending on a concrete class instead of an abstraction
-        /// Additionally, changing the database provider would result in editing this file - violating OCP
-        /// </summary>
-        public ShapeRepository(ShapeSqlDatabase shapeSqlDatabase)
-        {
-            _dbConnectionString = shapeSqlDatabase.Connect();
-        }
+        private string _dbConnectionString = shapeSqlDatabase.Connect();
     }
 }

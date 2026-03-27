@@ -6,6 +6,28 @@ Onion Architecture, popularized by Jeffrey Palermo, is based on the principle th
 
 At the core of the onion is the Domain Model, which defines the state and behavior of the business. Outer layers can only depend on inner layers.
 
+```mermaid
+graph BT
+    subgraph ExternalLayers[External Layers]
+        Infrastructure[Infrastructure / DB]
+        UI[User Interface / API]
+    end
+
+    subgraph ApplicationLayer[Application Layer]
+        AppServices[Application Services]
+    end
+
+    subgraph CoreLayer[Domain Layer]
+        DomainServices[Domain Services]
+        DomainModel[Domain Model / Entities]
+    end
+
+    Infrastructure --> AppServices
+    UI --> AppServices
+    AppServices --> DomainServices
+    DomainServices --> DomainModel
+```
+
 - **Domain Model (Core)**: Entities and Value Objects. No dependencies on outer layers.
 - **Domain Services (Core)**: Domain-level interfaces and services.
 - **Application Services**: Coordinates tasks and encapsulates business rules.

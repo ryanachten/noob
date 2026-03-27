@@ -30,7 +30,7 @@ public class GivenMinHeap
 
         // Assert
         var expectedKeyOrder = new[] { 1, 2, 3, 4, 5 };
-        var expectedValueOrder = new[] { "test 4" , "test 2", "test 3", "test 5", "test 1" };
+        var expectedValueOrder = new[] { "test 4", "test 2", "test 3", "test 5", "test 1" };
 
         var index = 0;
         while (heap.Size < 0)

@@ -41,7 +41,7 @@ public class TrieHasOneNode : BaseTrieNode, ITrie
         }
 
         // If the first character of a string equals the stored value
-        if(str[0] == _value)
+        if (str[0] == _value)
         {
             _child = _child.Add(str[1..]);
             return this;
@@ -55,9 +55,11 @@ public class TrieHasOneNode : BaseTrieNode, ITrie
         if (string.IsNullOrEmpty(str)) return _terminating;
 
         // If the value of the node equals first char, recursively check descendents for matches
-        if (_value == str[0]) {
+        if (_value == str[0])
+        {
             return _child.Contains(str[1..]);
-        };
+        }
+        ;
 
         // otherwise, it's not a match
         return false;

@@ -34,19 +34,19 @@ public class BSTSequences
         tree2.Add(6, 6);
         tree2.Add(1, 1);
 
-        return new List<object[]>
-        {
-            new object[] {
+        return
+        [
+            [
                 tree1,
-                new int[][]{ new int[]{ 4, 2, 6 }, new int[] { 4, 6, 2 } }
-            },
-            new object[] {
+                new int[][]{ [4, 2, 6], [4, 6, 2] }
+            ],
+            [
                 tree2,
                 new int[][]{
-                    new int[] { 4, 2, 6, 1 }, new int[] { 4, 6, 2, 1 }, new int[] { 4, 2, 1, 6 }
+                    [4, 2, 6, 1], [4, 6, 2, 1], [4, 2, 1, 6]
                 }
-            }
-        };
+            ]
+        ];
     }
 
     [Theory]
@@ -69,7 +69,8 @@ public class BSTSequences
     public static List<LinkedList<int>> GenerateSequences(BinaryTreeNode<int, int>? node)
     {
         var result = new List<LinkedList<int>>();
-        if (node == null) {
+        if (node == null)
+        {
             result.Add(new());
             return result;
         }
@@ -86,7 +87,7 @@ public class BSTSequences
         {
             foreach (var right in rightSequence)
             {
-                var weaved = new List<LinkedList<int>>(); 
+                var weaved = new List<LinkedList<int>>();
                 WeaveLists(left, right, weaved, prefix);
                 result.AddRange(weaved);
             }
@@ -107,7 +108,7 @@ public class BSTSequences
         LinkedList<int> first, LinkedList<int> second, List<LinkedList<int>> results, LinkedList<int> prefix)
     {
         // If one list is empty, add the remainder to a clone of the prefix
-        if(!first.Any() || !second.Any())
+        if (!first.Any() || !second.Any())
         {
             var result = prefix.Clone();
             result.AddRange(first);

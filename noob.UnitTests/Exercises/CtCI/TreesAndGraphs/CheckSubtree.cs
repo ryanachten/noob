@@ -81,21 +81,21 @@ public class CheckSubtree
         tree5.Add(2, 2);
         tree5.Add(1, 1, tree5.Root!.RightChild!);
 
-        return new List<object[]>
-        {
-            new object[] {
+        return
+        [
+            [
                 tree1, new BinaryTree<int, int>(tree1.Root!.LeftChild!), true
-            },
-            new object[] {
+            ],
+            [
                 tree1, tree2, false
-            },
-            new object[] {
+            ],
+            [
                 tree1, tree3, false
-            },
-            new object[] {
+            ],
+            [
                 tree4, tree5, false
-            }
-        };
+            ]
+        ];
     }
 
     [Theory]
@@ -112,7 +112,7 @@ public class CheckSubtree
 
     private static bool IsSubtree(BinaryTree<int, int> tree, BinaryTree<int, int> tree2)
     {
-        BinaryTree<int, int>? subTree = null; 
+        BinaryTree<int, int>? subTree = null;
         foreach (var node in tree.Items(BinaryTreeTraversalOrder.PRE_ORDER))
         {
             if (node != null && node.Equals(tree2.Root))
@@ -129,14 +129,14 @@ public class CheckSubtree
         var nodes1 = NullablePreOrderTraversal(subTree.Root);
         var nodes2 = NullablePreOrderTraversal(tree2.Root);
 
-        if(nodes1.Count() != nodes2.Count()) return false;
+        if (nodes1.Count() != nodes2.Count()) return false;
 
         for (int i = 0; i < nodes1.Count(); i++)
-        {   
+        {
             var node1 = nodes1.ElementAt(i);
             var node2 = nodes2.ElementAt(i);
 
-            if(node1 != null && !node1.Equals(node2))
+            if (node1 != null && !node1.Equals(node2))
             {
                 treesMatch = false;
                 break;
@@ -152,7 +152,7 @@ public class CheckSubtree
     /// </summary>
     private static IEnumerable<BinaryTreeNode<int, int>?> NullablePreOrderTraversal(BinaryTreeNode<int, int>? node)
     {
-        if(node != null)
+        if (node != null)
         {
             yield return node;
 
@@ -165,7 +165,8 @@ public class CheckSubtree
             {
                 yield return child;
             }
-        } else
+        }
+        else
         {
             yield return null;
         }

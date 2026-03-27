@@ -11,10 +11,11 @@ public static class LinkedListExtensions
     /// <summary>
     /// Adds the contents of one LinkedList to another
     /// </summary>
-    public static void AddRange<T>(this LinkedList<T> source, LinkedList<T> target) {
+    public static void AddRange<T>(this LinkedList<T> source, LinkedList<T> target)
+    {
         foreach (var node in target)
         {
             source.AddLast(node);
         }
-    } 
+    }
 }

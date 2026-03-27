@@ -1,18 +1,13 @@
 ﻿namespace noob.Patterns.Behavioural.Strategy;
 
-public class Item
+public class Item(int cost)
 {
-    public Item(int cost)
-    {
-        Cost = cost;
-    }
-
-    public int Cost { get; }
+    public int Cost { get; } = cost;
 }
 
 public class ShoppingCart
 {
-    private readonly List<Item> _items = new();
+    private readonly List<Item> _items = [];
 
     public ShoppingCart AddItem(Item item)
     {

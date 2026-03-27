@@ -2,19 +2,12 @@
 
 namespace noob.Algorithms;
 
-public class Dijkstra<TNode> where TNode : notnull
+/// <param name="targetNode">Target node to find shortest path for</param>
+/// <param name="graph">
+/// Edges eligible for review
+/// </param>
+public class Dijkstra<TNode>(DirectedGraph<TNode, int> graph) where TNode : notnull
 {
-    /// <summary>
-    /// Edges eligible for review
-    /// </summary>
-    private readonly DirectedGraph<TNode, int> _graph;
-
-    /// <param name="targetNode">Target node to find shortest path for</param>
-    public Dijkstra(DirectedGraph<TNode, int> graph)
-    {
-        _graph = graph;
-    }
-
     public List<TNode>? ShortestPath(TNode sourceNode, TNode targetNode)
     {
         var distances = new Dictionary<TNode, double>();
@@ -22,7 +15,7 @@ public class Dijkstra<TNode> where TNode : notnull
         var localNodes = new List<TNode>();
 
         // Copy nodes and set distance to infinity as it's currently unknown
-        foreach (var node in _graph.Nodes)
+        foreach (var node in graph.Nodes)
         {
             localNodes.Add(node);
             distances.Add(node, double.PositiveInfinity);
@@ -35,14 +28,14 @@ public class Dijkstra<TNode> where TNode : notnull
             var minNode = localNodes.OrderBy(n => distances[n]).First(); // TODO: we could probably use a priority queue here instead
             localNodes.Remove(minNode);
 
-            var edges = _graph.OutgoingEdges();
+            var edges = graph.OutgoingEdges();
             var neighbours = edges.Where(x => x.Source.Equals(minNode));
             foreach (var edge in neighbours)
             {
                 // If the distance from the min node to the current destination is shorter
                 // then update distance and previous entries
                 var distance = distances[minNode] + edge.Value;
-                if(distance < distances[edge.Destination])
+                if (distance < distances[edge.Destination])
                 {
                     distances[edge.Destination] = distance;
                     previousNodes[edge.Destination] = minNode;

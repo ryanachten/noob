@@ -1,23 +1,17 @@
 ﻿namespace noob.Models.Trees.Heaps;
 
-public class MinHeap<TPriority, TValue> where TPriority : IComparable<TPriority>
+public class MinHeap<TPriority, TValue>(int capacity) where TPriority : IComparable<TPriority>
 {
     /// <summary>
     /// Capacity of the current heap array
     /// </summary>
-    protected int _capacity;
-    protected KeyValuePair<TPriority, TValue>?[] _data;
+    protected int _capacity = capacity;
+    protected KeyValuePair<TPriority, TValue>?[] _data = new KeyValuePair<TPriority, TValue>?[capacity];
 
     /// <summary>
     /// Number of items in the heap
     /// </summary>
     public int Size { get; protected set; }
-
-    public MinHeap(int capacity)
-    {
-        _capacity = capacity;
-        _data = new KeyValuePair<TPriority, TValue>?[capacity];
-    }
 
     /// <summary>
     /// Returns the min element in the heap

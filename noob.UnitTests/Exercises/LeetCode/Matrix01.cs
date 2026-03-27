@@ -6,12 +6,12 @@ namespace noob.UnitTests.Exercises.LeetCode;
 
 public class Matrix01
 {
-    public static IEnumerable<object[]> Matrices() => new List<object[]>
-    {
-        new object[] { new int[][] { new int[] { 0, 0, 0 },new int[] { 0, 1, 0 }, new int[] { 0, 0, 0 } }},
-        new object[] { new int[][] { new int[] { 0, 0, 0 },new int[] { 0, 1, 0 }, new int[] { 1, 1, 1 } }},
+    public static IEnumerable<object[]> Matrices() =>
+    [
+        [new int[][] { [0, 0, 0],[0, 1, 0], [0, 0, 0] }],
+        [new int[][] { [0, 0, 0],[0, 1, 0], [1, 1, 1] }],
 
-    };
+    ];
 
     [Theory]
     [MemberData(nameof(Matrices))]

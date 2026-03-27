@@ -3,17 +3,10 @@ namespace noob.Architecture.Onion.Presentation.Controllers;
 using noob.Architecture.Onion.Application.Services;
 using noob.Architecture.Onion.Domain.Entities;
 
-public class OrdersController
+public class OrdersController(OrderAppService service)
 {
-    private readonly OrderAppService _service;
-
-    public OrdersController(OrderAppService service)
-    {
-        _service = service;
-    }
-
     public Order Create(string customerName, decimal amount)
     {
-        return _service.Create(customerName, amount);
+        return service.Create(customerName, amount);
     }
 }

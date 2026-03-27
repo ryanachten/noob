@@ -11,10 +11,10 @@ public class Stack<T> where T : struct
     public T? Pop()
     {
         if (Top == null) return null;
-        
+
         T item = Top.Data;
         Top = Top.Next;
-        
+
         return item;
     }
 

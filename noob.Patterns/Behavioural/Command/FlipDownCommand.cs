@@ -4,14 +4,7 @@
 /// Concrete command.
 /// Invokes operations on the receiver.
 /// </summary>
-public class FlipDownCommand : ICommand
+public class FlipDownCommand(Light light) : ICommand
 {
-    private readonly Light _light;
-
-    public FlipDownCommand(Light light)
-    {
-        _light = light;
-    }
-
-    public void Execute() => _light.TurnOff();
+    public void Execute() => light.TurnOff();
 }

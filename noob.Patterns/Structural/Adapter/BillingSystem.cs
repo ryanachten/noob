@@ -4,15 +4,9 @@
 /// Client class.
 /// In this case, a third-party billing system requiring a list of employees from our HR system.
 /// </summary>
-public class BillingSystem
+public class BillingSystem(IHREmployeeTarget employeeSource)
 {
-    private readonly IHREmployeeTarget _employeeSource;
-    public List<string> Employees { get; private set; } = new();
+    public List<string> Employees { get; private set; } = [];
 
-    public BillingSystem(IHREmployeeTarget employeeSource)
-    {
-        _employeeSource = employeeSource;
-    }
-
-    public void GetEmployees() => Employees = _employeeSource.GetEmployeeList().ToList();
+    public void GetEmployees() => Employees = employeeSource.GetEmployeeList().ToList();
 }

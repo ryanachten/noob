@@ -28,35 +28,35 @@ public class FirstCommonAncestor
         tree.Add(5, 5, tree.Root!.RightChild!);
         tree.Add(7, 7, tree.Root!.RightChild!);
 
-        return new List<object[]>
-        {
-            new object[] {
+        return
+        [
+            [
                 // 2, 6, 4
                 tree, tree.Root!.RightChild!, tree.Root!.LeftChild!, tree.Root
-            },
-            new object[] {
+            ],
+            [
                 // 5, 6, 4
                 tree, tree.Root!.RightChild!.LeftChild!, tree.Root!.LeftChild!, tree.Root
-            },
-            new object[] {
+            ],
+            [
                 // 5, 7, 2
                 tree, tree.Root!.RightChild!.LeftChild!, tree.Root!.RightChild!.RightChild!, tree.Root!.RightChild
-            },
-            new object[] {
+            ],
+            [
                 // 5, 4, null
                 tree, tree.Root!.RightChild!.LeftChild!, tree.Root, tree.Root
-            },
-            new object[] {
+            ],
+            [
                 // 5, 4, null
                 tree, tree.Root!.RightChild!.LeftChild!, new BinaryTreeNode<int, int>(100, 100), default!
-            },
-        };
+            ],
+        ];
     }
 
     [Theory]
     [MemberData(nameof(Nodes))]
     public void WhenFindingCommonAncestorViaParent_ThenCommonAncestorIsDetermined(
-        BinaryTree<int, int> tree, BinaryTreeNode<int, int> node1, BinaryTreeNode<int, int> node2, BinaryTreeNode<int, int>? expectedNode)
+BinaryTreeNode<int, int> node1, BinaryTreeNode<int, int> node2, BinaryTreeNode<int, int>? expectedNode)
     {
         // Act
         var result = GetCommonAncestorViaParent(node1, node2);
@@ -129,7 +129,7 @@ public class FirstCommonAncestor
     {
         if (currentNode == null) return false;
 
-        if(currentNode.Equals(targetNode)) return true;
+        if (currentNode.Equals(targetNode)) return true;
 
         var left = ContainsNode(currentNode.LeftChild, targetNode);
         var right = ContainsNode(currentNode.RightChild, targetNode);

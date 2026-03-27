@@ -1,15 +1,8 @@
 ﻿namespace noob.Models.Graphs.Directed;
 
-public class Edge<TNode, TEdgeData>
+public class Edge<TNode, TEdgeData>(TNode source, TNode destination, TEdgeData? value)
 {
-    public TNode Source { get; set; }
-    public TNode Destination { get; set; }
-    public TEdgeData? Value { get; set; }
-
-    public Edge(TNode source, TNode destination, TEdgeData? value)
-    {
-        Source = source;
-        Destination = destination;
-        Value = value;
-    }
+    public TNode Source { get; set; } = source;
+    public TNode Destination { get; set; } = destination;
+    public TEdgeData? Value { get; set; } = value;
 }

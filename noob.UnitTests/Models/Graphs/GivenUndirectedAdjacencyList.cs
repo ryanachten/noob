@@ -21,7 +21,7 @@ public class GivenUndirectedAdjacencyList
 
         // Assert
         Assert.Equal(2, graph.Nodes.Count);
-        
+
         var firstNode = graph.Nodes.Data[0];
         Assert.Equal(1, firstNode.Value);
         Assert.Equal(2, firstNode.Children.Count);
@@ -52,7 +52,7 @@ public class GivenUndirectedAdjacencyList
         /// 7 8 9
 
         // Assert
-        var expectedNodes = new[] {1, 4, 7, 2, 5, 8, 3, 6, 9};
+        var expectedNodes = new[] { 1, 4, 7, 2, 5, 8, 3, 6, 9 };
         var index = 0;
         foreach (var node in graph.DepthFirstSearch())
         {

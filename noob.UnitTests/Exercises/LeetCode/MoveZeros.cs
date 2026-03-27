@@ -5,14 +5,15 @@ namespace noob.UnitTests.Exercises.LeetCode;
 public class MoveZeros
 {
     [Theory]
-    [InlineData(new object[] { new int[] { 4, 2, 4, 0, 0, 3, 0, 5, 1, 0 }, new int[] { 4, 2, 4, 3, 5, 1, 0, 0, 0, 0 } })]
-    [InlineData(new object[] { new int[] { -58305, -22022, 0, 0, 0, 0, 0, -76070, 42820, 48119, 0, 95708, -91393, 60044, 0, -34562, 0, -88974 }, new int[] { -58305, -22022, -76070, 42820, 48119, 95708, -91393, 60044, -34562, -88974, 0, 0, 0, 0, 0, 0, 0, 0 } })]
+    [InlineData([new int[] { 4, 2, 4, 0, 0, 3, 0, 5, 1, 0 }, new int[] { 4, 2, 4, 3, 5, 1, 0, 0, 0, 0 }])]
+    [InlineData([new int[] { -58305, -22022, 0, 0, 0, 0, 0, -76070, 42820, 48119, 0, 95708, -91393, 60044, 0, -34562, 0, -88974 }, new int[] { -58305, -22022, -76070, 42820, 48119, 95708, -91393, 60044, -34562, -88974, 0, 0, 0, 0, 0, 0, 0, 0 }])]
     public void WhenMovingZeroes_ThenZeroesAreMovedToTheBack(int[] arr, int[] expectedResult)
     {
         MoveZeroes(arr);
         Assert.Equal(expectedResult, arr);
     }
 
+    [Theory]
     public void MoveZeroes(int[] nums)
     {
 

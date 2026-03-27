@@ -6,9 +6,9 @@ namespace noob.UnitTests.Exercises.LeetCode;
 public class MaxProductAfterKIncrements
 {
     [Theory]
-    [InlineData(new object[] { new[] { 0, 4 }, 5, 20 })]
-    [InlineData(new object[] { new[] { 6, 3, 3, 2 }, 2, 216 })]
-    [InlineData(new object[] { new[] { 24, 5, 64, 53, 26, 38 }, 54, 180820950 })]
+    [InlineData([new[] { 0, 4 }, 5, 20])]
+    [InlineData([new[] { 6, 3, 3, 2 }, 2, 216])]
+    [InlineData([new[] { 24, 5, 64, 53, 26, 38 }, 54, 180820950])]
     public void WhenFindingMaxAfterIncrements_ThenMaxSumProductIsReturned(int[] nums, int k, int expectedResult)
     {
         var result = MaximumProduct(nums, k);

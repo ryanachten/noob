@@ -6,10 +6,10 @@ namespace noob.UnitTests.Exercises.LeetCode;
 public class MoveStonesUntilConsecutive
 {
     [Theory]
-    [InlineData(new object[] { 1, 2, 5, new int[] { 1, 2 } })]
-    [InlineData(new object[] { 4, 3, 2, new int[] { 0, 0 } })]
-    [InlineData(new object[] { 3, 5, 1, new int[] { 1, 2 } })]
-    [InlineData(new object[] { 9, 7, 1, new int[] { 1, 6 } })]
+    [InlineData([1, 2, 5, new int[] { 1, 2 }])]
+    [InlineData([4, 3, 2, new int[] { 0, 0 }])]
+    [InlineData([3, 5, 1, new int[] { 1, 2 }])]
+    [InlineData([9, 7, 1, new int[] { 1, 6 }])]
     public void WhenDeterminingNumberOfMoves_ThenMaxAndMixMovesAreReturned(
         int a, int b, int c, int[] expectedResults)
     {
@@ -35,7 +35,7 @@ public class MoveStonesUntilConsecutive
         var minCount = MoveMin(sorted[0], sorted[1], sorted[2], 0);
         var maxCount = MoveMax(sorted[0], sorted[1], sorted[2], 0);
 
-        return new int[] { minCount, maxCount };
+        return [minCount, maxCount];
     }
 
 

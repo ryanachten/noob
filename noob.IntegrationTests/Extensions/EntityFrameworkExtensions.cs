@@ -16,7 +16,7 @@ public static class EntityFrameworkExtensions
     {
         var sqlFilePath = filePath.Replace(".cs", ".sql");
         using StreamReader file = File.OpenText(sqlFilePath);
-            var rawSql = file.ReadToEnd();
-            return dbSet.FromSqlRaw(rawSql);
+        var rawSql = file.ReadToEnd();
+        return dbSet.FromSqlRaw(rawSql);
     }
 }

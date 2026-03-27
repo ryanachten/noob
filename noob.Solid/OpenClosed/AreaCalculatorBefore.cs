@@ -5,14 +5,8 @@ namespace noob.Solid.OpenClosed;
 /// <summary>
 /// Objects or entities should be open for extension but closed for modification.
 /// </summary>
-public class AreaCalculatorBefore
+public class AreaCalculatorBefore(IEnumerable<ITwoDimensionalShape> shapes)
 {
-    private readonly IEnumerable<ITwoDimensionalShape> _shapes;
-
-    public AreaCalculatorBefore(IEnumerable<ITwoDimensionalShape> shapes)
-    {
-        _shapes = shapes;
-    }
 
     /// <summary>
     /// This implementation violates the Open-Closed Principle
@@ -24,7 +18,7 @@ public class AreaCalculatorBefore
     public double Sum()
     {
         double sum = 0;
-        foreach (var shape in _shapes)
+        foreach (var shape in shapes)
         {
             if (shape.GetType() == typeof(Circle))
             {

@@ -5,15 +5,9 @@ namespace noob.Algorithms.Searching;
 /// <summary>
 /// DFS implementation for directed graphs
 /// </summary>
-public class DepthFirstSearch<TNode, TEdgeData> where TNode : notnull
+public class DepthFirstSearch<TNode, TEdgeData>(DirectedGraph<TNode, TEdgeData> graph) where TNode : notnull
 {
-    private readonly DirectedGraph<TNode, TEdgeData> _graph;
-    private readonly List<TNode> _visitedNodes = new();
-
-    public DepthFirstSearch(DirectedGraph<TNode, TEdgeData> graph)
-    {
-        _graph = graph;
-    }
+    private readonly List<TNode> _visitedNodes = [];
 
     /// <summary>
     /// Enumerates though graph, returning descendants before neighbours
@@ -24,7 +18,7 @@ public class DepthFirstSearch<TNode, TEdgeData> where TNode : notnull
     {
         _visitedNodes.Add(node);
 
-        var edges = _graph.OutgoingEdges().Where(e => e.Source?.Equals(node) ?? false);
+        var edges = graph.OutgoingEdges().Where(e => e.Source?.Equals(node) ?? false);
         yield return node;
         foreach (var edge in edges.Where(
         // If we haven't visited a node yet, recursively iterate through it's adjacent nodes

@@ -32,18 +32,14 @@ public class TenantApartment
     public Apartment Apartment { get; set; } = default!;
 }
 
-public class ApartmentContext : DbContext
+public class ApartmentContext(DbContextOptions<ApartmentContext> options) : DbContext(options)
 {
-    public ApartmentContext(DbContextOptions<ApartmentContext> options) : base(options) { }
     public DbSet<Building> Buildings { get; set; } = default!;
     public DbSet<Apartment> Apartments { get; set; } = default!;
     public DbSet<Tenant> Tenants { get; set; } = default!;
     public DbSet<TenantApartment> TenantApartments { get; set; } = default!;
 }
 
-public abstract class BaseApartmentExercise : TestDatabaseFixture<ApartmentContext>
+public abstract class BaseApartmentExercise(ApplicationFactory<ApartmentContext> factory) : TestDatabaseFixture<ApartmentContext>(factory)
 {
-    public BaseApartmentExercise(ApplicationFactory<ApartmentContext> factory) : base(factory)
-    {
-    }
 }

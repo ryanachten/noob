@@ -6,7 +6,7 @@ namespace noob.UnitTests.Patterns.Structural;
 public class FacadeTests
 {
     [Fact]
-    public async void WhenCreatingCar_ThenCarComponentsAreCreatedProperly()
+    public async System.Threading.Tasks.Task WhenCreatingCar_ThenCarComponentsAreCreatedProperly()
     {
         var car = await CarFacade.CreateCar();
 

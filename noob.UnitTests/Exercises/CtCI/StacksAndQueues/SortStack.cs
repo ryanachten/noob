@@ -39,31 +39,33 @@ public class SortStack
 
             var lastItem = sorted.Peek();
             // If sorted stack is empty, just add the item
-            if(lastItem == null)
+            if (lastItem == null)
             {
                 sorted.Push((int)item!);
-            
-            // If new item is smaller than previous
-            // append it to the sorted stack
-            } else if(item < lastItem)
+
+                // If new item is smaller than previous
+                // append it to the sorted stack
+            }
+            else if (item < lastItem)
             {
                 sorted.Push((int)item);
-            
-            // If new item is greater than previous,
-            } else
+
+                // If new item is greater than previous,
+            }
+            else
             {
                 // dig through stack until we find the proper location
                 var numberOfItemsPopped = 0;
-                while(sorted.Peek() < item && !sorted.IsEmpty())
+                while (sorted.Peek() < item && !sorted.IsEmpty())
                 {
                     // use stack as temp storage while sort things out
                     stack.Push((int)sorted.Pop()!);
                     numberOfItemsPopped++;
                 }
-                
+
                 // then add the new item in correct order
                 sorted.Push((int)item!);
-                
+
                 // then add the other items back again
                 for (int i = 0; i < numberOfItemsPopped; i++)
                 {

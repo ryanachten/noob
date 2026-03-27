@@ -8,19 +8,19 @@ namespace noob.UnitTests.Exercises.ArraysAndStrings;
 /// </summary>
 public class RotateMatrix
 {
-    private readonly byte[][] _image = new byte[][] {
-            new byte[] { 01, 02, 03, 04 },
-            new byte[] { 05, 06, 07, 08 },
-            new byte[] { 09, 10, 11, 12 },
-            new byte[] { 13, 14, 15, 16 },
-        };
+    private readonly byte[][] _image = [
+            [01, 02, 03, 04],
+            [05, 06, 07, 08],
+            [09, 10, 11, 12],
+            [13, 14, 15, 16],
+        ];
 
-    private readonly byte[][] _expectedResult = new byte[][] {
-            new byte[] { 13, 09, 05, 01 },
-            new byte[] { 14, 10, 06, 02 },
-            new byte[] { 15, 11, 07, 03 },
-            new byte[] { 16, 12, 08, 04 },
-        };
+    private readonly byte[][] _expectedResult = [
+            [13, 09, 05, 01],
+            [14, 10, 06, 02],
+            [15, 11, 07, 03],
+            [16, 12, 08, 04],
+        ];
 
     [Fact]
     public void WhenRotatingAnImage_ThenImageIsRotated90Degrees()

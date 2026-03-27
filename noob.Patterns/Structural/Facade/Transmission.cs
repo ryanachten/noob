@@ -1,14 +1,8 @@
 ﻿namespace noob.Patterns.Structural.Facade;
 
 // Complex subsytem
-public class Transmission
+public class Transmission(Engine engine)
 {
-    private readonly Engine _engine;
-
-    public Transmission(Engine engine)
-    {
-        _engine = engine;
-    }
 
     /// <summary>
     /// Placeholder method representing a complex process

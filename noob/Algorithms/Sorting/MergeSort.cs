@@ -14,7 +14,7 @@ public static class MergeSort<T> where T : IComparable<T>
 
     private static T[] Sort(T[] source, T[] helper, int low, int high)
     {
-        if(low < high)
+        if (low < high)
         {
             var middle = (low + high) / 2;
             Sort(source, helper, low, middle); // sort left half
@@ -42,7 +42,8 @@ public static class MergeSort<T> where T : IComparable<T>
             {
                 source[current] = helper[left];
                 left++;
-            } else
+            }
+            else
             {
                 source[current] = helper[right];
                 right++;

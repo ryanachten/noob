@@ -2,19 +2,13 @@
 
 namespace noob.Algorithms;
 
-public class Permutation
+public class Permutation(string str)
 {
     private readonly ArrayList<string> _permutations = new(5);
-    private string _str;
-
-    public Permutation(string str)
-    {
-        _str = str;
-    }
 
     public Permutation Permutate()
     {
-        Permutate(0, _str.Length - 1);
+        Permutate(0, str.Length - 1);
 
         return this;
     }
@@ -30,8 +24,9 @@ public class Permutation
     {
         if (start == end)
         {
-            _permutations.Add(_str);
-        } else
+            _permutations.Add(str);
+        }
+        else
         {
             /// For each recursive step, we do the following
             /// - swap the first index with the current index
@@ -39,9 +34,9 @@ public class Permutation
             /// - swap the first index with the current index
             for (int i = start; i <= end; i++)
             {
-                _str = Swap(_str, start, i);
+                str = Swap(str, start, i);
                 Permutate(start + 1, end);
-                _str = Swap(_str, start, i);
+                str = Swap(str, start, i);
             }
         }
 

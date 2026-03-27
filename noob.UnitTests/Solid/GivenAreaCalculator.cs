@@ -11,18 +11,17 @@ namespace noob.UnitTests.Solid;
 public class GivenAreaCalculator
 {
     public static IEnumerable<object[]> Shapes() =>
-        new List<object[]>
-        {
-            new object[] {
+        [
+            [
                 new ITwoDimensionalShape[] { new Circle(3) }, 28,
-            },
-            new object[] {
+            ],
+            [
                 new ITwoDimensionalShape[] { new Square(2) }, 4
-            },
-            new object[] {
+            ],
+            [
                 new ITwoDimensionalShape[] { new Circle(3), new Square(2) }, 32
-            },
-        };
+            ],
+        ];
 
     [Theory]
     [MemberData(nameof(Shapes))]

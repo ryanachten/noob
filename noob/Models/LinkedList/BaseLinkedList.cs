@@ -1,13 +1,8 @@
 ﻿namespace noob.Models.LinkedList;
 
-public abstract class BaseLinkedList<T>
+public abstract class BaseLinkedList<T>(T data)
 {
-    public LinkedListNode<T> Head { get; set; }
-
-    public BaseLinkedList(T data)
-    {
-        Head = new LinkedListNode<T>(data);
-    }
+    public LinkedListNode<T> Head { get; set; } = new LinkedListNode<T>(data);
 
     /// <summary>
     /// Items iterator, allows us to use foreach statements with LinkedLists
@@ -32,7 +27,7 @@ public abstract class BaseLinkedList<T>
         var str = string.Empty;
         foreach (var item in Items())
         {
-            if(item.Previous != null)
+            if (item.Previous != null)
             {
                 str += "<-";
             }

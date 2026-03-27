@@ -5,16 +5,16 @@ namespace noob.UnitTests.Algorithms.Searching.BFS;
 
 public class GivenMatrixBfsTraversal
 {
-    public static readonly IEnumerable<object[]> Matrices = new List<object[]>
-    {
+    public static readonly IEnumerable<object[]> Matrices =
+    [
         /// 1 2 3
         /// 4 5 6
         /// 7 8 9
-        new object[] {
+        [
             new int[,] { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } },
             new int[] { 1, 2, 4, 3, 5, 7, 6, 8, 9 }
-        }
-    };
+        ]
+    ];
 
     [Theory]
     [MemberData(nameof(Matrices))]

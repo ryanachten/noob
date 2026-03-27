@@ -6,7 +6,7 @@
 /// </summary>
 public class Switch
 {
-    private readonly List<ICommand> _commands = new();
+    private readonly List<ICommand> _commands = [];
 
     public void Execute(ICommand command)
     {

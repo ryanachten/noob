@@ -33,7 +33,7 @@ public class LongestPalindromeSubstring
             }
             else
             {
-                characterIndex.Add(currentChar, new List<int> { i });
+                characterIndex.Add(currentChar, [i]);
             }
         }
 

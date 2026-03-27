@@ -63,23 +63,23 @@ public class ValidateBST
         tree4.Add(5, 5);
         tree4.Add(7, 7);
 
-        return new List<object[]>
-        {
-            new object[] {
+        return
+        [
+            [
                 tree1, false
-            },
-            new object[] {
+            ],
+            [
                 tree2, true
-            },
-            new object[] {
+            ],
+            [
                 tree3, false
-            },
-            new object[] {
+            ],
+            [
                 tree4, false
-            }
-        };
+            ]
+        ];
     }
-        
+
 
     [Theory]
     [MemberData(nameof(Trees))]

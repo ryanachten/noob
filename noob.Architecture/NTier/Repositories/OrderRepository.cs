@@ -10,7 +10,7 @@ public interface IOrderRepository
 
 public class OrderRepository : IOrderRepository
 {
-    private readonly List<Order> _orders = new();
+    private readonly List<Order> _orders = [];
 
     public Order? GetById(int id) => _orders.FirstOrDefault(o => o.Id == id);
 

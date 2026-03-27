@@ -30,7 +30,8 @@ public class PalindromePermutation
             if (count != null)
             {
                 table.Add(character, (int)count + 1);
-            } else
+            }
+            else
             {
                 table.Add(character, 1);
             }

@@ -1,9 +1,7 @@
 ﻿namespace noob.Models.LinkedList;
 
-public class DoublyLinkedList<T> : BaseLinkedList<T>, ILinkedList<T>
+public class DoublyLinkedList<T>(T data) : BaseLinkedList<T>(data), ILinkedList<T>
 {
-    public DoublyLinkedList(T data) : base(data) { }
-
     public ILinkedList<T> Append(T data)
     {
         var end = new LinkedListNode<T>(data);
@@ -39,7 +37,7 @@ public class DoublyLinkedList<T> : BaseLinkedList<T>, ILinkedList<T>
             {
                 n.Next = n.Next.Next; // orphan n.Next
 
-                if(n.Next?.Previous != null)
+                if (n.Next?.Previous != null)
                 {
                     n.Next.Previous = n;
                 }

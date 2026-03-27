@@ -12,7 +12,7 @@ public static class SelectionSort
             var smallestValue = int.MaxValue;
             int? smallestIndex = null;
             var searchArr = arr[i..];
-            
+
             for (int j = 0; j < searchArr.Length; j++)
             {
                 // If the current value is smaller than the current sweep number, update it

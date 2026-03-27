@@ -4,15 +4,10 @@
 /// Abstraction.
 /// Defines the base shape for concrete implementations.
 /// </summary>
-public abstract class Shape
+public abstract class Shape(IColour colour)
 {
-    protected IColour _colour;
+    protected IColour _colour = colour;
     public string? Fill { get; private set; }
-
-    public Shape(IColour colour)
-    {
-        _colour = colour;
-    }
 
     public void ApplyColour()
     {

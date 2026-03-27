@@ -5,19 +5,12 @@ namespace noob.Solid.SingleResponsibility;
 /// <summary>
 /// A class should have only one reason to change, meaning that a class should have only one job.
 /// </summary>
-public class AreaCalculatorBefore
+public class AreaCalculatorBefore(IEnumerable<ITwoDimensionalShape> shapes)
 {
-    private readonly IEnumerable<ITwoDimensionalShape> _shapes;
-
-    public AreaCalculatorBefore(IEnumerable<ITwoDimensionalShape> shapes)
-    {
-        _shapes = shapes;
-    }
-
     public double Sum()
     {
         double sum = 0;
-        foreach (var shape in _shapes)
+        foreach (var shape in shapes)
         {
             sum += shape.Area;
         }
@@ -31,5 +24,5 @@ public class AreaCalculatorBefore
     /// The output method also doesn't scale very well - what if output formatting differs based on target?
     /// </summary>
     /// <returns></returns>
-    public string Output() => $"Sum of {_shapes.Count()} shapes: {Sum()}";
+    public string Output() => $"Sum of {shapes.Count()} shapes: {Sum()}";
 }

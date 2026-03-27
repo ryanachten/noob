@@ -2,14 +2,9 @@ using noob.Constants.Enums;
 
 namespace noob.Models.Trees.BinaryTree;
 
-public class BinaryTree<TKey, TValue> where TKey : IComparable<TKey> where TValue : IComparable<TValue>
+public class BinaryTree<TKey, TValue>(BinaryTreeNode<TKey, TValue>? root = null) where TKey : IComparable<TKey> where TValue : IComparable<TValue>
 {
-    public BinaryTreeNode<TKey, TValue>? Root { get; protected set; }
-
-    public BinaryTree(BinaryTreeNode<TKey, TValue>? root = null)
-    {
-        Root = root;
-    }
+    public BinaryTreeNode<TKey, TValue>? Root { get; protected set; } = root;
 
     /// <summary>
     /// Add a node to the tree
@@ -37,10 +32,11 @@ public class BinaryTree<TKey, TValue> where TKey : IComparable<TKey> where TValu
     public BinaryTreeNode<TKey, TValue> Add(TKey key, TValue value, BinaryTreeNode<TKey, TValue> parentNode)
     {
         // If either the right or left child is null, fill it
-        if(parentNode.LeftChild == null)
+        if (parentNode.LeftChild == null)
         {
             return parentNode.LeftChild = new BinaryTreeNode<TKey, TValue>(key, value, parentNode);
-        } else if(parentNode.RightChild == null)
+        }
+        else if (parentNode.RightChild == null)
         {
             return parentNode.RightChild = new BinaryTreeNode<TKey, TValue>(key, value, parentNode);
         }
@@ -48,7 +44,7 @@ public class BinaryTree<TKey, TValue> where TKey : IComparable<TKey> where TValu
         // There might be a better way of doing this
         // but for now, let's just randomly determine whether we traverse the left of right subtree
         var rand = new Random().Next(-1, 1);
-        if(rand >= 0)
+        if (rand >= 0)
         {
             return Add(key, value, parentNode.LeftChild);
         }
@@ -82,7 +78,7 @@ public class BinaryTree<TKey, TValue> where TKey : IComparable<TKey> where TValu
             return null;
         }
 
-        if(root.LeftChild == null && root.RightChild == null)
+        if (root.LeftChild == null && root.RightChild == null)
         {
             // If we've found the key, but there are no children
             // return true with null node
@@ -106,14 +102,14 @@ public class BinaryTree<TKey, TValue> where TKey : IComparable<TKey> where TValu
         BinaryTreeNode<TKey, TValue>? keyNode = null;
 
         // Do pre-order traversal until we find the key and last node
-        while(queue.Count != 0)
+        while (queue.Count != 0)
         {
             lastNode = queue.Dequeue();
 
             if (lastNode.Data.Key.Equals(key)) keyNode = lastNode;
 
             // If children exist, add them to the queue
-            if(lastNode.LeftChild != null) queue.Enqueue(lastNode.LeftChild);
+            if (lastNode.LeftChild != null) queue.Enqueue(lastNode.LeftChild);
             if (lastNode.RightChild != null) queue.Enqueue(lastNode.RightChild);
         }
 
@@ -197,13 +193,13 @@ public class BinaryTree<TKey, TValue> where TKey : IComparable<TKey> where TValu
     /// Returns the height of the entire binary tree
     /// </summary>
     public int GetHeight() => GetHeight(Root);
-    
+
     /// <summary>
     /// Returns subtree height starting at a given node
     /// </summary>
     public int GetHeight(BinaryTreeNode<TKey, TValue>? node)
     {
-        if(node == null) return 0;
+        if (node == null) return 0;
 
         var leftHeight = GetHeight(node.RightChild);
         var rightHeight = GetHeight(node.LeftChild);
@@ -216,7 +212,8 @@ public class BinaryTree<TKey, TValue> where TKey : IComparable<TKey> where TValu
     /// </summary>
     /// <param name="order">Tree traversal order (in/pre/post order)</param>
     /// <returns></returns>
-    public string Print(BinaryTreeTraversalOrder order = BinaryTreeTraversalOrder.IN_ORDER) {
+    public string Print(BinaryTreeTraversalOrder order = BinaryTreeTraversalOrder.IN_ORDER)
+    {
         var items = Items(order);
         var output = string.Empty;
 
@@ -225,12 +222,13 @@ public class BinaryTree<TKey, TValue> where TKey : IComparable<TKey> where TValu
             if (item != null)
             {
                 output += $"[{item.Data.Key}: {item.Data.Value}] ";
-            } else
+            }
+            else
             {
                 output += "null ";
             }
         }
-        
+
         return output;
     }
 

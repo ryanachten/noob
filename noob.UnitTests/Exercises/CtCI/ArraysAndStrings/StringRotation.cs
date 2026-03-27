@@ -23,7 +23,7 @@ public class StringRotation
         /// - keep iterating through st2 until we reach the start index, or a character doesn't match st1
         var index = GetRotationIndex(st1, st2);
         var result = HasMatchingRotationString(st1, st2, index);
-        
+
         // Assert
         Assert.Equal(expectedResult, result);
     }
@@ -47,7 +47,7 @@ public class StringRotation
     {
         var result = false;
 
-        if(rotationStartIndex != null)
+        if (rotationStartIndex != null)
         {
             var st1Start = 0;
             var st2Start = (int)rotationStartIndex;
@@ -70,7 +70,7 @@ public class StringRotation
             }
 
             // If we've traversed the entire rotation, then the strings are a match
-            if(st1Start == st1.Length - 1)
+            if (st1Start == st1.Length - 1)
             {
                 result = true;
             }

@@ -10,19 +10,19 @@ namespace noob.UnitTests.Exercises.ArraysAndStrings;
 /// </summary>
 public class ZeroMatrix
 {
-    private readonly byte[][] _matrix = new byte[][] {
-            new byte[] { 01, 02, 03, 04 },
-            new byte[] { 05, 06, 00, 08 },
-            new byte[] { 09, 10, 11, 12 },
-            new byte[] { 13, 14, 15, 16 },
-        };
+    private readonly byte[][] _matrix = [
+            [01, 02, 03, 04],
+            [05, 06, 00, 08],
+            [09, 10, 11, 12],
+            [13, 14, 15, 16],
+        ];
 
-    private readonly byte[][] _expectedResult = new byte[][] {
-            new byte[] { 01, 02, 00, 04 },
-            new byte[] { 00, 00, 00, 00 },
-            new byte[] { 09, 10, 00, 12 },
-            new byte[] { 13, 14, 00, 16 },
-        };
+    private readonly byte[][] _expectedResult = [
+            [01, 02, 00, 04],
+            [00, 00, 00, 00],
+            [09, 10, 00, 12],
+            [13, 14, 00, 16],
+        ];
 
     [Fact]
     public void WhenAZeroIsPresentInAMatrix_ThenItsColumnAndRowAreSetToZero()

@@ -6,19 +6,19 @@ namespace noob.UnitTests.Exercises.LeetCode;
 
 public class RemoveNthNodeFromList
 {
-    public static IEnumerable<object[]> Lists() => new List<object[]>()
-    {
-        new object[] {
+    public static IEnumerable<object[]> Lists() =>
+    [
+        [
             new ListNode(1, new ListNode(2, new ListNode(3))),
             2,
             new ListNode(1, new ListNode(3)),
-        },
-        new object[] {
+        ],
+        [
             new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(4, new ListNode(5))))),
             2,
             new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(5)))),
-        }
-    };
+        ]
+    ];
 
     [Theory]
     [MemberData(nameof(Lists))]

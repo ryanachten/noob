@@ -51,7 +51,7 @@ public class MinimalTree
     /// <returns>Tree with array items added to it</returns>
     private static BinarySearchTree<int, int> AddMiddleItemToTree(BinarySearchTree<int, int> tree, int[] arr, int minIndex, int maxIndex)
     {
-        if(minIndex == maxIndex) return tree;
+        if (minIndex == maxIndex) return tree;
 
         var middle = minIndex + (maxIndex - minIndex) / 2;
         var value = arr[middle];

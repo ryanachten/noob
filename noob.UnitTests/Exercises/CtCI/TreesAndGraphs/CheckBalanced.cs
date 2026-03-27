@@ -56,18 +56,18 @@ public class CheckBalanced
         tree3.Add(3, 3);
         tree3.Add(1, 1);
 
-        return new List<object[]>
-        {
-            new object[] {
+        return
+        [
+            [
                 tree1, true
-            },
-            new object[] {
+            ],
+            [
                 tree2, true
-            },
-            new object[] {
+            ],
+            [
                 tree3, false
-            }
-        };
+            ]
+        ];
     }
 
     [Theory]
@@ -93,7 +93,7 @@ public class CheckBalanced
         {
             var leftHeight = tree.GetHeight(node?.LeftChild);
             var rightHeight = tree.GetHeight(node?.RightChild);
-            if(Math.Abs(leftHeight - rightHeight) > 1)
+            if (Math.Abs(leftHeight - rightHeight) > 1)
             {
                 return false;
             }

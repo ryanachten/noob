@@ -10,21 +10,21 @@ public class Intersection
         var list1 = new SinglyLinkedList<int>(1).Append(2).Append(3);
         var list2 = new SinglyLinkedList<int>(1).Append(2);
         var intersection = list1?.Head?.Next?.Next; // node 3
-        
+
         if (list2.Head.Next != null)
         {
             list2.Head.Next.Next = intersection; // Assign List 1, node 3 -> List 2, node 3
         }
         list2.Append(4); // will be appended to both lists 1 and 2
 
-        return new System.Collections.Generic.List<object[]>
-        {
-                new object[] {
+        return
+        [
+                [
                     list1!,
                     list2,
                     intersection!
-                }
-        };
+                ]
+        ];
     }
 
     [Theory]
@@ -41,7 +41,7 @@ public class Intersection
             var node2 = list2?.Head;
             while (node2 != null && intersection == null)
             {
-                if(node == node2)
+                if (node == node2)
                 {
                     intersection = node;
                 }

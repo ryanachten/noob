@@ -14,14 +14,13 @@ namespace noob.UnitTests.Exercises.TreesAndGraphs;
 /// </summary>
 public class BuildOrder
 {
-    public static IEnumerable<object[]> PossibleBuildOrders() => new List<object[]>
-    {
-        new object[]
-        {
+    public static IEnumerable<object[]> PossibleBuildOrders() =>
+    [
+        [
             new []{ 'a', 'b', 'c', 'd', 'e', 'f' },
             new []{ ('a', 'd'), ('f', 'b'), ('b', 'd'), ('f', 'a'), ('d', 'c') },
-        }
-    };
+        ]
+    ];
 
     [Theory]
     [MemberData(nameof(PossibleBuildOrders))]
@@ -123,7 +122,7 @@ public class BuildOrder
                 attemptIndex++;
 
                 // This may not be the best way to determine this
-                if(attemptIndex > maxAttempts)
+                if (attemptIndex > maxAttempts)
                 {
                     throw new Exception("A build order couldn't be determined. Check your dependencies to ensure there are no circular references");
                 }

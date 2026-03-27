@@ -6,24 +6,24 @@ namespace noob.UnitTests.Exercises.LeetCode;
 
 public class AddTwoNumbers
 {
-    public static IEnumerable<object[]> Lists() => new List<object[]>()
-    {
-        new object[] {
+    public static IEnumerable<object[]> Lists() =>
+    [
+        [
             new ListNode(2, new ListNode(4, new ListNode(3))),
             new ListNode(5, new ListNode(6, new ListNode(4))),
             new ListNode(7, new ListNode(0, new ListNode(8))),
-        },
-        new object[] {
+        ],
+        [
             new ListNode(0),
             new ListNode(0),
             new ListNode(0),
-        },
-        new object[] {
+        ],
+        [
             new ListNode(9, new ListNode(9, new ListNode(9, new ListNode(9, new ListNode(9, new ListNode(9, new ListNode(9))))))),
             new ListNode(9, new ListNode(9, new ListNode(9, new ListNode(9)))),
             new ListNode(8, new ListNode(9, new ListNode(9, new ListNode(9, new ListNode(0, new ListNode(0, new ListNode(0, new ListNode(1)))))))),
-        }
-    };
+        ]
+    ];
 
     [Theory]
     [MemberData(nameof(Lists))]

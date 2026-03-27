@@ -36,12 +36,13 @@ public class TwoIntegerSumTwo()
             var sum = numbers[l] + numbers[r];
 
             // If we've found our match, return
-            if (sum == target) {
-                return [ l + 1, r + 1 ];
+            if (sum == target)
+            {
+                return [l + 1, r + 1];
             }
             // If sum is grater than the target, decrement y pointer to reduce value
             else if (sum > target)
-            { 
+            {
                 r--;
             }
             // Otherwise increment x pointer to increase value

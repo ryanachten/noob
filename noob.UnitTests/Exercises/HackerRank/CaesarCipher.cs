@@ -29,7 +29,7 @@ public class CaesarCipher
             var lowerCaseChar = lowerCaseStr[i];
             var currentIndex = Array.IndexOf(_lowercaseCharacters, lowerCaseChar);
             var newIndex = currentIndex + k;
-            if(newIndex > 25)
+            if (newIndex > 25)
             {
                 newIndex %= 26;
             }
@@ -37,10 +37,12 @@ public class CaesarCipher
             if (_uppercaseCharacters.Contains(character))
             {
                 result.Append(_uppercaseCharacters[newIndex]);
-            } else if (_lowercaseCharacters.Contains(character))
+            }
+            else if (_lowercaseCharacters.Contains(character))
             {
                 result.Append(_lowercaseCharacters[newIndex]);
-            } else
+            }
+            else
             {
                 result.Append(character);
             }

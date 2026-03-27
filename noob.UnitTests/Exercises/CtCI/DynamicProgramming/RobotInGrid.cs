@@ -15,55 +15,49 @@ public class RobotInGrid
 {
     public static IEnumerable<object[]> Grids()
     {
-        return new List<object[]>()
-        {
-            new object[]
-            {
+        return
+        [
+            [
                 1, 1,
                 Array.Empty<(int, int)>(),
                 new (int, int)[] { (0, 0) },
-            },
-            new object[]
-            {
+            ],
+            [
                 1, 1,
                 new (int, int)[] { (0, 0) },
                 Array.Empty<(int, int)>(),
-            },
+            ],
             /// [0][1]
             /// [0][0]
-            new object[]
-            {
+            [
                 2, 2,
                 new (int, int)[] { (0, 1) },
                 new (int, int)[] { (0, 0), (1, 0), (1, 1) },
-            },
+            ],
             /// [0][0]
             /// [1][0]
-            new object[]
-            {
+            [
                 2, 2,
                 new (int, int)[] { (1, 0) },
                 new (int, int)[] { (0, 0), (0, 1), (1, 1) },
-            },
+            ],
             /// [0][1]
             /// [1][0]
-            new object[]
-            {
+            [
                 2, 2,
                 new (int, int)[] { (1, 0), (0, 1) },
                 Array.Empty<(int, int)>(),
 
-            },
+            ],
             /// [0][0][0]
             /// [1][0][1]
             /// [1][0][0]
-            new object[]
-            {
+            [
                 3, 3,
                 new (int, int)[] { (1, 0), (1, 2), (2, 0) },
                 new (int, int)[] { (0, 0), (0, 1), (1, 1), (2, 1), (2, 2) },
-            }
-        };
+            ]
+        ];
     }
 
     [Theory]
@@ -71,7 +65,7 @@ public class RobotInGrid
     public void WhenNavigatingAGrid_ThenAPathCanBeDetermined(
         int rows, int colums, (int, int)[] offLimits, (int, int)[] expectedResult)
     {
-        var result = PathFromGrid((0, 0), rows, colums, offLimits.ToHashSet(), new List<(int, int)>());
+        var result = PathFromGrid((0, 0), rows, colums, offLimits.ToHashSet(), []);
         Assert.Equivalent(expectedResult, result);
     }
 
@@ -88,12 +82,12 @@ public class RobotInGrid
         // Out of bounds
         if (location.Item1 > rows || location.Item2 > cols)
         {
-            return new List<(int, int)>();
+            return [];
         }
 
         if (offLimits.Contains(location))
         {
-            return new List<(int, int)>();
+            return [];
         }
 
         path.Add(location);

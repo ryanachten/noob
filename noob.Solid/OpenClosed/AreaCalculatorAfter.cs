@@ -2,14 +2,9 @@
 
 namespace noob.Solid.OpenClosed;
 
-public class AreaCalculatorAfter
+public class AreaCalculatorAfter(IEnumerable<ITwoDimensionalShape> shapes)
 {
-    public readonly IEnumerable<ITwoDimensionalShape> Shapes;
-
-    public AreaCalculatorAfter(IEnumerable<ITwoDimensionalShape> shapes)
-    {
-        Shapes = shapes;
-    }
+    public readonly IEnumerable<ITwoDimensionalShape> Shapes = shapes;
 
     public double Sum()
     {

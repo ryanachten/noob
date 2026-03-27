@@ -5,7 +5,7 @@ using noob.Architecture.Clean.InterfaceAdapters.Gateways;
 
 public class InMemoryOrderGateway : IOrderGateway
 {
-    private readonly List<Order> _orders = new();
+    private readonly List<Order> _orders = [];
 
     public void Save(Order order)
     {

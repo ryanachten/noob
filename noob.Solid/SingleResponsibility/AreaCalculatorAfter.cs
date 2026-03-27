@@ -3,14 +3,9 @@ using noob.Solid.Models;
 
 namespace noob.Solid.SingleResponsibility;
 
-public class AreaCalculatorAfter
+public class AreaCalculatorAfter(IEnumerable<ITwoDimensionalShape> shapes)
 {
-    public readonly IEnumerable<ITwoDimensionalShape> Shapes;
-
-    public AreaCalculatorAfter(IEnumerable<ITwoDimensionalShape> shapes)
-    {
-        Shapes = shapes;
-    }
+    public readonly IEnumerable<ITwoDimensionalShape> Shapes = shapes;
 
     public double Sum()
     {
@@ -28,23 +23,14 @@ public class AreaCalculatorAfter
 /// Instead of having output logic inside of the calculator class,
 /// a better approach is to create a dedicated class to house this behaviour
 /// </summary>
-public class AreaSumOutput
+public class AreaSumOutput(ILogger<AreaSumOutput> logger, AreaCalculatorAfter calculator)
 {
-    private readonly AreaCalculatorAfter _calculator;
-    private readonly ILogger<AreaSumOutput> _logger;
-
-    public AreaSumOutput(ILogger<AreaSumOutput> logger, AreaCalculatorAfter calculator)
-    {
-        _calculator = calculator;
-        _logger = logger;
-    }
-
     public void Log()
     {
-        _logger.LogInformation("Sum of {count} shapes: {sum}", _calculator.Shapes.Count(), _calculator.Sum());
+        logger.LogInformation("Sum of {count} shapes: {sum}", calculator.Shapes.Count(), calculator.Sum());
     }
 
-    public string Json() => _calculator.Sum().ToString();
+    public string Json() => calculator.Sum().ToString();
 
     // Other output targets can be added here, like HTML, CSV etc
 }

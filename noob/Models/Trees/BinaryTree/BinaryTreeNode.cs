@@ -1,17 +1,11 @@
 ﻿namespace noob.Models.Trees.BinaryTree;
 
-public class BinaryTreeNode<TKey, TValue> : IEquatable<BinaryTreeNode<TKey, TValue>> where TKey : IComparable<TKey> where TValue : IComparable<TValue>
+public class BinaryTreeNode<TKey, TValue>(TKey key, TValue value, BinaryTreeNode<TKey, TValue>? parentNode = null) : IEquatable<BinaryTreeNode<TKey, TValue>> where TKey : IComparable<TKey> where TValue : IComparable<TValue>
 {
-    public KeyValuePair<TKey, TValue> Data { get; set; }
-    public BinaryTreeNode<TKey, TValue>? Parent { get; set; }
+    public KeyValuePair<TKey, TValue> Data { get; set; } = new KeyValuePair<TKey, TValue>(key, value);
+    public BinaryTreeNode<TKey, TValue>? Parent { get; set; } = parentNode;
     public BinaryTreeNode<TKey, TValue>? LeftChild { get; set; }
     public BinaryTreeNode<TKey, TValue>? RightChild { get; set; }
-
-    public BinaryTreeNode(TKey key, TValue value, BinaryTreeNode<TKey, TValue>? parentNode = null)
-    {
-        Data = new KeyValuePair<TKey, TValue>(key, value);
-        Parent = parentNode;
-    }
 
     public BinaryTreeNode<TKey, TValue> Clone() => new(Data.Key, Data.Value, Parent)
     {

@@ -6,6 +6,31 @@ Clean Architecture, popularized by Robert C. Martin ("Uncle Bob"), is an archite
 
 Dependencies flow from outer circles to inner circles. The core business rules are at the very center.
 
+```mermaid
+graph BT
+    subgraph Infrastructure[Infrastructure]
+        DB[(Database)]
+        Frameworks[Frameworks / Web]
+    end
+
+    subgraph InterfaceAdapters[Interface Adapters]
+        Gateways[Gateways / Presenters]
+        Controllers[Controllers]
+    end
+
+    subgraph ApplicationBusinessRules[Application Business Rules]
+        UseCases[Use Cases]
+    end
+
+    subgraph EnterpriseBusinessRules[Enterprise Business Rules]
+        Entities[Entities]
+    end
+
+    Infrastructure --> InterfaceAdapters
+    InterfaceAdapters --> ApplicationBusinessRules
+    ApplicationBusinessRules --> EnterpriseBusinessRules
+```
+
 - **Entities (Domain)**: Core business objects and rules that are common to the entire enterprise.
 - **Use Cases (Application)**: Application-specific business rules. They coordinate the flow of data to and from entities.
 - **Interface Adapters (Interface)**: Set of adapters that convert data between Use Cases/Entities and external systems (web, DB, UI).

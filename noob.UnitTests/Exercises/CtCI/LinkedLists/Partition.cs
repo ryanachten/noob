@@ -13,15 +13,14 @@ namespace noob.UnitTests.Exercises.LinkedLists;
 public class Partition
 {
     public static IEnumerable<object[]> Lists =>
-    new List<object[]>
-    {
-            new object[] {
+    [
+            [
                 new DoublyLinkedList<int>(3).Append(5).Append(8).Append(5).Append(10).Append(2).Append(1),
                 5,
                 3,
                 7
-            }
-    };
+            ]
+    ];
 
     [Theory]
     [MemberData(nameof(Lists))]
@@ -44,10 +43,11 @@ public class Partition
         {
             if (node.Data < target)
             {
-                if(leftParition == null)
+                if (leftParition == null)
                 {
                     leftParition = new DoublyLinkedList<int>(node.Data);
-                } else
+                }
+                else
                 {
                     leftParition.Append(node.Data);
                 }
@@ -71,17 +71,18 @@ public class Partition
         while (node != null)
         {
             // find the end of the left parition and assign the right partition to it
-            if(node.Next == null)
+            if (node.Next == null)
             {
                 node.Next = rightParition?.Head;
-                if(rightParition?.Head != null)
+                if (rightParition?.Head != null)
                 {
                     rightParition.Head.Previous = node;
                 }
                 break;
             }
             node = node?.Next;
-        };
+        }
+        ;
 
         // Assert
         // - ensure that left partition contains elements below target

@@ -10,7 +10,7 @@ public class GivenValidArrayList
     {
         // Arrange
         var array = new ArrayList<int>(10);
-        
+
         // Act
         array.Add(1).Add(2);
 
