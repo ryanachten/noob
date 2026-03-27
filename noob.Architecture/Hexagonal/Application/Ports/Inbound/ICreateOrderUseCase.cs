@@ -2,7 +2,7 @@ namespace noob.Architecture.Hexagonal.Application.Ports.Inbound;
 
 using noob.Architecture.Hexagonal.Domain;
 
-public interface IGreetUseCase
+public interface ICreateOrderUseCase
 {
-    Greeting Execute(string name);
+    Order Execute(string customerName, decimal amount);
 }
