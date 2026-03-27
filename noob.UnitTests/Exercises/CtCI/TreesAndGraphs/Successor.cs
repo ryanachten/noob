@@ -26,30 +26,30 @@ public class Successor
         tree.Add(3, 3);
         tree.Add(7, 7);
 
-        return new List<object[]>
-        {
-            new object[] {
+        return
+        [
+            [
                 // nodes 2, 3
                 tree.Root!.RightChild!, tree.Root!.RightChild!.LeftChild!
-            },
-            new object[] {
+            ],
+            [
                 // nodes 3, 4
                 tree.Root!.LeftChild!.RightChild!, tree.Root
-            },
-            new object[] {
+            ],
+            [
                 // nodes 1, 2
                 tree.Root!.LeftChild!.LeftChild!, tree.Root.LeftChild
-            },
-            new object[] {
+            ],
+            [
                 // nodes 5, 6
                 tree.Root!.RightChild!.LeftChild!, tree.Root.RightChild
-            },
-            new object[] {
+            ],
+            [
                 // nodes 7
                 tree.Root!.RightChild!.RightChild!, default!
-            }
+            ]
 
-        };
+        ];
     }
 
     [Theory]
@@ -76,9 +76,9 @@ public class Successor
 
         // If we're at a leaf node, traverse up the tree until we find a node greater than the node
         var currentNode = targetNode;
-        while(currentNode.Parent != null)
+        while (currentNode.Parent != null)
         {
-            if(currentNode.Parent.Data.Key > targetNode.Data.Key)
+            if (currentNode.Parent.Data.Key > targetNode.Data.Key)
             {
                 return currentNode.Parent;
             }

@@ -1,12 +1,7 @@
 ﻿namespace noob.UnitTests.Exercises.LeetCode.Models;
 
-public class ListNode
+public class ListNode(int val = 0, ListNode next = null)
 {
-    public int val;
-    public ListNode next;
-    public ListNode(int val = 0, ListNode next = null)
-    {
-        this.val = val;
-        this.next = next;
-    }
+    public int val = val;
+    public ListNode next = next;
 }

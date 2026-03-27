@@ -77,7 +77,7 @@ public class MultipleApartments : BaseApartmentExercise
     }
 
     [Fact]
-    public async void WhenGettingAListOfTenants_ThenThoseWithMoreThanOneApartmentAreReturned()
+    public async System.Threading.Tasks.Task WhenGettingAListOfTenants_ThenThoseWithMoreThanOneApartmentAreReturned()
     {
         var tenants = await _context.Tenants.FromSqlFile().ToListAsync();
         Assert.NotNull(tenants);

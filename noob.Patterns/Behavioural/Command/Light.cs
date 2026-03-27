@@ -4,14 +4,9 @@
 /// Receiver.
 /// Performs actions associated with the incoming request.
 /// </summary>
-public class Light
+public class Light(bool onByDefault = false)
 {
-    public Light(bool onByDefault = false)
-    {
-        IsOn = onByDefault;
-    }
-
-    public bool IsOn { get; private set; }
+    public bool IsOn { get; private set; } = onByDefault;
     public void TurnOn() => IsOn = true;
     public void TurnOff() => IsOn = false;
 }

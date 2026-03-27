@@ -7,8 +7,8 @@ namespace noob.UnitTests.Exercises.HackerRank;
 public class Birthday
 {
     [Theory]
-    [InlineData(new object[]{ new int[] { 2, 2, 1, 3, 2 }, 4, 2, 2 })]
-    [InlineData(new object[] { new int[] { 4 }, 4, 1, 1 })]
+    [InlineData([new int[] { 2, 2, 1, 3, 2 }, 4, 2, 2])]
+    [InlineData([new int[] { 4 }, 4, 1, 1])]
 
     public void WhenGettingSegmentsBasedOnBirthday_ThenCorrectNumberOfSegmentsIsReturned(
         int[] segments, int day, int month, int expectedResult)

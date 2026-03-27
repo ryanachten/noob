@@ -8,10 +8,10 @@ namespace noob.UnitTests.Exercises.LeetCode;
 public class MedianOfTwoSortedArrays
 {
     [Theory]
-    [InlineData(new object[] { new int[] { 1, 3 }, new int[] { 2 }, 2.0 })]
-    [InlineData(new object[] { new int[] { 1, 2 }, new int[] { 3, 4 }, 2.5 })]
-    [InlineData(new object[] { new int[] { 1, 4 }, new int[] { 2, 3, 5, 6 }, 3.5 })]
-    [InlineData(new object[] { new int[] { 1 }, new int[] { 2, 3, 4, 5, 6 }, 3.5 })]
+    [InlineData([new int[] { 1, 3 }, new int[] { 2 }, 2.0])]
+    [InlineData([new int[] { 1, 2 }, new int[] { 3, 4 }, 2.5])]
+    [InlineData([new int[] { 1, 4 }, new int[] { 2, 3, 5, 6 }, 3.5])]
+    [InlineData([new int[] { 1 }, new int[] { 2, 3, 4, 5, 6 }, 3.5])]
     public void WhenFindingMedianOfTwoArrays_ThenAvgMedianIsFound(int[] arr1, int[] arr2, double expectedResult)
     {
         var result1 = BruteForceFindMedianSortedArrays(arr1, arr2);

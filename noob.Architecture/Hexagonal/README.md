@@ -6,6 +6,36 @@ Hexagonal Architecture, also known as **Ports and Adapters**, was introduced by 
 
 The application's core is represented as a hexagon. The "inside" is the business logic, and the "outside" consists of external entities (databases, UIs, message brokers).
 
+```mermaid
+graph LR
+    subgraph Outside
+        UI[UI / CLI]
+        DB[(Database)]
+        API[External API]
+    end
+
+    subgraph Adapters
+        InboundAdapter[Inbound Adapter]
+        OutboundAdapter[Outbound Adapter]
+    end
+
+    subgraph Core[Application Core]
+        direction LR
+        InboundPort([Inbound Port])
+        DomainModel[Domain Model]
+        OutboundPort([Outbound Port])
+        
+        InboundPort --> DomainModel
+        DomainModel --> OutboundPort
+    end
+
+    UI --> InboundAdapter
+    InboundAdapter --> InboundPort
+    OutboundPort --> OutboundAdapter
+    OutboundAdapter --> DB
+    OutboundAdapter --> API
+```
+
 - **Core**: Contains the domain models and business rules.
 - **Ports**: Interfaces that define how the application can be used (Driving Ports) or how the application uses external resources (Driven Ports).
 - **Adapters**: Implementations of these ports that bridge the gap between the core and the outside world.

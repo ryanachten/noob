@@ -20,13 +20,13 @@ public class LoopDetection
             list.Head!.Next!.Next!.Next!.Next!.Next = repeatedNode;
         }
 
-        return new System.Collections.Generic.List<object[]>
-        {
-            new object[] {
+        return
+        [
+            [
                 list!,
                 repeatedNode!
-            }
-        };
+            ]
+        ];
     }
 
     [Theory]

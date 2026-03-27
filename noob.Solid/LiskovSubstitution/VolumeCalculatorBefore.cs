@@ -9,16 +9,12 @@ namespace noob.Solid.LiskovSubstitution;
 /// ...or, in layman's terms:
 /// every subclass or derived class should be substitutable for their base or parent class.
 /// </summary>
-public class VolumeCalculatorBefore : AreaCalculator
+public class VolumeCalculatorBefore(IEnumerable<IShape> shapes) : AreaCalculator(shapes)
 {
     public class VolumeSum
     {
         public double Total { get; set; }
         public IEnumerable<IShape> Shapes { get; set; } = default!;
-    }
-
-    public VolumeCalculatorBefore(IEnumerable<IShape> shapes) : base(shapes)
-    {
     }
 
     /// <summary>
@@ -42,15 +38,9 @@ public class VolumeCalculatorBefore : AreaCalculator
     }
 }
 
-public class AreaCalculator
+public class AreaCalculator(IEnumerable<IShape> shapes)
 {
-    public IEnumerable<IShape> Shapes { get; }
-
-    public AreaCalculator(IEnumerable<IShape> shapes)
-    {
-        Shapes = shapes;
-    }
-
+    public IEnumerable<IShape> Shapes { get; } = shapes;
 
     public double Sum()
     {

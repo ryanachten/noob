@@ -7,24 +7,17 @@ public interface IOrderRepository
     void Save(Order order);
 }
 
-public class CreateOrderHandler
+public class CreateOrderHandler(IOrderRepository repository)
 {
-    private readonly IOrderRepository _repository;
-
-    public CreateOrderHandler(IOrderRepository repository)
-    {
-        _repository = repository;
-    }
-
     public Order Handle(CreateOrderRequest request)
     {
-        var order = new Order 
-        { 
+        var order = new Order
+        {
             Id = new Random().Next(1, 1000),
-            CustomerName = request.CustomerName, 
-            Amount = request.Amount 
+            CustomerName = request.CustomerName,
+            Amount = request.Amount
         };
-        _repository.Save(order);
+        repository.Save(order);
         return order;
     }
 }

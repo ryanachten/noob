@@ -7,11 +7,8 @@ namespace noob.Solid.LiskovSubstitution;
 /// and this would allow us to avoid type checking in the <see cref="Sum"/> method. 
 /// But extending better illustrates the problem at hand here.
 /// </summary>
-public class VolumeCalculatorAfter : AreaCalculator
+public class VolumeCalculatorAfter(IEnumerable<IShape> shapes) : AreaCalculator(shapes)
 {
-    public VolumeCalculatorAfter(IEnumerable<IShape> shapes) : base(shapes)
-    {
-    }
 
     /// <summary>
     /// Now the subclass <see cref="Sum"/> and parent class <see cref="AreaCalculatorAfter.Sum"/>.

@@ -21,13 +21,13 @@ public class AdjacencyList<T>
     /// <param name="value">Value to be added</param>
     public AdjacencyList<T> AddChild(int index, T value)
     {
-        if(index > Nodes.Count - 1)
+        if (index > Nodes.Count - 1)
         {
             throw new ArgumentException("Cannot add child to index which doesn't exist");
         }
 
         Nodes.Data[index].AddChild(value);
-        
+
         return this;
     }
 

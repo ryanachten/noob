@@ -3,21 +3,15 @@
 /// <summary>
 /// Subject abstract class
 /// </summary>
-public class Stock
+public class Stock(string name, double price)
 {
-    public string Name;
-    public double Price { get; private set; }
+    public string Name = name;
+    public double Price { get; private set; } = price;
 
     /// <summary>
     /// List of observers
     /// </summary>
-    private readonly List<IInvestor> _investors = new();
-
-    public Stock(string name, double price)
-    {
-        Name = name;
-        Price = price;
-    }
+    private readonly List<IInvestor> _investors = [];
 
     public void Attach(IInvestor investor) => _investors.Add(investor);
     public void Remove(IInvestor investor) => _investors.Remove(investor);

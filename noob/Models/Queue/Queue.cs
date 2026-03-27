@@ -13,13 +13,13 @@ public class Queue<T>
     {
         var node = new QueueNode<T>(item);
 
-        if(_last != null)
+        if (_last != null)
         {
             _last.Next = node;
         }
 
         _last = node;
-        if(_first == null)
+        if (_first == null)
         {
             _first = _last;
         }
@@ -36,8 +36,8 @@ public class Queue<T>
         if (_first == null) return null;
 
         _first = _first.Next;
-        
-        if(_first == null)
+
+        if (_first == null)
         {
             _last = null;
         }

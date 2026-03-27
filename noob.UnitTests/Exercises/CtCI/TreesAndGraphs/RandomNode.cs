@@ -13,18 +13,12 @@ namespace noob.UnitTests.Exercises.TreesAndGraphs;
 /// </summary>
 public class RandomNode
 {
-    private class BinaryTreeNode
+    private class BinaryTreeNode(int value, RandomNode.BinaryTreeNode? parentNode)
     {
-        public int Value { get; set; }
-        public BinaryTreeNode? Parent { get; set; }
+        public int Value { get; set; } = value;
+        public BinaryTreeNode? Parent { get; set; } = parentNode;
         public BinaryTreeNode? LeftChild { get; set; }
         public BinaryTreeNode? RightChild { get; set; }
-
-        public BinaryTreeNode(int value, BinaryTreeNode? parentNode)
-        {
-            Value = value;
-            Parent = parentNode;
-        }
     }
 
     private class BinaryTree

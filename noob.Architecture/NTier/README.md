@@ -6,6 +6,14 @@ N-Tier Architecture is a traditional software architecture pattern where the app
 
 The application is structured into layers with specific responsibilities. Each layer typically only communicates with the layer immediately below it.
 
+```mermaid
+graph TD
+    Client[Client / UI] --> Presentation[Presentation Layer<br/>Controllers]
+    Presentation --> Business[Business Logic Layer<br/>Services]
+    Business --> Data[Data Access Layer<br/>Repositories]
+    Data --> DB[(Database)]
+```
+
 - **Presentation Layer (Controllers)**: Responsible for interacting with the user or external systems (Web API, CLI, UI). It handles input and returns output.
 - **Business Logic Layer (Services)**: Contains the core business rules and logic. It coordinates tasks and processes data.
 - **Data Access Layer (Repositories)**: Responsible for interacting with the data source (Database, File System). It handles CRUD operations.

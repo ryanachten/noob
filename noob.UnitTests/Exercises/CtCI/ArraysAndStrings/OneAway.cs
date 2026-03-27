@@ -19,7 +19,7 @@ public class OneAway
     {
         // Act
         bool result;
-        if(current.Length == target.Length)
+        if (current.Length == target.Length)
         {
             var swaps = 0;
             for (int i = 0; i < Math.Min(current.Length, target.Length); i++)
@@ -30,7 +30,8 @@ public class OneAway
                 }
             }
             result = swaps == 1;
-        } else
+        }
+        else
         {
             result = Math.Abs(current.Length - target.Length) == 1;
         }

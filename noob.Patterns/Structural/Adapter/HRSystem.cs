@@ -10,12 +10,12 @@ public class HRSystem
 
     public HRSystem()
     {
-        _employees = new()
-        {
+        _employees =
+        [
             new("Jane", "CEO"),
             new("John", "COO"),
             new("Jenny", "CFO")
-        };
+        ];
     }
 
     public List<Employee> GetEmployees() => _employees;

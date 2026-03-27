@@ -11,8 +11,8 @@ public class ObserverTests
         // Arrange
         var google = new Stock("Google", 100.0);
         var microsoft = new Stock("Microsoft", 90.0);
-        var james = new Investor(new() { google });
-        var jane = new Investor(new() { google, microsoft });
+        var james = new Investor([google]);
+        var jane = new Investor([google, microsoft]);
         google.Attach(james);
         google.Attach(jane);
         microsoft.Attach(jane);

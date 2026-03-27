@@ -8,21 +8,16 @@ public interface ICreateOrderUseCase
     Order Handle(string customerName, decimal amount);
 }
 
-public class OrderInteractor : ICreateOrderUseCase
+public class OrderInteractor(IOrderGateway gateway) : ICreateOrderUseCase
 {
-    private readonly IOrderGateway _gateway;
-
-    public OrderInteractor(IOrderGateway gateway)
-    {
-        _gateway = gateway;
-    }
+    private readonly IOrderGateway _gateway = gateway;
 
     public Order Handle(string customerName, decimal amount)
     {
-        var order = new Order 
-        { 
+        var order = new Order
+        {
             Id = new Random().Next(1, 1000),
-            CustomerName = customerName, 
+            CustomerName = customerName,
             Amount = amount,
             CreatedAt = DateTime.UtcNow
         };

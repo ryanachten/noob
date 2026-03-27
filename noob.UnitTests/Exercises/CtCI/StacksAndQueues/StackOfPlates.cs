@@ -30,7 +30,7 @@ public class StackOfPlates
 
         public SetOfStacks<T> Push(T data)
         {
-            if(Count + 1 > _threshold * Stacks.Count)
+            if (Count + 1 > _threshold * Stacks.Count)
             {
                 Stacks.Add(new Stack<T>());
             }

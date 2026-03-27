@@ -11,23 +11,21 @@ namespace noob.UnitTests.Exercises.LinkedLists;
 public class Palindrome
 {
     public static IEnumerable<object[]> Palindromes =>
-        new List<object[]>
-        {
-                new object[] {
+        [
+                [
                     new SinglyLinkedList<char>('T').Append('o').Append('o').Append('t'),
-                },
-                new object[] {
+                ],
+                [
                     new SinglyLinkedList<char>('T').Append('o').Append('u').Append('o').Append('t'),
-                }
-        };
+                ]
+        ];
 
     public static IEnumerable<object[]> NonPalindromes =>
-        new List<object[]>
-        {
-                new object[] {
+        [
+                [
                     new SinglyLinkedList<char>('T').Append('o').Append('u').Append('t'),
-                }
-        };
+                ]
+        ];
 
     [Theory]
     [MemberData(nameof(Palindromes))]
@@ -59,7 +57,7 @@ public class Palindrome
         // - iterate through list of chars and see if it's the same backwards and forwards
         var node = list.Head;
         var word = string.Empty;
-        while(node != null)
+        while (node != null)
         {
             word += node.Data;
             node = node.Next;

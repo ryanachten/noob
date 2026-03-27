@@ -1,10 +1,7 @@
 ﻿namespace noob.Models.Trees.Heaps;
 
-public class MaxHeap<TPriority, TValue> : MinHeap<TPriority, TValue> where TPriority : IComparable<TPriority>
+public class MaxHeap<TPriority, TValue>(int capacity) : MinHeap<TPriority, TValue>(capacity) where TPriority : IComparable<TPriority>
 {
-    public MaxHeap(int capacity) : base(capacity)
-    {
-    }
 
     /// <summary>
     /// Swap elements going up the heap to ensure correct ordering

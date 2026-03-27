@@ -16,12 +16,12 @@ public class StackMin
 
         public int? Pop()
         {
-            if(Top == null) return null;
-            
+            if (Top == null) return null;
+
             var item = Top;
             Top = item.Next;
 
-            if(_min == item)
+            if (_min == item)
             {
                 UpdateMin();
             }
@@ -36,8 +36,8 @@ public class StackMin
                 Next = Top
             };
             Top = node;
-            
-            if(_min == null || _min.Data > node.Data)
+
+            if (_min == null || _min.Data > node.Data)
             {
                 _min = node;
             }
@@ -53,7 +53,7 @@ public class StackMin
             var node = Top;
             while (node != null)
             {
-                if(node.Data < min?.Data)
+                if (node.Data < min?.Data)
                 {
                     min = node;
                 }

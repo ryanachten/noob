@@ -1,11 +1,6 @@
 ﻿namespace noob.Models.Graphs.Undirected;
 
-public class AdjacencyMatrix
+public class AdjacencyMatrix(int count)
 {
-    public bool[,] Nodes { get; private set; }
-
-    public AdjacencyMatrix(int count)
-    {
-        Nodes = new bool[count, count];
-    }
+    public bool[,] Nodes { get; private set; } = new bool[count, count];
 }

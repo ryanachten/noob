@@ -5,7 +5,7 @@ using noob.Architecture.Onion.Application.Interfaces;
 
 public class InMemoryOrderRepository : IOrderRepository
 {
-    private readonly List<Order> _orders = new();
+    private readonly List<Order> _orders = [];
 
     public void Add(Order order)
     {

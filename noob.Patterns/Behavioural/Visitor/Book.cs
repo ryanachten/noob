@@ -3,14 +3,9 @@
 /// <summary>
 /// ConcreteElement
 /// </summary>
-public class Book : IItemElement
+public class Book(double price) : IItemElement
 {
-    public Book(double price)
-    {
-        Price = price;
-    }
-
-    public double Price { get; }
+    public double Price { get; } = price;
 
     public double Accept(IShoppingCartVisitor visitor) => visitor.Visit(this);
 }

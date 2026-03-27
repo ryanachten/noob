@@ -1,13 +1,8 @@
 ﻿namespace noob.Solid.Models;
 
-public class Square : ITwoDimensionalShape
+public class Square(int length) : ITwoDimensionalShape
 {
-    public int Length { get; }
+    public int Length { get; } = length;
 
     public double Area => Math.Pow(Length, 2);
-
-    public Square(int length)
-    {
-        Length = length;
-    }
 }

@@ -28,25 +28,24 @@ public sealed class RouteBetweenNodes
     /// V     V
     /// 5     6
 
-    public static IEnumerable<object[]> Nodes => 
-        new List<object[]>
-        {
-            new object[] {
+    public static IEnumerable<object[]> Nodes =>
+        [
+            [
                 "node1", "node2", true
-            },
-            new object[] {
+            ],
+            [
                 "node1", "node6", true
-            },
-            new object[] {
+            ],
+            [
                 "node1", "node3", true
-            },
-            new object[] {
+            ],
+            [
                 "node3", "node2", false
-            },
-            new object[] {
+            ],
+            [
                 "node5", "node6", false
-            }
-        };
+            ]
+        ];
 
     [Theory]
     [MemberData(nameof(Nodes))]
@@ -63,7 +62,7 @@ public sealed class RouteBetweenNodes
     {
         foreach (var node in BreadthFirstSearch<string, int>.Enumerate(_graph, node1))
         {
-            if(node == node2) return true;
+            if (node == node2) return true;
         }
 
         return false;

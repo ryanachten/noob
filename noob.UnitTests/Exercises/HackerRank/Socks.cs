@@ -9,7 +9,7 @@ namespace noob.UnitTests.Exercises.HackerRank;
 public class Socks
 {
     [Theory]
-    [InlineData(new object[] { new int[] {1, 2, 1, 2, 1, 3, 2 }, 2 })]
+    [InlineData([new int[] { 1, 2, 1, 2, 1, 3, 2 }, 2])]
     public void WhenGettingFindingSockPairs_ThenCorrectNumberOfPairsIsReturned(int[] socks, int expectedPairs)
     {
         var res = SockMerchantLinq(socks.Length, socks.ToList());
@@ -44,7 +44,8 @@ public class Socks
             if (socks.ContainsKey(sock))
             {
                 socks[sock]++;
-            } else
+            }
+            else
             {
                 socks.Add(sock, 1);
             }

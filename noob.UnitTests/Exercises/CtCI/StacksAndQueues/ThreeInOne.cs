@@ -7,12 +7,14 @@ namespace noob.UnitTests.Exercises.StacksAndQueues;
 /// </summary>
 public class ThreeInOne
 {
-    private class Stack<T> where T : struct
+    /// <param name="stackIndex">
+    /// Unique index of the stack
+    /// </param>
+    /// <param name="data">
+    /// Data store for all stacks
+    /// </param>
+    private class Stack<T>(int stackIndex, T?[] data) where T : struct
     {
-        /// <summary>
-        /// Unique index of the stack
-        /// </summary>
-        private readonly int _stackIndex;
 
         /// <summary>
         /// Total number of stacks
@@ -20,19 +22,14 @@ public class ThreeInOne
         private readonly int _numberOfStacks = 3;
 
         /// <summary>
-        /// Data store for all stacks
-        /// </summary>
-        private T?[] _data;
-
-        /// <summary>
         /// Capacity for partition
         /// </summary>
-        private int Capacity => _data.Length / _numberOfStacks;
+        private int Capacity => data.Length / _numberOfStacks;
 
         /// <summary>
         /// Top index for partition
         /// </summary>
-        private int TopIndex => Capacity * _stackIndex + Count - 1;
+        private int TopIndex => Capacity * stackIndex + Count - 1;
 
         /// <summary>
         /// Number of items in the stack
@@ -44,14 +41,8 @@ public class ThreeInOne
         /// </summary>
         public T? Top
         {
-            get => _data[TopIndex];
-            set => _data[TopIndex] = value;
-        }
-
-        public Stack(int stackIndex, T?[] data)
-        {
-            _stackIndex = stackIndex;
-            _data = data;
+            get => data[TopIndex];
+            set => data[TopIndex] = value;
         }
 
         public T? Pop()
@@ -67,7 +58,7 @@ public class ThreeInOne
 
         public Stack<T> Push(T item)
         {
-            _data[TopIndex + 1] = item;
+            data[TopIndex + 1] = item;
             Count++;
 
             return this;
@@ -89,7 +80,7 @@ public class ThreeInOne
         stack3.Push(3);
 
         // Assert
-        Assert.Equal(new int?[] { 1, 2, 3 }, data);
+        Assert.Equal([1, 2, 3], data);
     }
 
     [Fact]
@@ -107,7 +98,7 @@ public class ThreeInOne
         stack3.Push(3).Push(4);
 
         // Assert
-        Assert.Equal(new int?[] { 1, 2, 2, 3, 3, 4 }, data);
+        Assert.Equal([1, 2, 2, 3, 3, 4], data);
     }
 
     [Fact]
@@ -128,7 +119,7 @@ public class ThreeInOne
         var popped3 = stack3.Pop();
 
         // Assert
-        Assert.Equal(new int?[] { 1, null, 2, null, 3, null }, data);
+        Assert.Equal([1, null, 2, null, 3, null], data);
         Assert.Equal(2, popped1);
         Assert.Equal(3, popped2);
         Assert.Equal(4, popped3);
@@ -155,7 +146,7 @@ public class ThreeInOne
         var popped3 = stack3.Pop();
 
         // Assert
-        Assert.Equal(new int?[] { null, null, null, null, null, null }, data);
+        Assert.Equal([null, null, null, null, null, null], data);
         Assert.Equal(1, popped1);
         Assert.Equal(2, popped2);
         Assert.Equal(3, popped3);

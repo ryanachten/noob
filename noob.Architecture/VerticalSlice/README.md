@@ -6,6 +6,29 @@ Vertical Slice Architecture, popularized by Jimmy Bogard, organizes code around 
 
 Instead of horizontal layers (UI, Application, Domain, Infrastructure), the system is divided vertically into discrete features. Each slice is independent and can be implemented differently if needed.
 
+```mermaid
+graph LR
+    subgraph Feature_A[Feature: Create Order]
+        direction TB
+        RA[Request] --> HA[Handler]
+        HA --> DA[Domain]
+        HA --> PA[Persistence]
+    end
+
+    subgraph Feature_B[Feature: Cancel Order]
+        direction TB
+        RB[Request] --> HB[Handler]
+        HB --> DB[Domain]
+        HB --> PB[Persistence]
+    end
+
+    subgraph Feature_C[Feature: Get History]
+        direction TB
+        RC[Request] --> HC[Handler]
+        HC --> PC[Persistence]
+    end
+```
+
 - **Features**: The primary organizational unit. Each feature (e.g., "AddUser", "GetProductDetails") is self-contained.
 - **Independence**: Changes to one slice have minimal impact on others.
 - **Symmetry**: Each slice follows the same internal pattern, often using MediatR or similar dispatcher-based patterns.

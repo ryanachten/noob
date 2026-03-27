@@ -3,16 +3,10 @@
 /// <summary>
 /// ConcreteElement
 /// </summary>
-public class Fruit : IItemElement
+public class Fruit(double weight, double pricePerKg) : IItemElement
 {
-    public double Weight { get; }
-    public double PricePerKg { get; }
-
-    public Fruit(double weight, double pricePerKg)
-    {
-        Weight = weight;
-        PricePerKg = pricePerKg;
-    }
+    public double Weight { get; } = weight;
+    public double PricePerKg { get; } = pricePerKg;
 
     public double Accept(IShoppingCartVisitor visitor) => visitor.Visit(this);
 }

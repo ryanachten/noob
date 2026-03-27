@@ -32,19 +32,20 @@ public class BinarySearchTree<TKey, TValue> : BinaryTree<TKey, TValue> where TKe
 
         // Where new key already exists, we throw and exception
         // since we're using immutable nodes
-        if(comparisonResult == 0)
+        if (comparisonResult == 0)
         {
             throw new ArgumentException($"Key '{key}' already exists and cannot be updated");
-        } 
+        }
         // If the new key is smaller than the parent
         // create a node on the left if it doesn't exist
         // or continue to traverse to the left of the tree
         else if (comparisonResult < 0)
         {
-            if(parentNode.LeftChild == null)
+            if (parentNode.LeftChild == null)
             {
                 return parentNode.LeftChild = new BinaryTreeNode<TKey, TValue>(key, value, parentNode);
-            } else
+            }
+            else
             {
                 return Add(key, value, parentNode.LeftChild);
             }
@@ -88,7 +89,7 @@ public class BinarySearchTree<TKey, TValue> : BinaryTree<TKey, TValue> where TKe
 
         // If key we're looking for is smaller than current node
         // look at the left child
-        else if(comparisonResult < 0)
+        else if (comparisonResult < 0)
         {
             return TryGetValue(key, node.LeftChild);
         }
@@ -117,7 +118,8 @@ public class BinarySearchTree<TKey, TValue> : BinaryTree<TKey, TValue> where TKe
         {
             hasRemovedNode = false;
             return Root;
-        };
+        }
+        ;
 
         var comparisonResult = key.CompareTo(node.Data.Key);
 

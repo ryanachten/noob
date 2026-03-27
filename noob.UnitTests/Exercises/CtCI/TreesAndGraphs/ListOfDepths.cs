@@ -64,15 +64,16 @@ public class ListOfDepths
     {
         if (node == null) return lists;
 
-        if(lists[currentDepth] == null)
+        if (lists[currentDepth] == null)
         {
             lists[currentDepth] = new(node.Data);
-        } else
+        }
+        else
         {
             lists[currentDepth].Append(node.Data);
         }
 
-        lists = GenerateTreeDepthLists(node.LeftChild, lists, currentDepth+1);
+        lists = GenerateTreeDepthLists(node.LeftChild, lists, currentDepth + 1);
         lists = GenerateTreeDepthLists(node.RightChild, lists, currentDepth + 1);
 
         return lists;

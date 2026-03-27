@@ -81,25 +81,25 @@ public class GivenBinaryTree
         tree5.Add(3, 3, tree5.Root!.LeftChild!);
         tree5.Add(5, 5, tree5.Root!.RightChild!);
 
-        return new List<object[]>
-        {
-            new object[] {
+        return
+        [
+            [
                 tree1a, 2, true, tree2
-            },
-            new object[] {
+            ],
+            [
                 tree1b, 4, true, tree3
-            },
-            new object[] {
+            ],
+            [
                 tree4, 2, true, tree5
-            }
-        };
-     }
+            ]
+        ];
+    }
 
-        [Fact]
+    [Fact]
     public void WhenTraversingTreeInOrder_ThenTreeIsTraversedLeftCurrentRight()
     {
         // Arrange
-        var expectedOrder = new string[] { "root.lc.lc", "root.lc", "root.lc.rc", "root", "root.rc.lc", "root.rc", "root.rc.rc"};
+        var expectedOrder = new string[] { "root.lc.lc", "root.lc", "root.lc.rc", "root", "root.rc.lc", "root.rc", "root.rc.rc" };
 
         // Assert
         var index = 0;

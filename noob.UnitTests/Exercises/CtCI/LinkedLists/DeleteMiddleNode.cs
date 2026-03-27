@@ -12,14 +12,13 @@ namespace noob.UnitTests.Exercises.LinkedLists;
 public class DeleteMiddleNode
 {
     public static IEnumerable<object[]> Lists =>
-    new List<object[]>
-    {
-            new object[] {
+    [
+            [
                 new SinglyLinkedList<char>('a').Append('b').Append('c').Append('d').Append('e').Append('f'),
                 'c',
                 new SinglyLinkedList<char>('a').Append('b').Append('d').Append('e').Append('f'),
-            }
-    };
+            ]
+    ];
 
     [Theory]
     [MemberData(nameof(Lists))]

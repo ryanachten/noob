@@ -8,17 +8,17 @@ namespace noob.UnitTests.Exercises.LeetCode;
 
 public class MiddleOfLinkedList
 {
-    public static IEnumerable<object[]> Lists() => new List<object[]>()
-    {
-        new object[] {
+    public static IEnumerable<object[]> Lists() =>
+    [
+        [
             new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(4, new ListNode(5))))),
             3
-        },
-        new object[] {
+        ],
+        [
             new ListNode(2, new ListNode(3, new ListNode(4, new ListNode(5, new ListNode(6))))),
             4
-        }
-    };
+        ]
+    ];
 
     [Theory]
     [MemberData(nameof(Lists))]

@@ -10,18 +10,17 @@ namespace noob.UnitTests.Solid;
 public class GivenVolumeCalculator
 {
     public static IEnumerable<object[]> Shapes() =>
-        new List<object[]>
-        {
-            new object[] {
+        [
+            [
                 new IThreeDimensionalShape[] { new Sphere(3) }, 113,
-            },
-            new object[] {
+            ],
+            [
                 new IThreeDimensionalShape[] { new Cube(2) }, 8
-            },
-            new object[] {
+            ],
+            [
                 new IThreeDimensionalShape[] { new Sphere(3), new Cube(2) }, 121
-            },
-        };
+            ],
+        ];
 
     [Theory]
     [MemberData(nameof(Shapes))]

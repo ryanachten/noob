@@ -8,40 +8,40 @@ public class KWeakestRowsInMatrix
 {
     public static IEnumerable<object[]> Matrices() =>
         new object[][]{
-            new object[]{
+            [
                 new int[][] {
-                    new int[] {1, 1, 0, 0, 0 },
-                    new int[] {1, 1, 1, 1, 0},
-                    new int[] {1, 0, 0, 0, 0},
-                    new int[] {1, 1, 0, 0, 0},
-                    new int[] {1, 1, 1, 1, 1 }
+                    [1, 1, 0, 0, 0],
+                    [1, 1, 1, 1, 0],
+                    [1, 0, 0, 0, 0],
+                    [1, 1, 0, 0, 0],
+                    [1, 1, 1, 1, 1]
                 },
                 3,
                 new[] { 2, 0, 3 },
-            },
-            new object[]{
+            ],
+            [
                 new int[][] {
-                    new int[]{1,0,0,0 },
-                    new int[]{1,1,1,1 },
-                    new int[]{1, 0, 0, 0 },
-                    new int[]{1,0,0,0 }
+                    [1,0,0,0],
+                    [1,1,1,1],
+                    [1, 0, 0, 0],
+                    [1,0,0,0]
                 },
                 2,
                 new[] { 0, 2 },
-            },
-            new object[]{
+            ],
+            [
                 new int[][] {
-                    new int[] {1,1,0},
-                    new int[] {1,1,0},
-                    new int[] {1,1,1},
-                    new int[] {1,1,1},
-                    new int[] {0,0,0},
-                    new int[] {1,1,1},
-                    new int[] {1,0,0}
+                    [1,1,0],
+                    [1,1,0],
+                    [1,1,1],
+                    [1,1,1],
+                    [0,0,0],
+                    [1,1,1],
+                    [1,0,0]
                 },
                 6,
                 new[] {4,6,0,1,2,3},
-            }
+            ]
         };
 
     [Theory]

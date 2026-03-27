@@ -10,24 +10,23 @@ namespace noob.UnitTests.Exercises.LinkedLists;
 public class ReturnKthToLast
 {
     public static IEnumerable<object[]> Lists =>
-    new List<object[]>
-    {
-            new object[] {
+    [
+            [
                 new SinglyLinkedList<int>(1).Append(1).Append(2).Append(3),
                 2,
                 2
-            },
-            new object[] {
+            ],
+            [
                 new SinglyLinkedList<int>(1).Append(1).Append(2).Append(3),
                 1,
                 3
-            },
-            new object[] {
+            ],
+            [
                 new SinglyLinkedList<int>(1).Append(1).Append(2).Append(3),
                 4,
                 1
-            }
-    };
+            ]
+    ];
 
     /// <summary>
     /// Initial brute force implementation
@@ -80,11 +79,12 @@ public class ReturnKthToLast
             {
                 // If we've reached k and there's no next node (i.e. we're at the tail)
                 // then the current node is the kth node
-                if(i == k && nextNode == null)
+                if (i == k && nextNode == null)
                 {
                     result = node.Data;
                     break;
-                } else
+                }
+                else
                 {
                     nextNode = nextNode?.Next;
                 }

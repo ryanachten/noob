@@ -14,17 +14,17 @@ namespace noob.Models
         /// <summary>
         /// Array of precomputed prime numbers used for table sizes
         /// </summary>
-        private readonly int[] _tableSizes = {
+        private readonly int[] _tableSizes = [
             3, 5, 11, 23, 47, 97, 197, 397, 797, 1597, 3203, 6421, 12853, 25717,
             51437, 102877, 205759, 411527, 823117, 1646237, 3292489, 6584983,
             13169977, 26339969, 52679969, 105359939, 210719881, 421439783,
             842879579, 1685759167
-        };
+        ];
 
         private int MaxTableSize => _tableSizes[^1];
 
         /// <param name="length">Needs to be a prime number</param>
-        public HashTable(int length = 3) 
+        public HashTable(int length = 3)
         {
             if (!_tableSizes.Contains(length))
             {
@@ -40,11 +40,12 @@ namespace noob.Models
             var pair = new KeyValuePair<TKey, TValue>(key, value);
 
             // If no list exists at the index, instantiate one
-            if(Data[index] == null)
+            if (Data[index] == null)
             {
                 Data[index] = new(pair);
                 Count++;
-            } else
+            }
+            else
             {
                 foreach (var item in Data[index].Items())
                 {
@@ -60,7 +61,7 @@ namespace noob.Models
                 Count++;
             }
 
-            if(Count > Data.Length && Data.Length != MaxTableSize)
+            if (Count > Data.Length && Data.Length != MaxTableSize)
             {
                 Rehash();
             }
@@ -86,7 +87,7 @@ namespace noob.Models
 
             foreach (var item in list.Items())
             {
-                if(item.Data.Key != null && item.Data.Key.Equals(key))
+                if (item.Data.Key != null && item.Data.Key.Equals(key))
                 {
                     return item.Data.Value;
                 }
@@ -126,7 +127,7 @@ namespace noob.Models
         {
             var currentIndex = Array.IndexOf(_tableSizes, Data.Length);
             var newTableSize = _tableSizes[currentIndex + 1];
-            
+
             Console.WriteLine($"Rehashing from {Data.Length} -> {newTableSize}");
 
             var newArray = new DoublyLinkedList<KeyValuePair<TKey, TValue>>[newTableSize];

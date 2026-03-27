@@ -1,11 +1,6 @@
 ﻿namespace noob.Models.Trees;
 
-public class Tree<T>
+public class Tree<T>(T data)
 {
-    public TreeNode<T> Root { get; private set; }
-
-    public Tree(T data)
-    {
-        Root = new TreeNode<T>(data);
-    }
+    public TreeNode<T> Root { get; private set; } = new TreeNode<T>(data);
 }

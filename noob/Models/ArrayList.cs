@@ -16,7 +16,7 @@ public class ArrayList<T>
     /// Contents of the array
     /// </summary>
     public T[] Data { get; private set; }
-    
+
     /// <summary>
     /// Max capacity of the array
     /// </summary>
@@ -25,7 +25,7 @@ public class ArrayList<T>
     /// <param name="length">Initial array capacity for ArrayList</param>
     public ArrayList(int length)
     {
-        if(length <= 0)
+        if (length <= 0)
         {
             throw new ArgumentOutOfRangeException(nameof(length));
         }
@@ -38,7 +38,7 @@ public class ArrayList<T>
     {
         // If add operation exceeds the max capacity of the array
         // create a new array with 2x the capacity to hold data
-        if(Count + 1 > Capacity)
+        if (Count + 1 > Capacity)
         {
             var newArray = new T[Capacity * 2];
             Array.Copy(Data, newArray, Data.Length);
@@ -59,11 +59,12 @@ public class ArrayList<T>
 
         for (int i = index; i < Count; i++)
         {
-            if(i + 1 > Count)
+            if (i + 1 > Count)
             {
                 // Reset to default
                 Data[i] = default!;
-            } else
+            }
+            else
             {
                 // Unshift by 1 index
                 Data[i] = Data[i + 1];

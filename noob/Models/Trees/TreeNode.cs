@@ -1,11 +1,6 @@
 ﻿namespace noob.Models.Trees;
 
-public class TreeNode<T>
+public class TreeNode<T>(T data)
 {
-    public T Data { get; set; }
-
-    public TreeNode(T data)
-    {
-        Data = data;
-    }
+    public T Data { get; set; } = data;
 }

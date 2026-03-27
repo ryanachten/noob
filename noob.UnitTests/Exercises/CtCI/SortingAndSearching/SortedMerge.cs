@@ -17,13 +17,12 @@ public class SortedMerge
             array[i] = i + 1;
         }
 
-        return new List<object[]>()
-        {
-            new object[]
-            {
+        return
+        [
+            [
                 array.Clone(), new int[] {3, 4, 5, 6, 7}, new int?[] { 1, 2, 3, 3, 4, 4, 5, 5, 6, 7 }
-            }
-        };
+            ]
+        ];
     }
 
     [Theory]
@@ -52,7 +51,7 @@ public class SortedMerge
 
     private void Sort(int?[] source, int?[] helper, int low, int high)
     {
-        if(low < high)
+        if (low < high)
         {
             var mid = (low + high) / 2;
             Sort(source, helper, low, mid);
@@ -71,11 +70,12 @@ public class SortedMerge
 
         while (left <= mid && right <= high)
         {
-            if(helper[left] <= helper[right])
+            if (helper[left] <= helper[right])
             {
                 source[current] = helper[left];
                 left++;
-            } else
+            }
+            else
             {
                 source[current] = helper[right];
                 right++;

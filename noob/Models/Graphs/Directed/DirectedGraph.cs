@@ -10,18 +10,19 @@ public class DirectedGraph<TNode, TEdgeData> where TNode : notnull
     /// <summary>
     /// Map of nodes and their adjacent nodes
     /// </summary>
-    private readonly Dictionary<TNode, LinkedList<TNode>> _adjacencyLists = new();
+    private readonly Dictionary<TNode, LinkedList<TNode>> _adjacencyLists = [];
 
     /// <summary>
     /// Tuple of ordered node/edge pairs
     /// </summary>
-    private readonly Dictionary<(TNode, TNode), TEdgeData> _edges = new();
+    private readonly Dictionary<(TNode, TNode), TEdgeData> _edges = [];
 
     /// <summary>
     /// Adds a node to the graph
     /// </summary>
     /// <param name="node"></param>
-    public DirectedGraph<TNode, TEdgeData> AddNode(TNode node) { 
+    public DirectedGraph<TNode, TEdgeData> AddNode(TNode node)
+    {
         _adjacencyLists.Add(node, new LinkedList<TNode>());
 
         return this;

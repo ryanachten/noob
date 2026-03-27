@@ -5,7 +5,7 @@
 /// </summary>
 public class ChatMediator : IChatMediator
 {
-    private readonly List<User> _users = new();
+    private readonly List<User> _users = [];
 
     public IChatMediator AddUser(User user)
     {

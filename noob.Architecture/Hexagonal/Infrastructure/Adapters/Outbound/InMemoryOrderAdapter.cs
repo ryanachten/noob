@@ -5,7 +5,7 @@ using noob.Architecture.Hexagonal.Domain;
 
 public class InMemoryOrderAdapter : IOrderOutputPort
 {
-    private readonly List<Order> _orders = new();
+    private readonly List<Order> _orders = [];
 
     public void Save(Order order)
     {

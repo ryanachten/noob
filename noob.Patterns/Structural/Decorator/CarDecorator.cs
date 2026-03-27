@@ -4,18 +4,11 @@
 /// Decorator abstract class.
 /// This defines what a decorator for a given component will look like
 /// </summary>
-public abstract class CarDecorator : ICar
+public abstract class CarDecorator(ICar car) : ICar
 {
-    public string Model { get => _car.Model; set => _car.Model = value; }
-    public string Transmission { get => _car.Transmission; set => _car.Transmission = value; }
-    public int Doors { get => _car.Doors; set => _car.Doors = value; }
+    public string Model { get => car.Model; set => car.Model = value; }
+    public string Transmission { get => car.Transmission; set => car.Transmission = value; }
+    public int Doors { get => car.Doors; set => car.Doors = value; }
 
-    private readonly ICar _car;
-
-    public CarDecorator(ICar car)
-    {
-        _car = car;
-    }
-
-    public ICar Assemble(string model) => _car.Assemble(model);
+    public ICar Assemble(string model) => car.Assemble(model);
 }

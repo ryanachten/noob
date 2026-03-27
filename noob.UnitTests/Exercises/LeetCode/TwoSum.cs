@@ -7,9 +7,9 @@ namespace noob.UnitTests.Exercises.LeetCode;
 public class TwoSum
 {
     [Theory]
-    [InlineData(new object[] { new int[] { 2, 7, 11, 15 }, 9, new int[] { 0, 1 } })]
-    [InlineData(new object[] { new int[] { 3, 2, 4 }, 6, new int[] { 1, 2 } })]
-    [InlineData(new object[] { new int[] {3, 3 }, 6, new int[] { 0, 1 } })]
+    [InlineData([new int[] { 2, 7, 11, 15 }, 9, new int[] { 0, 1 }])]
+    [InlineData([new int[] { 3, 2, 4 }, 6, new int[] { 1, 2 }])]
+    [InlineData([new int[] { 3, 3 }, 6, new int[] { 0, 1 }])]
     public void WhenFindingSumOfTarget_ThenIntegersComprisingSumAreFound(int[] nums, int target, int[] expectedResult)
     {
         var result1 = SpaceOptimizedTwoSum(nums, target);
@@ -27,7 +27,7 @@ public class TwoSum
             {
                 if (nums[i] + nums[j] == target)
                 {
-                    return new int[] { i, j };
+                    return [i, j];
                 }
             }
         }
@@ -43,7 +43,7 @@ public class TwoSum
             var remainder = target - value;
             if (parsedValues.ContainsKey(remainder))
             {
-                return new int[] { i, parsedValues[remainder] };
+                return [i, parsedValues[remainder]];
             }
             else
             {

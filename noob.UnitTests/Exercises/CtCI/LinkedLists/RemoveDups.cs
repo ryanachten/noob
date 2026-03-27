@@ -12,21 +12,20 @@ namespace noob.UnitTests.Exercises.LinkedLists;
 public class RemoveDups
 {
     public static IEnumerable<object[]> Lists =>
-        new List<object[]>
-        {
-            new object[] {
+        [
+            [
                 new DoublyLinkedList<int>(1).Append(1).Append(2).Append(3),
                 new DoublyLinkedList<int>(1).Append(2).Append(3),
-            },
-            new object[] {
+            ],
+            [
                 new DoublyLinkedList<int>(1).Append(2).Append(3).Append(1),
                 new DoublyLinkedList<int>(1).Append(2).Append(3),
-            },
-            new object[] {
+            ],
+            [
                 new DoublyLinkedList<int>(1).Append(3).Append(2).Append(2).Append(3).Append(1),
                 new DoublyLinkedList<int>(1).Append(2).Append(3),
-            },
-        };
+            ],
+        ];
 
     [Theory]
     [MemberData(nameof(Lists))]
@@ -40,7 +39,7 @@ public class RemoveDups
             var prevNode = node.Previous;
             while (prevNode != null)
             {
-                if(node.Data == prevNode.Data)
+                if (node.Data == prevNode.Data)
                 {
                     list.Delete(node.Data);
                     break;

@@ -5,10 +5,10 @@ namespace noob.UnitTests.Exercises.LeetCode;
 public class PeakIndexMountainArray
 {
     [Theory]
-    [InlineData(new object[] { new int[] { 0, 1, 0 }, 1 })]
-    [InlineData(new object[] { new int[] { 0, 2, 1, 0 }, 1 })]
-    [InlineData(new object[] { new int[] { 0, 10, 5, 2 }, 1 })]
-    [InlineData(new object[] { new int[] { 3, 5, 3, 2, 0 }, 1 })]
+    [InlineData([new int[] { 0, 1, 0 }, 1])]
+    [InlineData([new int[] { 0, 2, 1, 0 }, 1])]
+    [InlineData([new int[] { 0, 10, 5, 2 }, 1])]
+    [InlineData([new int[] { 3, 5, 3, 2, 0 }, 1])]
     public void WhenFindingPeakInMountainArray_ThenHighestNumberIsReturned(int[] arr, int expectedResult)
     {
         var result = PeakIndexInMountainArray(arr);

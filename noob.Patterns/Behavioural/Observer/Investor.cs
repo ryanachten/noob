@@ -5,7 +5,7 @@
 /// </summary>
 public class Investor : IInvestor
 {
-    public Dictionary<string, double> Investments = new();
+    public Dictionary<string, double> Investments = [];
 
     public Investor(List<Stock> stocks)
     {

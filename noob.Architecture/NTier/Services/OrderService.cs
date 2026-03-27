@@ -9,15 +9,8 @@ public interface IOrderService
     Order? GetOrder(int id);
 }
 
-public class OrderService : IOrderService
+public class OrderService(IOrderRepository repository) : IOrderService
 {
-    private readonly IOrderRepository _repository;
-
-    public OrderService(IOrderRepository repository)
-    {
-        _repository = repository;
-    }
-
     public Order CreateOrder(string customerName, decimal amount)
     {
         if (amount < 0) throw new ArgumentException("Amount cannot be negative");
@@ -30,9 +23,9 @@ public class OrderService : IOrderService
             CreatedAt = DateTime.UtcNow
         };
 
-        _repository.Add(order);
+        repository.Add(order);
         return order;
     }
 
-    public Order? GetOrder(int id) => _repository.GetById(id);
+    public Order? GetOrder(int id) => repository.GetById(id);
 }

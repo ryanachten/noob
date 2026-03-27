@@ -17,7 +17,7 @@ public class QueueViaStacks
         public MyQueue<T> Add(T item)
         {
             _data.Push(item);
-            if(_firstValue == null)
+            if (_firstValue == null)
             {
                 _firstValue = item;
             }
@@ -30,7 +30,7 @@ public class QueueViaStacks
             if (_data.IsEmpty()) return null;
 
             T? firstValue = null;
-            while(firstValue == null)
+            while (firstValue == null)
             {
                 var currentValue = _data.Pop();
                 if (currentValue != null)
@@ -41,7 +41,8 @@ public class QueueViaStacks
                     {
                         firstValue = currentValue;
                         _firstValue = _temp.Peek();
-                    } else
+                    }
+                    else
                     {
                         _temp.Push(currentValue.Value);
                     }
@@ -51,7 +52,7 @@ public class QueueViaStacks
             while (!_temp.IsEmpty())
             {
                 var value = _temp.Pop();
-                if(value != null)
+                if (value != null)
                 {
                     _data.Push((T)value);
                 }
@@ -68,7 +69,7 @@ public class QueueViaStacks
     {
         // Arrange
         var queue = new MyQueue<int>();
-        
+
         // Act
         queue.Add(1).Add(2).Add(3);
 

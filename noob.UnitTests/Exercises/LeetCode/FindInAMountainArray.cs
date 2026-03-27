@@ -6,11 +6,11 @@ namespace noob.UnitTests.Exercises.LeetCode;
 public class FindInAMountainArray
 {
     [Theory]
-    [InlineData(new object[] { new int[] { 1, 2, 3, 4, 5, 3, 1 }, 3, 2 })]
-    [InlineData(new object[] { new int[] { 0, 1, 2, 4, 2, 1 }, 3, -1 })]
-    [InlineData(new object[] { new int[] { 1, 5, 2 }, 2, 2 })]
-    [InlineData(new object[] { new int[] { 1, 2, 5, 1 }, 1, 0 })]
-    [InlineData(new object[] { new int[] { 3, 5, 3, 2, 0 }, 0, 4 })]
+    [InlineData([new int[] { 1, 2, 3, 4, 5, 3, 1 }, 3, 2])]
+    [InlineData([new int[] { 0, 1, 2, 4, 2, 1 }, 3, -1])]
+    [InlineData([new int[] { 1, 5, 2 }, 2, 2])]
+    [InlineData([new int[] { 1, 2, 5, 1 }, 1, 0])]
+    [InlineData([new int[] { 3, 5, 3, 2, 0 }, 0, 4])]
     public void WhenFindingTargetInMountainArray_ThenIndexIsReturned(
         int[] arr, int target, int expectedResult)
     {
@@ -94,22 +94,17 @@ public class FindInAMountainArray
         return SearchUpper(mountainArr, target, low, midIndex - 1, maxIndex);
     }
 
-    public class MountainArray
+    public class MountainArray(int[] arr)
     {
         private int _referenceCount = 0;
-        private readonly int[] _arr;
 
-        public MountainArray(int[] arr)
-        {
-            _arr = arr;
-        }
         public int Get(int index)
         {
             if (_referenceCount++ > 100)
             {
                 throw new Exception("References exceeded 100");
             }
-            return _arr[index];
+            return arr[index];
         }
         public int Length()
         {
@@ -117,7 +112,7 @@ public class FindInAMountainArray
             {
                 throw new Exception("References exceeded 100");
             }
-            return _arr.Length;
+            return arr.Length;
         }
     }
 }

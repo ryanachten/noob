@@ -24,9 +24,10 @@ public class TrieNullNode : BaseTrieNode, ITrie
         return new TrieHasOneNode(str, _terminating);
     }
 
-    
-    public bool Contains(string str) {
-        
+
+    public bool Contains(string str)
+    {
+
         // If end of string, return terminating value
         if (string.IsNullOrEmpty(str)) return _terminating;
 

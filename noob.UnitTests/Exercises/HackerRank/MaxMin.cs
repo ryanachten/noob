@@ -10,7 +10,7 @@ namespace noob.UnitTests.Exercises.HackerRank;
 public class MaxMin
 {
     [Theory]
-    [InlineData(new object[] { new int[] { 1, 4, 7, 2 }, 2, 1 })]
+    [InlineData([new int[] { 1, 4, 7, 2 }, 2, 1])]
     public void WhenProvidedAnArray_ThenMinUnfairnessIsReturned(int[] arr, int k, int expectedResult)
     {
         var result = maxMin(k, arr.ToList());

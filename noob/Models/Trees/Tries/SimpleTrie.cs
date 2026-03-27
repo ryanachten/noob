@@ -24,7 +24,7 @@ public class SimpleTrie
     public void Add(string str)
     {
         // If string is empty, the current node is a null node
-        if(str == string.Empty)
+        if (str == string.Empty)
         {
             _terminiating = true;
             return;
@@ -37,7 +37,7 @@ public class SimpleTrie
         }
 
         // If the entry for first character doesn't exist yet, create a node for it
-        if(_children[charIndex] == null)
+        if (_children[charIndex] == null)
         {
             _children[charIndex] = new SimpleTrie();
         }

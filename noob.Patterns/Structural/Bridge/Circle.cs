@@ -4,9 +4,6 @@
 /// Refined abstraction.
 /// Extends the shape absraction.
 /// </summary>
-public class Circle : Shape
+public class Circle(IColour colour) : Shape(colour)
 {
-    public Circle(IColour colour) : base(colour)
-    {
-    }
 }
