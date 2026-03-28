@@ -1,14 +1,14 @@
 ﻿namespace noob.Patterns.Structural.Facade;
 
 // Complex subsytem
-public class Transmission(Engine engine)
+public class Transmission()
 {
 
     /// <summary>
     /// Placeholder method representing a complex process
     /// </summary>
-    public static Task<Transmission> Create(Engine engine)
+    public static Task<Transmission> Create()
     {
-        return Task.FromResult(new Transmission(engine));
+        return Task.FromResult(new Transmission());
     }
 }

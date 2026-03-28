@@ -13,8 +13,7 @@ public class MoveZeros
         Assert.Equal(expectedResult, arr);
     }
 
-    [Theory]
-    public void MoveZeroes(int[] nums)
+    private void MoveZeroes(int[] nums)
     {
 
         if (nums.Length == 1) return;
