@@ -56,7 +56,7 @@ public class FirstCommonAncestor
     [Theory]
     [MemberData(nameof(Nodes))]
     public void WhenFindingCommonAncestorViaParent_ThenCommonAncestorIsDetermined(
-BinaryTreeNode<int, int> node1, BinaryTreeNode<int, int> node2, BinaryTreeNode<int, int>? expectedNode)
+BinaryTree<int, int> tree, BinaryTreeNode<int, int> node1, BinaryTreeNode<int, int> node2, BinaryTreeNode<int, int>? expectedNode)
     {
         // Act
         var result = GetCommonAncestorViaParent(node1, node2);
