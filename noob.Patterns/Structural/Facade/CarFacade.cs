@@ -13,8 +13,8 @@ public class CarFacade
     public static async Task<Car> CreateCar()
     {
         var engine = await Engine.Create();
-        var transmission = await Transmission.Create(engine);
-        var steering = await Steering.Create(engine);
+        var transmission = await Transmission.Create();
+        var steering = await Steering.Create();
 
         return new Car()
         {
