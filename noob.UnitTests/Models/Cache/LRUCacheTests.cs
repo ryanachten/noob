@@ -1,8 +1,8 @@
 using System;
-using noob.Models.LinkedList;
+using noob.Models.Cache;
 using Xunit;
 
-namespace noob.UnitTests.Models.LinkedLists;
+namespace noob.UnitTests.Models.Cache;
 
 public class LRUCacheTests
 {
